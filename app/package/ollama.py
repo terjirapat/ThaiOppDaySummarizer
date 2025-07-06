@@ -50,4 +50,3 @@ def chat_loop():
         messages.append({"role": "user", "content": user_input})
         assistant_reply = generate_response(messages)
         messages.append({"role": "assistant", "content": assistant_reply})
-        print(messages)

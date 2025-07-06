@@ -1,11 +1,12 @@
 import yaml
 from package.ollama import chat_loop
+# from package.deepseek import chat_loop
 
 #---------------------------------------------------------
 
-# load config
-with open("config.yaml", "r") as file:
-    config = yaml.safe_load(file)
+# # load config
+# with open("config.yaml", "r") as file:
+#     config = yaml.safe_load(file)
 
 #---------------------------------------------------------
 

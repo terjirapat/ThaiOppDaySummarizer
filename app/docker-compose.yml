@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  ollama-chat:
+    build: .
+    container_name: ollama-chat
+    tty: true
