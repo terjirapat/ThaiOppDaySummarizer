@@ -1,0 +1,1714 @@
+0.00s: for such an ambition we need the 
+right skills and as developers we  
+27.27s: code so let's sharpen those skills and 
+start coding a better world together  
+78.24s: this first edition of coding a better world 
+together is on clean coding and clean architecture
+88.44s: and who better to teach us more 
+about this than mr. clean code  
+93.12s: aka Uncle Bob the one and only Robert see Marquis  
+110.36s: and here are your hosts for today Ahrens 
+clubbers and fedoras mice the next which  
+124.10s: will be Uncle Bob I will introduce him Uncle Bob 
+has an impressive career in the IT industry he  
+131.96s: has been working there for more than 40 years he 
+always had a keen eye for what makes a developer  
+138.68s: a good developer he shares his fuse as often 
+as possible and he will do that here in these  
+149.21s: coming two days also he is one of the authors 
+of the agile manifesto and the manifesto for  
+158.96s: software craftsmanship he hates it that that 
+agile movement has been taken hostage by the  
+166.85s: consultants and conference organizers with 
+that they abandoned the programmers and by  
+175.01s: abandoning the programmers they abandoned the 
+values and discipline of craftsmanship and I  
+183.50s: think that's a very very sad message but Uncle 
+Bob stays positive and he keeps sending out that  
+191.90s: message of craftsmanship so please welcome 
+Robert C Martin better known as Uncle Bob
+220.40s: okay hello I'm Bob and by the way thanks to 
+everybody who brought me in here that was  
+228.65s: awfully nice of you it's a pleasure to be here 
+thanks to rob a bank and everybody who who made  
+234.41s: this possible special thanks to shirt from wanna 
+flex she was kind of the catalyst for this entire  
+240.89s: event how many of you are programmers see you 
+are my tribe I don't care if you're young or  
+254.51s: you're old or black or white or a man or a woman 
+I don't care who you like or who you love if you  
+263.78s: are a programmer you are part of my tribe you 
+and I and we all together share a passion for  
+274.16s: something and we can communicate it about it in 
+a way that most other people can't and so that's  
+281.72s: something that we should cherish together how far 
+away is the Sun five why do people know this and  
+297.44s: and it's as in it's a strange thing tonight I 
+said five minutes you meant five light minutes  
+303.17s: the actual number is eight light minutes but 
+why would you care how many light minutes away  
+308.63s: the Sun is does someone know it in kilometers 
+or miles how many how many kilometers away is  
+315.41s: the Sun good 150 million kilometers that's a more 
+human measurement than eight light minutes good  
+323.27s: of course if somebody is eventually going to 
+say it's one astronomical unit and thank you  
+327.53s: for that how do we know that the Sun is 150 
+million kilometers away somebody read it in  
+341.93s: a book or something is it so who is the first 
+person to calculate the distance to the Sun
+349.97s: this person lived 2,500 years ago his name was 
+Aristarchus and let me show you the technique he  
+358.34s: used because it's a fascinating technique oh my 
+goodness I get a couch to sit on in everything  
+365.87s: hmm now let's see here's the Sun here is the 
+moon and here's the earth and this line right  
+380.48s: here is the line that divides I should probably 
+do that the other way I shouldn't the the line  
+385.82s: that divides the night side of the moon from the 
+day side of the moon now if you are standing on  
+392.54s: the earth and you are looking at the moon and you 
+see that the moon is exactly half phase then you  
+399.53s: know that this angle is a right angle if you 
+could measure this distance the distance from  
+406.82s: the earth to the moon and if you could measure 
+this angle right here then you could calculate  
+413.18s: the distance to the Sun because you'd be trying 
+to calculate that side of the triangle now this  
+418.76s: angle here we can measure because you can get 
+outside and see the moon in the sky and the Sun  
+424.91s: at the sky at the same time she might as well 
+measure that angle and then the problem is to  
+430.37s: measure this distance here the distance from the 
+earth to the moon we'll come to that in a minute  
+435.86s: Aristarchus did these initial measurements and he 
+got the angle measurement off by a factor of 10  
+442.37s: which made his whole his whole calculation off 
+by a factor of 10 although that's actually not  
+448.16s: bad because you can imagine 2500 years ago he 
+didn't have an awful lot of instrumentation to  
+453.74s: measure that angle and how do you measure that 
+angle you have to find the exact center of the  
+457.91s: moon and then you have to find the exact center 
+of the Sun and it's difficult to stare at the Sun  
+463.34s: for any length of time to find the exact center 
+and then you have to measure the angle and it's  
+468.14s: a very very tiny angle it's actually a very close 
+to 90 degrees the difference from 90 degrees is  
+474.11s: about point 3 degrees and he couldn't measure that 
+that precisely so he actually measured 3 degree  
+480.38s: difference he thought it was 87 degrees but then 
+he went ahead and did the rest of the mass now  
+485.65s: how do you find the distance to the moon well he 
+reasoned this way here's the Sun here's the earth  
+494.83s: here's the moon at the moment of lunar eclipse 
+the shadow of the earth is covering the moon  
+503.83s: the shadow of the earth is roughly the diameter 
+of the earth the size of that shadow is roughly  
+510.85s: the diameter of the earth how long does the moon 
+spend in that shadow well he measured that time  
+517.57s: to be about three hours how long does it take the 
+moon to make a complete circuit of the earth well  
+523.27s: that's close to 28 days so that gives you a nice 
+ratio it is the ratio between this the Earth's  
+529.57s: diameter and the circumference of the moon's orbit 
+from which you can calculate the radius of that  
+535.39s: circle and get the distance to the moon in earth 
+diameters so now we need to know the size of the  
+543.43s: earth now Aristarchus did not know the size of the 
+earth and he didn't bother to calculated it was  
+548.95s: another Greek who calculated the size of the earth 
+and his name was Eratosthenes about 30 years later  
+555.22s: and he reasoned it this way he said all right 
+look here's the earth here's the Sun and a stick  
+562.84s: in Alexandria Egypt on the first day of summer at 
+noon will not cast any shadow the Sun is perfectly  
+572.02s: overhead but at the exact same moment 500 miles 
+away in the Egyptian town of Memphis the stick  
+580.33s: casts a shadow of seven degrees he measured 
+the distance by timing the trip on a camel
+586.33s: now it's pretty easy to do the math 360 divided 
+by seven times 500 and you get the circumference  
+595.42s: of the earth you divide that by PI you get the 
+diameter of the earth you plug that into the  
+600.37s: lunar equation to get the distance to the moon 
+you plug that into the solar equation to get  
+605.23s: the distance to the Sun and Aristarchus calculated 
+that the Sun was 10 million miles away 15 million  
+613.00s: kilometers away so he was off by a factor of 
+10 that's not bad for some guy 2500 years ago  
+619.17s: without any instrumentation that is the power of 
+human reasoning he just studied the situation long  
+625.77s: enough and gathered enough data and came up with a 
+pretty good answer his answer his solution to the  
+631.50s: distance of the Sun was not battered until 1630 
+so for 2,000 years that was the best measurement  
+638.73s: we had of the distance to the Sun and even back 
+then it set the scale for the solar system in a  
+645.09s: way that nobody had expected of course this is 
+not what we're supposed to be talking about is  
+650.73s: it right we're supposed to be talking about 
+clean code so let's talk about clean code
+669.87s: this talk is clean code and I have you I believe 
+for for two 90-minute sessions on this topic so  
+676.50s: we ought to be able to cover a fair bit of ground 
+here and I'm not going to go through that I will  
+681.60s: go through this this is a cartoon I found in a 
+magazine several years ago and I thought it was  
+688.38s: particularly poignant the only valid measurement 
+of code quality is WTFs per minute coming out from  
+698.67s: behind the door where the code review is taking 
+place and you look at the code the door on the  
+703.29s: left and you realize that's probably pretty good 
+code because there's not that many WTFs coming  
+708.03s: out from behind that door on the other hand that 
+door on the right must have some pretty bad code  
+713.22s: behind it because there's a whole bunch of WTFs 
+coming out from behind that door what we are going  
+719.13s: to be talking about over the next several hours 
+is how to get behind that door on the Left how  
+726.24s: are we going to make our code good enough to 
+survive a code review such that our peers are  
+734.49s: not tearing their hair out trying to figure out 
+what the hell our code does why is this important
+747.53s: how many computers are in this room right now 
+thousands good answer how many computers do you  
+760.85s: have on your body at the moment now I can do this 
+count with me I have my iPhone how many processors  
+769.52s: are in here eight you think is it eight I don't 
+know how many it is there's the main processor  
+776.99s: in the screen processor and the Wi-Fi processor 
+in the GPS processor in the Bluetooth processor  
+782.09s: it's got to be a bunch of others I don't know 
+there's a bunch of processors sitting in here I  
+786.35s: am holding in my hand an amount of computing power 
+that exceeds the computing power of the world in  
+793.58s: 1980 which is pretty interesting and you know we 
+all have one and what do we do with it we play  
+801.17s: Angry Birds right which if you think about it it's 
+pretty cool Angry Birds that's a great program  
+806.87s: virtual reality and everything right on the screen 
+got some more processors on me let's see I've got  
+815.12s: my earbuds hmm how many computers are in here well 
+there's one for each air but and the case has got  
+823.58s: a computer there's least three in here what else 
+do I have on me I've got this microphone thing you  
+828.77s: think there's some processors in there I think 
+probably it's probably a processor in there so  
+835.31s: on my body I have several dozen computers just 
+working away helping me give a talk now look  
+844.46s: around the room how many computers are in the 
+walls and the ceiling this cameras up there I got  
+854.60s: to have processors in them there's these lights 
+here I imagine there's processors in those because  
+858.89s: looks like they're robotic and oh Jesus there's 
+stuff on the ceiling I don't know what it is if  
+866.42s: probably processors in it there's the speaker's 
+the speakers have computers in them nowadays it is  
+874.01s: cheaper to put a little digital signal processor 
+in a speaker or a microphone and filter out 50  
+879.17s: cycle hum than it is putting an inductor and 
+a capacitor in there and that digital signal  
+883.36s: processors got some C code that does fast Fourier 
+transforms and is written by some 22 year old at  
+888.91s: 3:00 in the morning got speakers and microphones 
+got smoke detectors get signs yet exit sign there  
+899.53s: there a processor in that exit sign does it have 
+a battery in it is that battery being charged is  
+907.84s: there a little processor sitting there monitoring 
+the trickle charge going into that battery
+912.16s: how often do you interact with a software 
+system no no not you how often does your  
+923.23s: grandmother interact with a software system 
+if you have a grandmother but how often in  
+931.12s: our society today it is impossible to go more 
+than 60 seconds without interacting with the  
+937.72s: software system because there's nothing you can 
+do in our society without interacting with the  
+942.07s: software system you can't talk on the phone you 
+can't watch TV you can't microwave popcorn you  
+947.86s: can't wash the dishes or your clothes you can't 
+dry your clothes you can't drive anywhere without  
+953.53s: interacting with the software system how much 
+code is in a modern car how many lines of code  
+960.70s: in a knot a Tesla a Tesla's way over the top just 
+a normal old modern car how many lines of code are  
+967.33s: in that it's over 100 million you get into your 
+car you start to drive there's a hundred million  
+974.59s: lines of code executing in that car most of it 
+of course is in the entertainment system and the  
+981.04s: GPS system and all that nonsense but there's 
+a fair bit of code running in the engine when  
+989.59s: you put your foot on the brake do you believe 
+that there's a cable that runs from the brake  
+997.54s: pedal to the calipers that squeeze on the disk 
+or do you realize that there are if statements  
+1005.43s: in the way and who wrote those if statements if 
+statements that are going to decide whether or  
+1015.84s: not to stop the car when you push on the brake 
+how many people have died because of failures  
+1024.39s: in those if statements dozens there are dozens 
+of people who have died in automobile accidents  
+1030.27s: because the software that controlled the brakes 
+in the accelerator failed for some stupid reason  
+1036.03s: you and I are killing people now we didn't get 
+into this business to kill people most of us  
+1043.77s: are programmers because one day we walked into 
+a store and we saw some dumb computer on a rack  
+1048.33s: and we typed five lines of basic to put our our 
+a print statement that printed our name into an  
+1053.76s: infinite loop and we saw our name going up the 
+screen or what yeah that's what I want to do for  
+1059.43s: the rest of my life but now we're killing people 
+we didn't want to get into a business where you  
+1067.77s: could do that not only can you kill people 
+with software you can lose massive fortunes  
+1073.23s: who knows about night capital who's heard about 
+the fiasco at night capital about six years ago  
+1078.24s: right I'm not going to go into all the details 
+just some some guy made one dumb mistake and it  
+1085.20s: was just a little dumb mistake but he managed 
+to lose 450 million dollars and 45 minutes
+1090.18s: our society runs on software nothing happens 
+in our society without software nowadays didn't  
+1104.52s: used to be that way wasn't that way in the 1960s 
+wasn't that way in the 70s wasn't that way in the  
+1109.44s: 80s but today our society runs on software there 
+is nothing you can do without software you cannot  
+1116.70s: buy anything you cannot sell anything you cannot 
+pass a law you cannot enforce a law you can't get  
+1123.03s: insurance policies you can't get claims from 
+insurance policies you can't get money out of  
+1127.98s: the bank without software software runs everything 
+and our society does not yet realize just how deep  
+1141.78s: engine it is on software you and I probably don't 
+realize it very well just how dependent everything  
+1150.51s: is on software and who writes that software we do 
+we rule the world other people think they rule the  
+1163.77s: world then they hand those rules to us and we 
+write the rules that run in the machines that  
+1171.54s: govern everything we need to talk to people about 
+taxes now since we rule the world seems fair that  
+1180.84s: we shouldn't have to pay any taxes but we'll come 
+back to that later does society understand just  
+1191.73s: how dependent it has become on us answer that is 
+no not yet although there have been hints there  
+1199.50s: have been moments when we thought maybe society 
+would wake up to this fact the events that will  
+1205.62s: eventually of course cause society to wake up is 
+when some poor programmer does one dumb thing in  
+1211.02s: and kills 10,000 people at a shop and it's not 
+hard to imagine what that would be all right  
+1216.63s: you think for a few minutes you'll realize that 
+it's about seven dozen ways you could kill ten  
+1220.65s: thousand people with a little software failure and 
+when that occurs and you know it's going to occur  
+1225.75s: at some point in time some poor software idiot 
+is going to do some dumb thing and kill 10,000  
+1232.11s: people and when that occurs the politicians of 
+the world will rise up in righteous indignation  
+1237.30s: as they should and they will point their finger 
+right at us and you might like to think oh no  
+1242.85s: they're not gonna point their finger at me I'll 
+point my finger at their finger at my boss or my  
+1247.08s: company cuz it's not me but we saw what happened 
+when the CEO of Volkswagen North America testified  
+1256.47s: before the American Congress about why the 
+software in Volkswagens was cheating the  
+1262.26s: Environmental Protection machines in California 
+and the Congress asked that CEO how could you  
+1269.01s: have let this happen and the CEO answered and I 
+quote it was just a couple of software developers  
+1277.20s: who did this for whatever reason unquote now he 
+was right it was a couple of software developers  
+1289.02s: who did it although it was not for some reason 
+they knew exactly why they were doing it by the  
+1293.49s: way those software developers are in jail now 
+as they should be so when the event occurs and  
+1302.01s: the politicians are eyes up and say we got to do 
+something about these programmers they're out of  
+1306.69s: control and they point their fingers at us and 
+they say okay how could you have let this happen  
+1312.36s: we'd better have an answer for him because if our 
+answer is you know my boss told me we had to get  
+1317.85s: it done by Tuesday if that is our answer and the 
+politicians of the world will hang their heads in  
+1324.06s: disappointment and shame and they will and disgust 
+and they will do the one thing that we don't ever  
+1330.06s: want them to do they will legislate they will 
+regulate they will tell us what languages we  
+1338.37s: can use and what platforms we have to write on 
+and what courses we have to take and what books  
+1343.77s: we have to read what processes we have to follow 
+and what signatures we have to get and we will all  
+1349.05s: become civil servants I would like to avoid this 
+so how do you avoid it well you get there first  
+1357.27s: you get there first by establishing the ethics 
+of software development what is our ethics do  
+1366.15s: we have a stated set of ethics do we have a set 
+of standards a set of moral standards that all  
+1372.60s: programmers follow do programmers take an oath 
+to uphold a set of standards a set of ethics we  
+1379.80s: don't have that we don't have a profession because 
+of that because in order to have a profession you  
+1386.04s: have to have something you profess and we don't 
+profess anything at this point in time we're going  
+1392.88s: to have to come up with this we're going to have 
+to learn to adopt a set of standards and ethics so  
+1398.04s: that when the politicians of the world do point at 
+us and they will and they say how could you have  
+1403.26s: let this happen we can respond by saying look this 
+was a horrible accent and we regret it but it was  
+1411.48s: not due to our negligence and we can prove it was 
+not our negligence because here are the standards  
+1417.18s: that we enforce here are the morals that we adhere 
+to these are the ethics that we claim to profess  
+1424.41s: and if we can say that to the politicians of 
+the world then when the politicians of the world  
+1431.73s: decide to regulate us they will know how to do it 
+because they will simply take the rules that we've  
+1436.74s: already invented and turned them into law this 
+is what's happened to doctors it's what happened  
+1442.05s: to lawyers it's what happened to architects so it 
+happened to everybody it's going to have to happen  
+1445.77s: to us as well and so you and I have to begin this 
+thought process on what our ethics is what do we  
+1456.24s: value what is it that a software developer holds 
+dear and one of those things had better be the  
+1466.44s: cleanliness of code so let's talk about that now 
+I've got a few things here I'm just gonna quickly  
+1481.29s: go over them here's a fellow his name is Kent Beck 
+has anybody heard of Kent Beck several of you good  
+1487.71s: all right the rest of you should have heard of 
+him by now so do a little bit of research on  
+1491.64s: Kent Beck he's one of the leaders in the field he 
+wrote a book some time ago called implementation  
+1498.69s: patterns that was the name of the book and in that 
+book he said that the book was in the introduction  
+1504.39s: of the book he said that the book was based on 
+a fragile premise and the fragile premise was  
+1511.35s: that good code matters and when I read that in 
+his book I scratched my head and I thought why  
+1518.31s: would Kent Beck have said that that was a fragile 
+premise it seems to me that it's a very rock-solid  
+1525.54s: premise but yes good code matters and it matters 
+for a whole bunch of very powerful reasons so for  
+1531.75s: example why are we so slow why our programmers so 
+slow ooh here has worked on a greenfield project  
+1551.97s: a project where there's no code ah bunch of you 
+how fast can you go those first few days where  
+1562.38s: there's no code and someone comes to you and says 
+can you get a feature done and you think yes you  
+1570.72s: start writing code code pours out of every orifice 
+of your body and you get that feature working and  
+1577.77s: everybody goes whoa you got that working fast it 
+only took you a few days we're programmers can you  
+1585.09s: do it again yes come back to that team a year 
+later can you get a feature working for us hmm  
+1598.08s: tricky probably gonna take us six months he used 
+to be able to do that in a couple of days yeah but  
+1607.05s: you don't know how messy this system has become 
+why if we touch even one line of code all hell  
+1617.31s: could break loose why'd that happen here's the 
+thing that happens to software teams right they  
+1626.64s: start out fast they start out with a beautiful 
+design and they start out lovely in there fast  
+1631.35s: and they write features and everything's working 
+great but they make a mess because they want to  
+1639.21s: go fast they make a mess and as they make a mess 
+as the mess builds the team gets slower and slower  
+1646.08s: and slower until they bottomed out at 1% of their 
+original productivity and there's a but what are  
+1654.27s: you going to do about this let's say you're 
+a manager right and you've got his team this  
+1658.35s: team's been working on this software for two years 
+now and they can't get anything done no feature  
+1663.60s: can get done in less than you know six months and 
+even then it's going to be late and it won't work  
+1667.56s: what do you know is the real world for managers 
+what are you going to do as a man if you've made  
+1674.78s: promises to people you have you've set plans out 
+there there's people expecting features and the  
+1680.66s: teams cannot deliver those features what are you 
+going to do as a manager what would your option  
+1686.39s: be you got to go fast somehow add more people 
+right that's what you do you have to double the  
+1695.90s: staff everyone knows you go twice as fast if you 
+double it and you're laughing why are you laughing  
+1701.36s: because you know this is nonsense you can't 
+go faster by doubling the staff adding more  
+1706.58s: people does not make you go faster what does it 
+do the moment you decide to add new people to a  
+1712.25s: team what happens to that team it slows down why 
+because the new people suck the life out of the  
+1718.55s: old people for months now you're kind of hoping 
+that those new people will get smart after a while  
+1728.42s: and and then productivity will rise but there's 
+another effect that kicks in who's training the  
+1734.30s: new people the people who made the mess in the 
+first place and in fact it's not the old people  
+1741.86s: training the new people it is the old code that 
+trains the new people the new people are thrown  
+1747.65s: into the fire they've got to make some sense out 
+of this system they read the old code they say  
+1752.66s: to themselves oh I see how things are done around 
+here they emulate it of course and just continue  
+1760.19s: to make the prospect problem worse and the code 
+gets Messier and Messier no matter how many people  
+1766.43s: you add to the team and nothing you do can make 
+that productivity rise that's why programmers are  
+1776.15s: slow and slow because they make a mess if they 
+didn't make a mess they'd be fast if you could  
+1783.92s: keep the code clean it wouldn't be a mess you 
+could add new features they would get added in  
+1792.20s: a reasonable amount of time as long as you could 
+continue to keep the code orderly and clean we're  
+1799.88s: going to talk about a number of strategies for 
+doing that but I wanted to impress that point on  
+1803.69s: you pretty thoroughly we go slow because we make 
+messes why do we make the mess what drives us to  
+1812.75s: make the mess in the first place the desire to 
+go fast we make the mess because we think I got  
+1818.87s: to get done quickly they're expecting me to get 
+a lot of stuff done I got it I got to just get it  
+1823.10s: done oh it worked how many of you have done this 
+it's hard to get code to work you struggle to make  
+1833.06s: code work so you're working on the code and you're 
+working on the code and you're trying to get it to  
+1837.38s: work it's not working and you're sitting in the 
+debugger and you're single stepping through it  
+1840.95s: and you're trying to make it work in and then all 
+of a sudden it works Sookie don't anybody breathe  
+1846.20s: move carefully and I'll check it in Co God thank 
+you that's the wrong thing to do the fact that  
+1859.73s: you got it working is only half the job once the 
+code works that's when you have to clean it no  
+1867.02s: one writes clean code first nobody does because 
+it's just too hard to get code to work so once  
+1874.34s: the code works it will be a mess human beings do 
+not think in Nice straight lines they don't think  
+1882.02s: in if statements and while loops they cannot 
+foresee the entire algorithm so we piece the  
+1887.57s: thing together we cobble it together with wire and 
+scotch tape and then it suddenly work so we're not  
+1893.42s: quite sure why and that's the moment when you say 
+all right now I need to clean it how much time do  
+1901.70s: you invest in cleaning it roughly the same amount 
+of time it took you to write it and that's the  
+1907.76s: problem nobody wants to put that effort in because 
+they think they're done when it works you're not  
+1913.61s: done when it works you're done when it's right 
+and if you adopted that attitude well then the  
+1922.04s: code would stay clean and you would never go 
+through the slow down more to say about this later
+1932.13s: you have all these slides I never actually used 
+them they tell the whole story but I just kind  
+1939.90s: of wing it anyway dad oh damn boom boom oh 
+here's a good one let me stop there memorize  
+1948.06s: this one the only way to go fast is to go well 
+somebody said today you know twice as fast twice  
+1954.63s: as proud okay fine how do you go fast you go well 
+twice as well twice as proud we might go fast too
+1962.40s: the only way to go fast is to do a good job if 
+you do a lousy job you're going to go slow donna  
+1973.62s: diva what is clean code alright who knows who this 
+guy is Grady Booch what a great name if your name  
+1983.94s: is Grady Booch everybody knows your name because 
+who wouldn't know that name well that's not granny  
+1987.84s: boots that's yarnís Tristram sorry I picked up 
+back did the wrong side this is your nest rooster  
+1993.45s: who knows who that is he's Danish does that matter 
+I guess not okay so yeah mr. strip and who is he  
+2001.61s: C++ he made the language C++ that's correct so 
+I wrote to yarn I said Jana what does clean code  
+2011.30s: make mean to you and he said and this is this is 
+very typical of Jana stirs drip he said I like my  
+2018.98s: code to be elegant and efficient and then he 
+said this clean code does one thing well one  
+2027.05s: thing well now this one thing idea has been around 
+in software for 40 years or more people are always  
+2035.51s: writing about how a function should do one thing 
+and one thing well it's a very very old idea and  
+2041.60s: strip echos it here but what does one thing mean 
+it seems to be a kind of subjective subjective  
+2052.85s: measure what does it mean for a function to do one 
+thing well I think I know the answer to this and  
+2058.79s: I'll tell you a little bit later I think I have 
+a completely objective way to measure one thing  
+2065.52s: and if you if you adhere to that objective way it 
+transforms the structure of your code remarkably
+2072.00s: there's Grady Booch it was in there somewhere 
+Grady Booch the chief scientist at rationale  
+2086.34s: he wrote a book in 1988 called object-oriented 
+software design with applications anybody read  
+2094.53s: that book 1980s late eighties do we have any baby 
+who was born then yeah okay good all right so  
+2103.50s: that's fine that fascinating book very early book 
+on object-oriented design Grady Booch is also the  
+2110.13s: first person I believe to have the title chief 
+scientist I think he invented that and rational  
+2117.45s: said yeah you can be the chief scientist that's 
+fine and ever since then everybody's wanted to  
+2121.74s: be a chief scientist at some company somewhere 
+so I asked Grady you know Grady what's clean  
+2126.45s: code he said clean code is simple and direct 
+fine and then he said this clean code reads  
+2136.14s: like well-written prose have you ever read code 
+that read like well-written prose what does that  
+2151.98s: mean well written prose now I think I know what 
+that means and I think I can show you what that  
+2159.21s: means as we go along I think I can tell you 
+what code that reads like well written prose  
+2164.73s: means and let's go to Michael feathers Michael 
+feathers I wrote to Michael I said hey Michael  
+2175.47s: what's clean code and he said clean code always 
+looks like it was written by someone who cares  
+2182.16s: what a lovely statement that's a good attitude 
+right there clean code always looks like it was  
+2189.81s: written by someone who cares when's the last 
+time you read a module and your thought as you  
+2197.55s: are reading module was the author cared about 
+me the author cared about everybody else who  
+2207.33s: is going to be reading that code when's the last 
+time you had that experience the author of this  
+2214.02s: code cared about me very interesting and by the 
+way it brings up a fascinating point what's your  
+2225.27s: job you may think that your job is to get code 
+to work that's not your job that's only half of  
+2231.87s: your job and it's the least important half of 
+your job the more important part of your job is  
+2239.43s: that you must write code that other people can 
+maintain and use and make work if you hand me  
+2251.52s: code that works perfectly but I can't understand 
+it then as soon as the requirements change that  
+2257.88s: code is useless on the other hand if you give 
+me code that does not work but I can understand  
+2263.67s: it I can make it work it is much more important 
+that your peers be able to understand the code  
+2269.94s: you write then that the computer can understand 
+the code that you wrote it is more important to  
+2275.82s: communicate with your peers using a programming 
+language than it is to communicate with the  
+2281.31s: computer because if you do that well somebody 
+will make it work the last one word Cunningham  
+2292.02s: who knows who worked Cunningham is somebody heard 
+the name you know what that isn't few of you do I  
+2299.25s: said know you'll know who he is as soon as I tell 
+you he's the guy who invented the wiki who's he's  
+2304.59s: the wiki everybody puts their hand up ok good 
+Ward Cunningham is the guy who invented the wiki  
+2311.31s: he invented the wiki out of 19 lines of Perl in 
+1990 something or other put it up on the on the  
+2317.67s: website by the way that very first wiki is still 
+alive you can get to it if you want to the URL  
+2324.69s: is C to calm the letter C and the digit to calm 
+is the very first wiki ever it's still there and  
+2335.40s: by the way it's full of fascinating stuff you'll 
+see all kinds of design pattern stuff and extreme  
+2340.44s: programming stuff and agile stuff because it 
+was there at the beginning and I asked Ward  
+2346.08s: Ward what's clean code and he said this you know 
+you're working on clean code when each routine you  
+2355.14s: read turns out to be pretty much what you expected 
+when's the last time you read code and as you're  
+2365.16s: reading it it was pretty much what you expected 
+you reading along and you're going yeah yes yep  
+2372.66s: yep yep yes mmhmm yep yep when's the last time 
+you had that experience what he's saying is no  
+2385.14s: WTF s per minute zero clean code is no surprises 
+no WTF everything is pretty much what you expected  
+2394.20s: that's good clean code and that's what we're gonna 
+pursue over the next few hours now I want to go  
+2410.61s: to a different part of this presentation let 
+me just cycle up here now I've been preaching  
+2423.15s: for a while now I think we've got a little bit 
+of time left I think I would go till 10:45 if I  
+2431.28s: remember correctly so we've got enough time for 
+this that's good I am going to put some code on  
+2435.87s: the screen it'll be three pages of code I will 
+give you one minute per page the last page is  
+2442.62s: half a page so you'll get two and a half minutes 
+the code is Java if you're a c-sharp programmer  
+2448.14s: you won't be able to tell the difference because 
+they're the same language right read the code  
+2454.14s: figure out what it does and then when we're done 
+I'll ask you what it does and we will begin now
+2622.97s: what that could do
+2628.03s: what said a good it generates HTML and you knew 
+that because the very last line was get HTML good  
+2637.45s: what was the name of the function testable HTML 
+good so we got the first line in the last line  
+2643.39s: what the middle do so some of you may have gotten 
+the idea let me let me just walk you through it  
+2654.40s: I'm not going to walk you through the whole thing 
+I'll just tell you what it does this is a little  
+2658.30s: bit of code in a in a tool called Fitness fitness 
+is a wiki some of you may have noticed that it was  
+2664.12s: a wiki Fitness is also a testing tool it allows 
+customers and QA people to define acceptance  
+2672.55s: tests in the form of pages now if you are used 
+to a testing environment you know that tests  
+2680.11s: typically have setups and tear downs in this tool 
+those setups and tear downs are on different pages  
+2687.10s: so the job of this code is to take every test 
+page and then find all of the setups that are  
+2694.21s: appropriate and prepend them and find all the tear 
+downs that are appropriate and append them and  
+2700.09s: then take the whole thing and generate HTML and 
+feed it into the testing engine that's what this  
+2705.52s: is supposed to do so this function up ends setups 
+and tear downs to a test page what was the name  
+2712.66s: of the function testable HTML terrible name for a 
+function by the way that's a noun you don't want  
+2719.02s: nouns as function names function name should be 
+verbs because functions do things now let's let's  
+2724.93s: look at this function a little bit more there's 
+quite a few bad things going on in here when we  
+2731.86s: read a little bit here let's see we've got this 
+nice thing right here that first line wiki page  
+2738.88s: and if you're a programmer in this environment 
+you see that and you kind of heave a sigh of  
+2744.28s: relief because the wiki page is the highest level 
+abstraction in this system it gives you a great  
+2749.86s: comfort to know that you can recognize that first 
+line the next line creates a string buffer so now  
+2756.28s: we are going from the highest level concept in the 
+system to one of the lowest level things in a Java  
+2761.89s: program this is rude the programmer is being rude 
+the programmer is taking you from the heights to  
+2770.11s: the depths in the span of one line there is a 
+fundamental rule for a function and the rule is  
+2776.59s: that every line of a function should be at the 
+same level of abstraction and that level should  
+2783.01s: be one below the name what's happening here well 
+look I mean heck he goes to the wiki page first  
+2790.60s: and then to the string buffer so up and down 
+and then he goes to a slightly high level thing  
+2796.09s: that's the page attribute and then he's got an 
+if statement another wiki page that's nice and  
+2801.07s: high level page crawler that looks like it must be 
+high level ooh there's a null check that's pretty  
+2806.68s: low level isn't it you keep on reading down and 
+you get to hear a dot is that dot important does  
+2817.57s: that dot have to be there you're the programmer 
+trying to understand this code what does the  
+2822.25s: meaning of that dot we've gone from the highest 
+level concepts to adopt this is route now why  
+2834.79s: is the code written this way well the code is 
+written this way because this is how you write  
+2839.17s: code when you are writing code your brain does 
+this oscillation from high to low level and it  
+2846.67s: works like this you sit there and you're writing 
+the code you think all right I'm gonna need a  
+2851.56s: wiki page all right get the wiki page okay I'm 
+gonna need a string buffer ok string buffer okay  
+2857.38s: I better check something all right if statement 
+oh it might be null check for now okay this is  
+2865.21s: the way your brain works right as you're writing 
+the code so as you're writing the code you are of  
+2869.77s: course creating this code that goes up and down 
+the abstraction levels which is rude not to you  
+2877.78s: the author but to the reader the mistake that the 
+author here made is that the author got all this  
+2885.73s: working and then didn't fix it so let's continue 
+we've got all this up and down stuff and you can  
+2894.10s: kind of see that obviously I want you to focus 
+though on this null check which is followed by  
+2899.98s: a page crawler which is followed by three appends 
+null check page crawler three appends oh look now  
+2911.65s: check page crawler three appends now check page 
+crawler four appends what's the extra pen who  
+2922.57s: sent line in is that line end important that line 
+end has to be there no check page crawler three  
+2935.86s: appends this is very clear what the programmer did 
+here the programmer got the first quarter of this  
+2941.59s: working and then like any good programmer did a 
+copy-paste and he fiddled that part into working  
+2946.63s: copy paste he fiddled that into working copy paste 
+he fiddled that into working perfectly normal way  
+2952.45s: for a programmer to behave when they're trying 
+to get it to work he just didn't go back and  
+2958.12s: fix it he left it in this intermediate working 
+state now by the way the offer very well could  
+2966.91s: have been me it's not unlikely that I wrote this 
+code although it's possible someone else did too  
+2972.70s: so I'm not claiming authorship of it but I do 
+claim that many years later I saw this code in  
+2979.18s: fitness and thought analysis ugly I should fix 
+it so I started to refactor it let me show you  
+2984.88s: the an intermediate refactoring this is not the 
+final refactoring it is just a refactoring that  
+2990.64s: all was about halfway through I'll give 
+you about ten seconds to look this over
+3003.54s: what's that do first of all did anybody 
+notice that the original function was  
+3020.43s: completely surrounded by this if statement it 
+was but it was kind of buried very hard to see  
+3027.69s: in that original code here you can kind of see 
+mmediately it's all about this if statement so  
+3032.19s: most of this code doesn't get executed unless this 
+is a test page take a look at that if statement  
+3038.34s: the if statement fascinating because it uses a 
+variable the variable is called is test page now  
+3044.88s: is test page is defined right above it this is 
+called an explanatory variable the only purpose  
+3050.97s: for that variable is to explain what its contents 
+is and the contents is what you would have put in  
+3058.77s: the if statement page data that has attribute 
+colon test well I think it reads a lot better  
+3063.93s: to say if is test page this is one of the ways 
+you get code to read like well-written prose you  
+3070.38s: construct well-written prose from the names 
+of variables and functions now if you read  
+3079.65s: further we get the wiki page fine and we get the 
+string buffer so we're still going up and down  
+3084.39s: the abstraction hierarchy a little bit and that's 
+that's still bad but okay after that we include  
+3089.01s: the setup pages we append the content we include 
+the teardown pages we set the content and convert  
+3094.47s: it all to HTML it's not very hard to understand 
+what this code is doing still some problems with  
+3102.24s: it it's got a much better name render page with 
+setups and tear downs that's better maybe it's  
+3108.33s: not perfect maybe it should be rendered test page 
+with set ups and tear downs but okay looks like  
+3113.13s: a pretty good name reasonable structure things 
+are getting better here why is this better what  
+3120.51s: makes it better why is it easier to understand 
+it's smaller that's the reason you don't need  
+3128.64s: any other reason beside that it's smaller and 
+if smaller is better well let's turn that knob  
+3134.22s: up to 10 let's make it really small here let me 
+show you where it finally ended up that's the  
+3141.93s: final refactoring of this function render page 
+was set up some tear downs if it's a test page  
+3148.38s: include the set ups and tear downs converted 
+to HTML takes you know time to understand this  
+3152.46s: function this function is polite why is it 
+polite what do I mean by polite so there's  
+3160.23s: anybody studied journalism here you know how to 
+write a paper the rules for writing an article  
+3165.51s: or writing a paper are very very simple you 
+start with the title the headline the title  
+3171.03s: right then you have a paragraph usually called 
+the synopsis or the abstract it's usually one  
+3178.74s: paragraph and it describes everything in the in 
+the paper in high-level terms and then the next  
+3183.75s: paragraph down is slightly more detailed the 
+paragraph after that is a little more detailed  
+3188.13s: than that and as you read downwards the detail 
+increases in to get to the bottom where there's  
+3193.41s: all the names and dates and guilty parties and 
+everything like that this is polite it's polite  
+3201.54s: because of what it allows the reader to do it 
+allows the reader to escape early what is your  
+3208.53s: algorithm for reading the news given a webpage up 
+with the news how do you read it or you scan it  
+3215.79s: for a headline that you think is interesting okay 
+if that headlines interesting I'll read the first  
+3220.62s: paragraph you read the first paragraph if it's 
+still interesting you read the second paragraph  
+3224.70s: if it's still interesting you read the third 
+paragraph if it's still interesting you read  
+3229.23s: the fourth paragraph notice the while loop here 
+and you exit that while loop as soon as you get  
+3235.47s: bored that's how you read everything in the news 
+nobody ever reads the whole article you just read  
+3241.05s: until you're bored and then you get out this is 
+polite it is polite to allow the reader to exit  
+3246.90s: early and this allows you to exit early if you 
+or some guy and you saw a call to that function  
+3253.74s: render page we'll set up some paradigms and you 
+said gee I wonder what that function does and  
+3260.34s: then you went here within three seconds you know 
+what this function does at a very high level not a  
+3267.90s: level but maybe you didn't want to know it at a 
+detailed level maybe you just wanted to know oh  
+3272.19s: yeah okay if the test paid you include sit-ups and 
+turnouts okay and you get out early there was no  
+3279.63s: way to get out early from this code the only way 
+to get out of this code at all is to understand  
+3293.10s: it all completely including all the dots and it 
+would have taken you thirty minutes thirty minutes  
+3299.70s: you would have poring over this code wondering 
+what the devil is this guy doing why is he doing  
+3303.99s: it this way what's good and at the end of that 
+thirty minutes you would have finally gone oh
+3307.77s: if the test page he's including the setups 
+and tear downs why the hell didn't he say that
+3324.90s: how did I get this code shrunk down to that last 
+little bit how did that process work my goal was  
+3340.53s: to make these functions small and I call this 
+the first rule of functions the first rule of  
+3346.38s: functions first rule is that they should be small 
+the second rule is they should be smaller than  
+3353.19s: that I want to turn the knob up on this really 
+high I want the function small really small how  
+3361.83s: small should have function be let's see what's 
+the proper size for a function how many lines  
+3367.53s: should it be one for three sit on your screen 
+that was the old rule by the way back in the  
+3381.54s: back in the 80s when we first got screens does 
+anybody remember when we first got screens but  
+3387.33s: there was a time we didn't have screens we wrote 
+our code on paper in the early days of programming  
+3393.00s: programmers did not know how to type we had no 
+keyboard skills we wrote the code in pencil and  
+3399.15s: we had other people enter it into punch cards 
+for us but then eventually we got screens and  
+3406.05s: we started typing ourselves that was in the 80s 
+and those screens a typical screen was 24 lines  
+3413.73s: by 72 columns why 72 columns yes part holes on 
+the punch card there were 80 columns on a punch  
+3423.60s: card the last eight were sequence numbers so we 
+only needed 72 on the screen that's the reason  
+3428.76s: they were 72 you didn't even know they were 72 did 
+you well now you know and the rule came about your  
+3437.07s: function should fit on a screen well that meant 
+that the functions had to be about 20 lines of  
+3441.39s: code is that the right size I have a better rule a 
+function should do one thing a function should do  
+3450.48s: one thing that's the rule for how big a function 
+should be it should do one thing but now we need  
+3456.75s: to define what one thing is what's one thing what 
+idea are you using i hear people going IntelliJ  
+3469.65s: IntelliJ who's using IntelliJ oh yeah tell Jay 
+it's the best idea it really is the best idea  
+3476.55s: out there there's just nothing better is anybody 
+using anything else if you are I'm sorry what is  
+3482.34s: it eclipse and well VI you know everybody has 
+to use VI from time to time cuz you've got to  
+3491.67s: edit some text file and there's just no easier way 
+to go bij jkkk it's fine right fine but if you're  
+3499.89s: if you're editing code you don't want to use VI 
+for that cuz that's a pain so you use something  
+3504.57s: like IntelliJ that's nice okay IntelliJ it's got a 
+refactoring menu one of the menu items in there is  
+3513.63s: called extract method who's used extract method 
+we can add everybody use extract method that's  
+3518.82s: good okay so now you know how extract method works 
+I'm going to define one thing a function does one  
+3527.34s: thing if you cannot meaningfully extract another 
+function from it if a function contains code and  
+3537.24s: you can extract another function from it then very 
+clearly that original function did more than one  
+3543.36s: thing because you could extract something from 
+it so I want all my functions to do one thing  
+3550.53s: and that means I must extract and extract and 
+extract and extract until I cannot extract any  
+3555.96s: more I'm going to take all the functions in the 
+system and explode them down into a tree of tiny  
+3562.20s: little functions optimally extracted maximally 
+extracted at this point there are people in the  
+3568.98s: room going this guy's nuts he's insane I'm not 
+going to do that if I did that I'd have thousands  
+3576.72s: of little tiny functions I would drown in a sea of 
+tiny little functions no you will not drown in a  
+3583.65s: sea of tiny little functions and there's a simple 
+reason why you're not going to drown in a sea of  
+3589.53s: little functions and that's you're going to have 
+to give those functions names you'll have to name  
+3596.31s: those functions and as you name them you'll have 
+to move them into appropriately named classes and  
+3602.16s: appropriately named packages and appropriately 
+named source files and modules and you will  
+3607.50s: create a tree a semantic tree of functions that 
+you can follow by name now you may not believe  
+3616.98s: me but let me make a few points I'm going to draw 
+for you a function that I wrote in 1988 probably  
+3634.38s: the name of this function was gi gi stood for 
+graphic interpreter it was 3,000 lines long I'm  
+3649.02s: going to draw it for you not all the code just 
+the shape of the code you recognize that don't  
+3658.83s: you and that was the shape of the code well 
+it was actually more complicated than that but
+3663.87s: look at that shape and see if you can tell if 
+there's some part of your brain that relaxes  
+3674.13s: because you see that shape there's some part of 
+your brain that could oh why why does that happen  
+3684.24s: because beep when people get very used to a large 
+function or a large module you've been working in  
+3690.54s: it for months you know it you know it really 
+well you know it geographically you know it by  
+3697.47s: its landmarks you know the shape intimately and 
+look at that shape rotate that shape 90 degrees  
+3705.93s: it looks like the horizon humans evolved to know 
+where they are on the planet by staring at the  
+3712.23s: horizon they know over there by those Peaks that's 
+where the watering hole is and the saber-tooth  
+3718.23s: wanders over there so you look at that shape and 
+some your brain goes yeah that looks like home  
+3726.81s: now this was written in C by the way if someone 
+had come to me in 1988 and said you know Bob  
+3738.60s: this 3000 line function does a lot more than one 
+thing I would have said no it can't it interprets  
+3743.85s: graphics because the whole notion of one thing was 
+so horribly subjective at the time but now I know  
+3751.59s: how to make it objective extract extract extract 
+until you cannot extract anymore now let's assume  
+3759.27s: that this function written in C has some variables 
+where were this where were the variables in C the  
+3769.14s: local variables of a C function where did you 
+put them at the top that's right C programmers  
+3774.18s: in the room know right you still have your copies 
+of Kern and Richie sitting on the Shelf don't you  
+3778.65s: can't be far away from it so okay let's say 
+that there's a couple of variables here int  
+3785.22s: I and J good now let's say that this indent right 
+here manipulates I and J and it does this it says  
+3803.46s: I equals 0 and J equals 2 okay semicolon good now 
+you want to practice extract till you drop do you  
+3814.83s: want to do what I've just told you to do extract 
+extract extract extract so you highlight that  
+3819.06s: highlight that indent with your mouse and you 
+invoke the extract method function of the IDE  
+3824.25s: and the IDE will come back with an error message 
+and say I can't extract it because it changes two  
+3830.31s: variables and I can't extract code that changes 
+two variables well what are you going to do now  
+3836.13s: you want to extract it but you can't because it 
+changes two local variables what are you gonna  
+3843.42s: do now make them global right that works perfectly 
+you think I'm joking don't you haha but now look  
+3864.22s: you can extract that and you can extract this 
+one into another function so now I've got two  
+3869.53s: functions I've extracted them out I can take 
+that one and extract it yeah I can take that  
+3873.37s: one and extract it and I've got something very 
+interesting here now I have a set of functions  
+3879.28s: all of which manipulate a set of variables what's 
+it called when you have a set of functions that  
+3885.67s: manipulate a set of variables that's called 
+the class there was a class hiding inside this  
+3891.58s: big function and if you think about it of course 
+there are classes that hide inside big functions  
+3897.31s: because big functions have a whole bunch of 
+variables and a whole bunch of indents that  
+3901.39s: manipulate those variables so of course every 
+large function is really a class with a bunch  
+3907.60s: of little tiny functions inside it and if you 
+start extracting and extracting and extracting  
+3912.76s: you will begin to identify these classes that you 
+would otherwise not have identified and you'll be  
+3918.10s: able to put them in appropriate names and spaces 
+and allocate them nicely and partition your code  
+3923.80s: well this is what happens when you start to 
+extract and extract and extract you find the  
+3930.49s: true object-oriented structure of the system that 
+you're trying to design we're all object-oriented  
+3936.19s: designers we all use object-oriented languages 
+what language are you using well you're doing  
+3940.06s: intelligent must be doing Java right everybody 
+doing Java who's doing Java Oh who invented Java  
+3948.19s: and when and why his name was James Gosling in 
+the year was 92 or 93 why did he invent this  
+3958.54s: language Oh someone said it good good okay yes he 
+was he worked at Sun Microsystems in the contract  
+3968.02s: programming division and they got a a contract to 
+write the code for a cable television set-top box  
+3975.04s: now son was dedicated to C++ at the time so he 
+was supposed to write this in C++ but he hated  
+3982.02s: plus plus anybody here hate C++ okay fine well now 
+you know why right so he hated C++ and decided he  
+3988.89s: would write his own language which he called oke 
+Oh a K oke and lovely fine he got it all to work  
+3997.35s: and life was good and then the contract and didn't 
+the language went in the garbage bin where it  
+4003.26s: belonged that would have been the end of it except 
+for an accident of history the accident of history  
+4010.64s: is very interesting because Sun Microsystems 
+was a hardware company they sold pieces of  
+4017.39s: metal they sold chunks of hardware and their whole 
+marketing scheme was about selling hardware and  
+4024.32s: they realized in the early 90s that the best way 
+to sell hardware was to win the hearts and minds  
+4031.25s: of programmers first time that had been realized 
+that programmers are the ones who make the buying  
+4039.71s: decisions prior to that paper trying to sell the 
+CIOs and CTOs and CEOs but when they realized  
+4046.22s: that no no no it's actually programmers who make 
+these buying decisions because they influence the  
+4050.54s: executives never underestimate your power you're 
+the ones who know and so son says how are we  
+4059.66s: going to win the hearts and minds of programmers 
+what better way than to give them the language of  
+4066.35s: the Internet and so they looked around on what 
+language should we use and here's Gosling over  
+4072.02s: in the corner and he reaches into the garbage 
+can and he takes this oak thing out and he says  
+4075.59s: you could use this one I think executives in the 
+market ears I'll say I have fine that's fine if  
+4082.76s: I don't like the name it should have some better 
+name something stimulating like coffee dalla and  
+4087.02s: they won the hearts and minds of the programmers 
+you'd like to think that Java was created out of  
+4096.44s: some bursts of creative energy but it was foisted 
+upon the programming community as a marketing tool  
+4104.81s: to win your hearts and minds it was a manipulative 
+event keep that in mind where did c-sharp come  
+4110.87s: from Java it is Java Microsoft just took it does 
+anybody remember visual j+ + right make yourself  
+4123.76s: to him and sun microsystems said hey you can't 
+do that and microsoft said oh ok we'll change  
+4128.89s: the : ah how much indenting do you think you 
+would do if you extract and extract and extract
+4149.41s: how deep will your indenting be if you extract and 
+extract an extract one or two yeah one or two is  
+4161.20s: about it usually one well actually usually none 
+right just open brace 1 indent couple of lines of  
+4168.64s: code close your functions will really be about 
+four lines long 3 4 or 5 lines long something  
+4173.77s: like that every once in a while you'll get a 6 
+liner switch statements tend to get longer you  
+4178.93s: don't like switch statements so you don't have 
+too many of those I hope because they're evil  
+4183.28s: switch statements bad things to have around 
+really the same true with if-else statements  
+4186.91s: we don't want those either so we tend to give 
+these little tiny functions now think of what  
+4191.62s: happens to normal code take an if statement if 
+you are extracting and extracting and extracting  
+4201.10s: what is the body of the if statement it's a 
+function call yes and it has a nice name a  
+4210.55s: name that tells you what the function is going 
+to do so you say if something then do this it  
+4217.36s: reads like well-written prose what's in the 
+parenthesis of the if statement a function  
+4223.81s: call with a nice name that tells you what you're 
+testing if employee is too old fire employee it  
+4231.46s: works perfectly right it reads like well-written 
+prose how many arguments should a function have
+4246.85s: well zeros a good number right cuz it's really 
+easy to understand a function that takes zero  
+4252.73s: arguments but you don't have to worry about 
+any if statements in there that checking the  
+4256.66s: arguments for anything there's no arguments one 
+is not too hard to understand one argument going  
+4262.36s: into a function is pretty easy that's you 
+know mathematical f of X we kind of get that  
+4266.29s: two arguments going into a function yeah it's 
+okay you know the human brain is pretty good  
+4272.59s: at keeping two things in order there's only 
+two different ways to order them so not too  
+4277.54s: hard three arguments it's a little hard how many 
+ways are there to order three arguments six yes  
+4286.21s: it's n factorial so ooh six is hard now humans can 
+probably do that sort of what about four how many  
+4296.56s: ways are there to order four arguments twenty-four 
+twenty-four different orderings how about five one  
+4303.94s: hundred and twenty ways is n factorial big crimes 
+enormous ly fast so probably don't want any more  
+4309.88s: than about three arguments in a function that's 
+the way I like to limit it I don't like to have  
+4313.96s: functions that take more than three arguments 
+and by the way there's another there's another  
+4317.74s: debate here I almost use the word argument um 
+if you have a function and you want to pass six  
+4327.91s: things into it those six things are so cohesive 
+that they can be passed into a function together  
+4335.02s: why aren't they already an object this is an 
+interesting debate to have here you probably  
+4340.93s: never need to pass more than three things into 
+a function so I I like to use that as a a soft  
+4347.32s: rule I don't want to see a long comma separated 
+list of arguments that seems to me to be rude  
+4354.73s: I would like it to be polite so keep the number 
+of arguments down to two or three create objects  
+4363.04s: if you have to use other strategies to to get 
+things into functions by creating objects and  
+4370.18s: data structures things like that what types of 
+arguments should you never pass into a function
+4379.49s: boolean's boolean's now by the way I use the 
+word never never is the wrong word mostly never  
+4386.30s: is probably a better way to put that don't pass 
+boolean z' into functions why not well because  
+4392.54s: if you pass a boolean into a function there must 
+be an if statement in that function and that if  
+4398.21s: statement has two branches the normal branch 
+and the else branch why not just separate them  
+4402.50s: into two functions call the one in the true case 
+call the other in the false case have you ever  
+4407.96s: read code that has boolean arguments it's rude now 
+do this comma 5 comma 6 comma true what does the  
+4419.99s: true mean I don't know it must be true though and 
+here's how you read this code when you're reading  
+4428.60s: this code you stare at that boolean and go oh [ 
+__ ] wow that the author probably knew what he  
+4435.50s: was talking about and you walk away you're gonna 
+go read what the boolean does is probably some  
+4440.06s: stupid if statement in the middle of the function 
+don't pass boolean surround they're just annoying  
+4444.95s: now that can't be a hard and fast rule because 
+there are times when you want to pass a boolean  
+4449.84s: around for example you are setting the state of 
+a switch you know sets which bool ok fine but  
+4457.04s: don't use it as a little testing argument into 
+functions that's just rude it's annoying another  
+4464.30s: thing that's rude is output arguments arguments 
+that are passed into a function for the purpose  
+4472.37s: of collecting the output nobody understands that 
+right you're reading along and you've probably all  
+4478.85s: had this experience where you're reading along 
+and you read this line and there's an argument  
+4484.88s: at the end of the function call and you're not 
+quite sure why it's there it seems out out of  
+4489.83s: context it's just a bizarre argument but you've 
+got this vertical momentum as you're reading who's  
+4494.96s: had this experience right you're reading down and 
+there's something about this line that puzzles you  
+4500.12s: but you've got this nice vertical momentum so you 
+keep reading but a little process is started in  
+4505.76s: your brain and this little process starts yelling 
+at you louder and louder you didn't understand  
+4510.23s: that last line you didn't understand that lining 
+your eyes are torn back up to look at that line  
+4516.06s: this process in your head takes your takes your 
+head and moves it back to stare at that line this  
+4521.70s: is a double take you know a double take it's I 
+think it's American slang double take a double  
+4528.87s: take is like this you're out on the road your 
+start on the sidewalk you're walking down the  
+4533.16s: street out of the corner of your eye you see an 
+attractive individual you turn away and then a  
+4538.23s: little process in your brain goes wait that was 
+interesting and you go back that's a double take  
+4543.18s: that code that makes you do a double take is 
+rude it's rude code it forces you to stop your  
+4552.60s: reading and go back so you don't want to have 
+these double take moments in the code there's  
+4558.60s: another author who says this is the principle 
+of least surprise make sure that your code is  
+4565.86s: not surprising do one thing yes I did that did 
+that one yes yes that's all the abstraction at  
+4577.32s: the same level yes extract to you drop did that 
+good avoid switch statements why what's wrong  
+4586.23s: with switch statements what's that they break 
+why do they break oh but you might forget them  
+4599.01s: yes okay good so switch statements what goes 
+wrong with switch statements what do they do  
+4605.82s: more than one thing that's true so let's say that 
+we've got a switch statement the switch statement  
+4611.79s: switches on oh the type of a shape so there's a 
+shape and it's there's an enum somewhere that I  
+4623.58s: define circle and square and triangle and so on 
+traditional kind of kind of objects and you've  
+4629.52s: got a switch statement that switches on this shape 
+type and in fact how many such switch statements  
+4635.70s: will there be in the system because your system 
+deals with shapes how many such switch statements  
+4641.76s: will there be well you're going to have to have 
+a switch statement you draw a shape you'll have  
+4645.75s: to have another one when you rotate a shape and 
+another one when you erases shape and another one  
+4649.50s: when you drag a shape another one when you stretch 
+a shape in fact every time you do anything to a  
+4653.76s: shape you'll have to have a switch statement now 
+what goes wrong you add a new type of shape what  
+4662.88s: happens when you add any type of shape you've 
+got to find all the switch statements you've got  
+4667.62s: to go through the whole code you've got to find 
+all the switch statements are you going to find  
+4672.54s: them all are they all switch statements they 
+might some of them might be if-else statements  
+4679.35s: and then there's this problem rotate shape what 
+do you do in the circle case nothing there's no  
+4691.02s: case for the circle so the programmer does 
+some nice logical optimizations here's the  
+4696.48s: problem now right you've got to add a new type 
+of shape rhombus and you've got to find every  
+4703.56s: switch statement in the system and you've got to 
+investigate every switch statement in the system  
+4708.66s: logically decoding them to make sure you put 
+the rhombus part in in just the right place and  
+4715.05s: this is fragile this breaks it's hard to do it 
+causes lots of difficulties what's the solution
+4723.00s: polymorphism is the solution of course we don't 
+want to have a switch statement we want to have  
+4731.13s: a base class called shape and we want to have 
+subclasses for triangle and circle and square  
+4736.74s: and rectangle and all of these interesting 
+derivatives and then we can put all of those  
+4741.48s: functions into the derivatives we can put the 
+draw function and the rotate function and the  
+4746.61s: drag function and the square file all of those 
+functions can go into the derivatives and now  
+4751.71s: what happens when we add a new shape what changes 
+in the system when we add a new shape we have to  
+4764.79s: add a new file new class new subclass yes but 
+nothing else in the system changes there are  
+4773.46s: no such statements the switch statements are all 
+gone nothing else in the system changes this is  
+4782.37s: called the open closed principle the open closed 
+principle says that a system a module should be  
+4787.44s: open for extension but closed for modification 
+you should be able to extend the behavior of a  
+4792.36s: module without modifying that module and how 
+do you do that well you do that by creating  
+4797.91s: base classes and having derivatives our system can 
+now be extended with new shapes without modifying  
+4806.61s: anything in the system we have to add something 
+to the system we don't have to modify anything  
+4810.90s: this is one of the reasons we don't like switch 
+statements but just one there are other reasons  
+4817.11s: we don't like switch statements we don't like 
+switch statements and I better draw this one
+4822.78s: doo-doo-doo-doo here's a switch statement with 
+a bunch of cases it's in a module each of these  
+4843.75s: cases does something but let's say in this 
+particular case these cases call out to other  
+4853.11s: modules look at the dependency structure here 
+we've got a single module that throws a whole  
+4865.38s: bunch of dependencies out to other modules these 
+are source code dependencies the switch statement  
+4869.82s: must import all of these called modules so the 
+import statement is a long import statement  
+4877.11s: there's a source code dependency going from the 
+switch statement to every one of these outgoing  
+4881.22s: modules now we've got other modules in the 
+system that depend on the switch statement  
+4890.22s: if I make a change there what has to recompile 
+everything everything has to recompile what has  
+4903.96s: to redeploy everything everything to the left 
+the switch statement has to be redeployed and  
+4911.94s: everything to the left of the switch statement 
+has to be redeployed because it's all getting a  
+4914.94s: recompiled switch statements act as a dependency 
+manager manic magnet a dependency magnet they  
+4924.96s: throw out a big net of dependencies that cause it 
+to be difficult to independently deploy modules  
+4932.01s: do you independently deploy do you do you a move 
+your system into jar files do you partition your  
+4941.07s: system into jar files what is a jar file yeah it 
+says Java archive that's what jar stands for fine  
+4951.03s: thank you but what is the intent of a jar file 
+what is the equivalent in dotnet a DLL what this  
+4964.08s: DLL stands for dynamically linked library what 
+does it mean to be dynamically linked first of  
+4971.31s: all what does it mean to be linked see programmers 
+know what does it mean to be dynamically linked
+4977.76s: everything gets loaded at runtime all the external 
+variables get linked at runtime that's what a  
+4988.38s: jar file is it's a runtime linking loader does 
+anybody remember the 80s when we would execute  
+4998.43s: absolute binaries who was the C programmer in 
+the 80s oh yeah some guys here C programmers in  
+5007.70s: the 80s right again how did you do this right you 
+would compile dot C files into dot o files that  
+5013.10s: were object files and you collect all your files 
+and then you'd link all without o files together  
+5017.57s: into a dot XE and then you could execute the XE 
+and by the way the longest-running effort there  
+5024.05s: was the link the link took forever and why did 
+the link take forever because disks were slow  
+5029.87s: and we didn't have a lot of memory in those 
+days but as we got into the 90s that really  
+5035.51s: got faster the disks got smaller and faster and 
+really tiny and much more reliable and link time  
+5042.08s: started to shrink like crazy and Microsoft was one 
+of the first ones to say hey we could use that to  
+5047.21s: dynamically link so they created ActiveX anybody 
+remember ActiveX horrible decom stuff okay and  
+5055.49s: then along comes Java and we've got jar files 
+and we've got DLLs that life is good so a jar  
+5061.37s: file is there so that you can independently 
+deploy chunks of your system now what would  
+5070.25s: you like to independently deploy so you don't 
+have to deploy everything what would you like  
+5077.93s: to independently deploy why what would you like 
+to deploy separately well now let's think about  
+5087.68s: this yes modules is the right answer but which 
+modules what modules would you like to deploy  
+5093.44s: separately from which other modules which parts 
+of the system changed capriciously change for  
+5100.37s: stupid reasons the business requirements change 
+for stupid well they're not stupid reasons right  
+5106.52s: they change but it's not for stupid reasons 
+the stuff that's changes for stupid reasons  
+5113.18s: is the GUI there are people that just say you 
+know I don't like the color that color should  
+5118.94s: be a different color I don't like to say 
+I don't like the shape of that thing that  
+5121.43s: should be around and let's take that page and 
+move stuff around on it has nothing to do with  
+5124.82s: the business rules at all has something to do 
+with some marketing guys idea of what would  
+5128.81s: look better on the screen how many of you have 
+faced the problem that when there's a change to  
+5134.03s: the GUI it breaks a whole bunch of business rules 
+you don't want that to happen you want to isolate  
+5140.33s: the GUI from the business rules we're going to 
+talk about that tomorrow and we talked about  
+5144.26s: clean architecture and so what we'd like to be 
+able to do of course is independently deploy  
+5150.35s: the GUI from the business rules independently 
+deploy the database from the business rules so  
+5156.47s: that if there's a change made to the GUI we can 
+redeploy the GUI without redeploying the rest  
+5160.82s: of the system and we can do that if we are very 
+careful not to throw switch statements all over  
+5167.63s: inside the systems that was why we don't like 
+switch statements there's a letter from my wife
+5188.19s: okay I'm gonna read this there is 
+no water in the building because a  
+5201.06s: pipe broke in the street this problem 
+might be resolved before 11 o'clock
+5206.55s: how are your bladders you can continue until 
+11:00 I see we're not going to stop at 10:45  
+5219.51s: I get it they're trying to tell me this so I 
+actually didn't have to read this to you if  
+5225.00s: there is still no water at 11 o'clock we'll be 
+doing an announcement before that so okay fine  
+5229.92s: all right we understand thank you thank you got 
+it all right 11 o'clock now all right I'm going  
+5244.32s: to talk about names a little bit later I've talked 
+about arguments already good and flag arguments  
+5255.69s: and output arguments no side effects what's a 
+side effect so the classical definition of a side  
+5266.22s: effect is a change to the state of the system if 
+you call a function and that function causes the  
+5275.46s: system to change state then that function had a 
+side effect the function open has a side effect  
+5283.95s: because it leaves a file open the function new 
+has a side effect because it leaves a block of  
+5293.97s: memory allocated side effect functions change the 
+state of the system side effect functions come in  
+5304.11s: pairs there's open and closed new and free are new 
+and delete in C++ and Java we fixed that problem  
+5313.83s: semaphores season release side effect functions 
+come in pairs they're like the SIF always to there
+5321.99s: now how good at we at managing pairs of functions 
+like this for example how good are we at managing  
+5333.78s: Alec and free the answer to that is that we're 
+terrible at managing that and the the obvious  
+5347.04s: evidence of our terrible ability to manage pairs 
+of functions is that in modern languages we've  
+5353.79s: invented a horrible hack to allow us to forget 
+about managing pairs of functions that horrible  
+5361.14s: hack is called garbage collection now I would 
+not want to program without garbage collection  
+5365.52s: because garbage collection makes it much easier 
+to write safe code but you must admit that garbage  
+5375.78s: collection is a crutch it is not reasoned you 
+did not write the code in a reasoned way you  
+5383.37s: did not free everything you allocated instead 
+what you did is said the system will take care  
+5388.98s: of it and ok fine we have we have written this 
+horrible hack we've we've declared that we're  
+5396.90s: going to depend upon it we've acknowledged that 
+we need the crutch but allocate allocation and  
+5403.29s: freeing is not the only side effect function 
+there are many other side effect functions  
+5408.60s: that you and I have to deal with like open and 
+close does anybody seen a system crash because  
+5413.61s: too many people forgot to close files yes and 
+you leave a bunch of file descriptors open in  
+5419.88s: the operating system and eventually you run out of 
+file descriptors that's called a file descriptor  
+5423.63s: leak has anybody seen a system crash because all 
+the graphics contexts got leaked or the semaphores  
+5430.08s: didn't get closed anything that comes in a pair 
+like that will suffer the same fate that memory  
+5437.28s: used to suffer when we had memory leaks and by 
+the way you can still have memory leaks in Java  
+5442.50s: you just have to have to work really hard at 
+it so what do we do about this what do we do  
+5449.61s: about this problem of of controlling pairs of 
+functions pairs of functions must be called in  
+5459.30s: the right order you cannot close a file before 
+you open it you cannot free memory before you  
+5466.41s: allocate it if you call them in the wrong order 
+it's a logical inconsistency how many of you have  
+5472.05s: debug based system spent days and days debugging 
+a system only to find that you can make it work  
+5478.59s: if you change the order of two function calls 
+and you don't know why but somewhere in there  
+5487.20s: there's some side-effect and if you just change 
+the order oh that makes everything work what can  
+5497.22s: we do to manage that so up what version of Java 
+are you using you're working on lambdas now Java  
+5507.27s: but what is that eight Java eight everybody doing 
+Java eight everybody familiar with lambdas now you  
+5511.35s: know how to do lambdas and you can pass lambdas 
+here and there and everywhere good I don't know  
+5518.91s: why they put that feature in the language so what 
+can you do about this well if you've got lambdas  
+5527.76s: in the language it makes things a lot easier well 
+it makes things a little bit easier remember that  
+5532.77s: the lambda is just a class and it's a class with 
+one function in it called execute you could have  
+5537.51s: written that yourself but they decided to put 
+it in the language so okay fine let's say that  
+5542.25s: we want to make open safe and I think in the Java 
+library now they actually do this so okay here's  
+5550.23s: our open function our open function is going to 
+be a void it doesn't return anything and it's  
+5558.60s: going to take a filename so that's a string that 
+would be the file that we're going to open and  
+5565.17s: then we're going to pass into it a lambda and this 
+will be we'll call this lambda process of course  
+5573.84s: I'm not using Java syntax but you get the point 
+okay there's the open brace now what do we do  
+5578.88s: well first thing we're going to want to do is 
+we're going to really open that file so we're  
+5583.74s: going to call the low-level open function so here 
+we say file F equals file dot open of FN good so  
+5596.79s: now we've got the open file the next thing we do 
+is we say process that file so now we're calling  
+5603.33s: the lambda and now we say file dot close 1/2 and 
+return this is a simple function that deals with  
+5621.66s: the side effect this function does not have a side 
+effect because it leaves the system with the file  
+5627.57s: closed so the side effect is dealt with inside of 
+this function you don't have to remember to close  
+5634.29s: it what you do have to remember to do is pass 
+in the lambda that processes the open file this  
+5640.02s: is a very common procedure for dealing with side 
+effects so you can try to get your side effects  
+5645.99s: under as much control as possible by passing a 
+lambda into your system if you don't have lambdas  
+5652.74s: in your language then you could use a command 
+object a simple a simple class that has one  
+5657.90s: function in it called execute and then you pass 
+in the appropriate derivative data side effects  
+5669.30s: doop-doop do yep good command query separation a 
+function that returns void must have a side-effect  
+5682.35s: if it doesn't have a side-effect there's no point 
+in calling it so a function that returns a value  
+5690.72s: should not have a side-effect this is a convention 
+that we like to follow called command and query  
+5696.66s: separation commands change the state of the system 
+therefore they return void anything that returns  
+5704.16s: of value by convention will not change the state 
+of the system and that way when you see a function  
+5711.18s: that returns a value you know it's safe to call 
+it it will leave the system in the same state it  
+5716.40s: was found in this is a convention that I like to 
+follow the language doesn't enforce it of course  
+5722.10s: but I like to follow it because it allows me to 
+keep track of side-effects to prefer exceptions  
+5732.27s: to returning error codes do I even need to 
+go over this dude use since exceptions a lot  
+5739.26s: in Java everybody using exceptions good good good 
+does anybody remember how awful exceptions were in  
+5746.58s: C++ okay so we didn't use them I don't use them in 
+C++ and Java they're fairly safe it is better to  
+5753.81s: use an exception than to return an error code I'm 
+not going to belabor that point but I will make  
+5759.84s: another point when I write a try block the only 
+thing in that function that has the try block is  
+5769.92s: the try block I don't want to have a lot of code 
+before the try block if I've got a function that  
+5776.70s: throws an exception the first executable statement 
+in that function is going to be try and then there  
+5782.82s: will be a single function in the try block that's 
+the function that actually throws the exception  
+5788.52s: and then there will be a closed brace and then the 
+catch blocks and a finally block if necessary and  
+5793.56s: then no other code in the function I don't want 
+anything in the function except the try block I  
+5799.26s: don't want a whole bunch of code in the try block 
+I want that to be a different function I don't  
+5803.34s: want any prefix code in that function I don't 
+want any suffix code in that function just the try  
+5808.50s: block because error processing is one thing so I 
+want the I want the try block completely contained  
+5814.35s: by a function and I never ever ever want nested 
+track patch blocks I will find you if you do that
+5820.86s: there's a rule in software called the DRI 
+principle don't repeat yourself this has to  
+5837.75s: do with duplicate code you saw some duplicate 
+code in that original code that I threw up on  
+5842.01s: the screen a little bit earlier that code was 
+obviously copy and pasted we'd like to avoid  
+5849.21s: duplication as much as possible because it's 
+sloppy if you do you copy and paste a bunch  
+5854.64s: of code it's just sloppy to leave it in that 
+state what you'd like to do is move the copied  
+5860.67s: code into some function and call of a function 
+of course sometimes you copy the code and then  
+5866.13s: change the code you've copied and so that means 
+you're probably going to have to put it into a  
+5871.02s: function that has some arguments but that's all 
+fairly easy to do so we don't like duplicated  
+5877.56s: code we don't like code that's kind of duplicated 
+we ought to be able to move those into functions  
+5883.92s: but what do you do when it's not the code that's 
+duplicated it is the loops that are duplicated how  
+5893.88s: many of you have seen this problem where you've 
+got a complex configuration data structure to  
+5899.43s: walk this complex configuration data structure 
+you have to have a big nested bunch of loops  
+5903.81s: a bunch of while loops and if statements that 
+allow you to walk through the Kombi the complex  
+5909.90s: configuration data structure and then you finally 
+get to the end nodes in there and you've got a  
+5915.00s: bunch of processing code that processes the end 
+nodes and then you see that same loop repeated  
+5920.46s: over and over and over again inside different 
+parts of the system as the different parts of the  
+5924.51s: system walk different parts of the configuration 
+database how can you get rid of that duplication  
+5931.38s: one of the answers to that as well if you've got 
+lambdas you can put that nice looping structure  
+5940.59s: into a function that takes a lambda argument 
+and then you pass the processing code into the  
+5945.48s: lambda argument so you can get all of those 
+duplicated loops down into one and then just  
+5951.90s: pass a lambda in or pass an object that takes 
+a a single single parameter which is a function
+5965.09s: we got about 10 minutes I'm gonna lighten 
+them lighten the mood a little bit structured  
+5974.33s: programming what is it what is this thing 
+called structured programming when was it  
+5980.18s: invented who invented it why Michael Jackson 
+no actually although he did a lot of a lot of  
+5987.44s: books on structured programming it was invented 
+by Edsger Dijkstra here in the Netherlands Edgar  
+5993.68s: Dijkstra was the the first programmer of in the 
+Netherlands one of the first programmers in the  
+5999.05s: world but the very first programmer in the 
+Netherlands he survived the Nazi occupation  
+6004.15s: of during World War two he came out of that 
+and and went into school he wanted to become  
+6009.73s: a nuclear physicist he saw computer the very 
+first computer in the Netherlands and fell in  
+6016.39s: love with it he wanted to study software but he 
+went to his his advisor and said I there's no  
+6023.65s: body of knowledge here there are no disciplines 
+there's no formalism I don't think my peers will  
+6028.39s: take me seriously if I study computers and his 
+advisor said well Metzger maybe you will be one  
+6035.20s: of the people who will invent those formalisms 
+and disciplines and add to the body of knowledge  
+6040.18s: and Edsger Dijkstra took that as a challenge and 
+became the Netherlands first programmer he went on  
+6048.79s: to study software in those very early days in 
+the 1950s interesting sidenote he got married  
+6057.40s: I don't remember the date but it was in the late 
+40s or early 50s that he got married and he had to  
+6063.40s: put his occupation on his marriage license and he 
+put programmer and the officials wouldn't accept  
+6070.12s: it because that wasn't a known profession so he 
+changed it to nuclear physicist he said he made  
+6080.41s: the more difficult choice programming was more 
+difficult than nuclear physics in 1968 Dijkstra  
+6093.01s: wrote a letter to the editors of one of the famous 
+magazines at the time and he said that go-to was  
+6100.29s: considered harmful very famous note and it it 
+kind of caused an uproar in the tendons in the  
+6109.05s: software community because it during those days 
+go to was how we got things done we used to go  
+6115.92s: to for everything we had if statements that would 
+have go to Xin them we didn't have languages that  
+6121.89s: had while loops in them we would just use go 
+twos all over the place anybody here remember  
+6126.75s: Fortran anybody for to add weights before trying 
+programmers in the room yeah since go two's for  
+6132.75s: everything and so Dykstra comes along and says 
+yeah go to Zura problem and the world kind of  
+6137.64s: went nuts for about five years now we didn't 
+have a face book in those days you couldn't  
+6143.13s: flame anybody right so what you did instead is you 
+wrote letters to the editor of the trade journals  
+6149.31s: and people wrote the most scathing letters to 
+the editor Dijkstra's an idiot because of this  
+6153.90s: and other people would say no Dijkstra's a god 
+because of this and these letters went back and  
+6158.46s: forth and it all settled out do you have a go 
+to in your language no you don't do you and no  
+6169.41s: modern language has a go to some modern languages 
+reserve the word did you know in Java that go-to  
+6175.74s: is a reserved word specifically so that it cannot 
+be implemented right Dijkstra won that battle he  
+6184.74s: won it by all the languages beginning to adopt 
+the the structure now why did Dijkstra not want  
+6193.68s: DotA's what what was harmful about go twos so 
+Dicer was an interesting fella he wanted to turn  
+6201.78s: software into mathematics he wanted to create 
+a set of postulates and then a set of theorems  
+6209.49s: like Euclidian geometry he wanted to construct 
+theorems of software his his vision was that you  
+6218.40s: and I would write applications by adopting well 
+proven theorems and then writing little lemmas  
+6226.32s: to adapt them that was his idea there would be 
+this vast library of fear proven software and  
+6233.61s: so he began to work through the mechanics of how 
+you prove software correct and and the mechanics  
+6243.12s: were fascinating what he discovered was that you 
+could write a simple proof for any two sequential  
+6249.12s: lines you could write a slightly more complicated 
+proof for an if statement to prove a loop correct  
+6257.94s: you had to use induction so that was a little 
+more complicated but bit by bit he was able to  
+6264.03s: build up a simple structure of mathematical proof 
+but then he noticed something there were certain  
+6272.37s: algorithms that could not be proven correct there 
+was no rational way to prove them correct and he  
+6278.91s: discovered that those algorithms were were those 
+that had unrestrained go twos this is something  
+6286.47s: that actually touring had proved in 1936 it's 
+the halting problem it goes back to the halting  
+6291.90s: problem of 1936 which is that there are certain 
+algorithms that cannot be proven in that cannot  
+6297.96s: be proven correct the reason they cannot be proven 
+correct is because they have unrestrained go twos  
+6302.22s: he fell back on another theorem that two other 
+guys had written about the same time which was  
+6308.22s: that every algorithm can be composed of three 
+structures sequence selection if-then-else  
+6315.66s: and and iteration loops every algorithm can 
+be written out of those three structures so  
+6321.87s: Dijkstra said okay no go deuce everybody has to 
+use these three structures that will guarantee  
+6327.24s: that the algorithms can be proven correct 
+we never bothered to prove anything correct  
+6336.06s: Dijkstra's whole vision failed we don't prove our 
+software correct we fell back on something else
+6342.06s: Dijkstra's vision was this mathematical 
+superstructure like Euclidian geometry we  
+6349.86s: do not have that Dijkstra's vision failed but 
+we do have something else there is a branch of  
+6357.75s: knowledge that you and I risk our lives on every 
+day our lives depend on this branch of knowledge  
+6363.36s: every day it cannot be proved correct and yet 
+we very happily risk our lives with it every  
+6370.02s: day this branch of knowledge is called science 
+science is a set of conjectures and hypotheses  
+6377.13s: that cannot be proven correct experiments can 
+prove them false but never true, you and I risk  
+6385.50s: our lives every day on things that are not proven 
+correct we have not proven that airplanes can fly  
+6390.60s: right the science is not proven correct it has 
+simply been surrounded with so many tests that  
+6397.56s: there's no point in saying that it's not correct 
+any more software could be proven correct but we  
+6405.87s: abandon that we gave up on it it's too hard 
+but we can test it we can use science and  
+6414.18s: we can write tests that demonstrate that the 
+software is not failing we don't know if it's  
+6423.36s: correct but it's not failing we treat software 
+like a science not like a mathematics this was  
+6430.86s: Dykstra's failure Dijkstra thought we were 
+headed headed towards the mathematics or not  
+6435.24s: we're headed towards of science and we prove our 
+software not incorrect I'm sorry for the double  
+6443.22s: negative that's the only way to say that we don't 
+prove our software correct we demonstrate that it  
+6447.72s: is not incorrect by surrounding it with tests how 
+many of you write tests ok that's not all of you
+6459.16s: so then I have to ask what the hell is 
+the matter with the rest of you okay so  
+6463.93s: how many of you write tests for every line of 
+code that you write mmm that's a much smaller  
+6474.61s: number isn't it why would that be why would 
+you not test every line you wrote what would  
+6481.09s: motivate you to bypass testing lines that you 
+wrote and I'm gonna write these lines I'm not  
+6487.21s: gonna test them why would you do that if 
+they answer that question is part of the  
+6493.48s: ethics issue here now right why would you write 
+code and then not test it now you might say ok  
+6501.67s: well I'm testing the whole system yes but are 
+you testing the individual lines that you wrote
+6509.35s: we'll talk about that later but I think 
+it's 11 o'clock and it's the water working

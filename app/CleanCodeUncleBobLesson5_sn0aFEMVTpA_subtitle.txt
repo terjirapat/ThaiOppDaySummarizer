@@ -1,0 +1,2776 @@
+7.13s: growing a better world together quite
+10.38s: the goal we set there for such an
+14.31s: ambition we need the right skills and as
+17.55s: developers we code so let's sharpen
+22.11s: those skills and start coding a better
+24.69s: world together
+25.98s: [Music]
+70.99s: this first edition of coding a better
+73.66s: world together is on clean coding and
+76.54s: clean architecture and who better to
+81.22s: teach us more about this than mr. clean
+84.28s: code aka Uncle Bob the one and only
+88.84s: Robert see marki
+92.26s: [Music]
+101.59s: and here are your hosts for today
+104.99s: [Music]
+110.65s: ons clubbers and Fedora spice
+114.98s: [Music]
+117.35s: hello everyone
+119.13s: I said hello everyone welcome here today
+125.31s: a travelling for the second day of the
+127.74s: clean code and clean architecture event
+130.10s: I'm Hans clavos and this is Fedora's we
+133.83s: will be your host for today when you
+137.73s: want to share something about the
+139.14s: contents of the talks of the day you can
+141.15s: do that via Twitter you can use the
+144.03s: handles you see above when you have
+148.47s: something to say about the organization
+151.02s: the facilities or behavior of people you
+153.81s: can address that with me or one of the
+155.58s: people in the blue shirts we are here to
+157.98s: help you I want to make it a fun event
+159.93s: for you to those would you like to say
+162.45s: something on behalf of the Utrecht jerk
+164.82s: yeah thanks all hands
+166.71s: welcome everybody good morning I hope
+170.28s: you will enjoy our great program for
+173.04s: today on behalf of Woodruff Jack I would
+176.19s: like to also share that we are really
+179.67s: honored to be co-hosting this great
+182.07s: event today I will not be saying yet why
+185.40s: this event will be great again today
+187.88s: we've been organizing quite a few events
+190.29s: for the past three years
+192.60s: however today is a big day also
+196.98s: something more a warm welcome to the
+199.89s: people who are watching us from the
+201.63s: livestream and Hans I think we invite
+205.62s: Digg float on the stage
+207.83s: Nick is our chief architect Rabobank I
+211.97s: didn't want to give you a welcome on
+214.23s: behalf of rubber ring good morning
+217.44s: everyone
+218.27s: welcome to the second day of this event
+221.85s: with Uncle Bob my name is Nick flood I
+224.64s: am the chief architect of Rabobank and
+226.46s: it's a pleasure to welcome you all here
+228.78s: in the auditorium which we use for
+231.09s: internal gatherings but also for
+232.95s: external events like this one so also a
+235.68s: warm welcome to all non Rabobank IT
+238.89s: colleagues here in the room and the
+240.54s: people who are joining us on the live
+242.40s: stream I hope you are able to stay with
+244.50s: us for the rest of the day it's a real
+248.67s: pleasure I'm actually
+249.84s: to have a robot or Bob Martin here today
+253.14s: he brings a wealth of experience and
+255.93s: insights in IT so much that many of us
+260.31s: like to refer to him as Uncle Bob and
+262.71s: maybe explained to you later today how
+265.14s: that Uncle Bob name came to him already
+268.02s: a while ago I'm pretty sure that every
+272.46s: one of you works at the moment in an
+273.99s: organization where the HR way of working
+276.48s: has been adopted big time so do we here
+279.54s: at Rabobank we have around 400 DevOps
+281.97s: teams working agile and because we are
+286.56s: that's quite a crowd a group we are also
+288.93s: applying scaled agile techniques to keep
+291.48s: that all a little bit together and as we
+293.88s: speak we are taking the next step in
+295.92s: transforming ourselves to work based
+298.11s: DevOps so we applying the Spotify model
+301.17s: with stripes and squats and chapters and
+304.50s: because there are so many of these IT
+307.26s: squats we also have an intermediate
+309.06s: layer called areas between the tribes
+311.16s: and the squats and that's we are moving
+312.96s: to the aim of that is to create base
+316.44s: DevOps teams with as much autonomy as
+319.50s: possible so that helps us to get speed
+322.77s: and agility in the organization in our
+324.84s: digital transformation and now some
+329.37s: agile evangelists will preach that with
+333.06s: emergent design techniques you don't
+335.04s: need architecture anymore and
+336.63s: architecture is a dying major as a chief
+342.21s: architect of course I have a little
+344.04s: nuanced view to that I think emerging
+347.28s: design is something that will definitely
+349.41s: work in in startups and small scale
+352.50s: organizations but as soon as you start
+355.71s: to have some larger scale developments
+358.17s: especially in an organization like this
+359.93s: you need something to glue that together
+363.15s: you need something what scaled agile
+365.07s: calls
+365.76s: intentional architecture what I would
+368.73s: rather call a target architecture as we
+371.22s: always used to call it but maybe just
+374.10s: enough target architecture I'm not a
+376.68s: believer in big design up front I've
+378.84s: seen too many cases where we had
+381.21s: hundreds of pages of design up front
+383.43s: and we never realized that or if we
+386.10s: realize it we only used a small
+388.29s: percentage of that so no big design up
+390.54s: front but the art is in finding the
+393.48s: sweet spot of just enough architecture
+396.80s: not too much not a little and also just
+399.69s: in time architecture not too late and
+401.85s: not too early
+403.05s: I'm sure today we offer to talk about
+406.83s: this this afternoon there's also session
+408.48s: about agile and architecture we also
+411.66s: using architecture guidelines to help us
+415.50s: realize the three main IT roadmaps that
+418.38s: we have set for ourselves the next two
+420.33s: years and I'll quickly walk you through
+422.67s: them the first is our legacy
+424.41s: decommissioning roadmap as a large and
+427.77s: already long assisting organization we
+429.57s: also have quite some legacy within the
+431.88s: bank but we are pretty far already
+434.73s: getting rid of that so most of the new
+436.98s: systems the more modern systems that we
+438.99s: want to use in the future are already
+440.67s: here and our already running and as we
+443.73s: speak we're moving functionality from
+445.38s: the old to the new systems and in a
+447.45s: couple of years we'll be able to get rid
+448.92s: of the old systems and we'll be on
+451.02s: modern platforms
+452.57s: the second IT roadmap that we are
+455.76s: working towards is to the public cloud
+457.56s: last year we decided that public cloud
+460.17s: is the future also for banks and we are
+462.90s: moving to the public cloud the IT for
+466.29s: commodity functions preferably to
+468.36s: software-as-a-service solutions and the
+471.27s: rest of our IT preferably to platform
+473.28s: as-a-service solutions to make use of
+475.50s: the innovative functions that are
+477.99s: available in the cloud so to make us
+479.70s: more innovative that's the second IT
+482.01s: roadmap and the third IT roadmap is our
+485.01s: enterprise data roadmap where we are
+486.96s: establishing a data foundation in the
+489.42s: form of an enterprise data Lake which
+491.61s: will be the foundation for advanced data
+494.01s: analytics artificial intelligence and to
+496.17s: truly become a data-driven bank so these
+498.33s: three roadmaps we are working towards
+501.21s: and within the boundaries of these IT
+504.98s: roadmaps we try to to get devops teams
+509.49s: that are as autonomous as possible and
+512.76s: one way to achieve autonomy for the best
+515.43s: DevOps teams
+516.74s: is to try to stimulate them and maybe if
+518.84s: you teach them to think like architects
+520.94s: and that's what I particularly like
+522.26s: about the event like this where we have
+524.66s: a roomful of people
+526.01s: not all architects most of your probably
+527.96s: software engineers and if all of you and
+531.95s: and also business people start to think
+534.47s: a little bit more like architects then
+537.38s: we can achieve maximum autonomy of the
+540.08s: best DevOps teams but still make sure
+541.70s: that we have sustainable IT going
+544.49s: forward in the future and and wouldn't
+547.91s: it be nice if that is what the future
+549.89s: will look like so I'm really looking
+552.80s: forward to today I'm sure you all do I
+555.50s: will be here all day like hopefully you
+560.53s: thanks for joining us I wish you a very
+563.51s: inspiring day and enjoy the
+567.20s: presentations thank you thank you dick
+578.11s: now we next we will get to the person we
+581.18s: all came for today but let me first
+584.06s: introduce him Uncle Bob has an
+586.85s: impressive career in the IT industry he
+589.31s: has been working there for over 40 years
+592.15s: he had always had a keen eye for what's
+596.60s: architecture what's a good architecture
+598.31s: and who and how to arrive at it
+600.82s: he shares his view as often as possible
+603.74s: and to give the shortest possible
+606.35s: summary of his few it's about people not
+610.10s: technology as one of the authors of the
+615.01s: agile manifesto and the manifesto for
+617.99s: craftsmanship he helped the industry to
+621.20s: become more agile but he hates it that
+624.59s: the agile movement is taken hostage by
+628.42s: conference organizers and consultants
+630.80s: who are so busy with certifying people
+634.40s: scrum masters and project managers that
+636.95s: they abandoned the programmers and with
+640.07s: that they abandoned the values and
+642.74s: disciplines of the agile itself and I
+647.57s: think that's a sad message but
+650.10s: Uncle Bob stays positive and he keeps
+653.58s: him sending the message about
+655.47s: craftsmanship so let me welcome Robert C
+658.98s: Martin better known as Uncle Bob
+661.88s: [Applause]
+664.28s: [Music]
+682.49s: okay
+687.98s: these lights up here are probably
+692.66s: incandescent lights probably I don't
+696.42s: think they're light emitting diodes
+698.34s: they could be nowadays because we can
+700.50s: get light-emitting diodes that are very
+702.21s: bright but my guess is that they're
+704.91s: incandescent I think I could figure that
+707.40s: out too you do carry diffraction
+718.17s: gratings with you don't you some
+724.14s: diffract because you never know when you
+726.06s: want to know if a light is incandescent
+728.91s: or an LED I carry quite a few of them
+732.18s: with me so I tend to lose them yeah
+735.66s: those are incandescent lights no doubt
+737.34s: about it if there's a smooth spectrum
+739.02s: coming out of them they're incandescent
+740.96s: now these things here I hope they're
+746.73s: LEDs probably are because they're not
+750.36s: hot those who have those would be very
+752.64s: hot these would not let's see
+754.65s: oh yeah no definitely LEDs well probably
+759.14s: LEDs yeah LEDs green and red yeah no
+763.50s: doubt about it those are LEDs how about
+765.39s: these yep LEDs
+771.83s: why do incandescent lights glow why do
+779.61s: they light up cuz they're hot okay
+783.87s: why do hot things glow you're glowing
+788.37s: right now in infrared radiation because
+790.44s: you're at a temperature of 98.6 degrees
+793.71s: Fahrenheit
+794.87s: why are you glowing why do hot things
+798.12s: glow why do when you hold a piece of
+800.55s: metal in a fire why does it turn red and
+802.86s: glow
+803.43s: what makes hot things glow energy good
+809.28s: good answer
+810.21s: yes lacking a bit of detail
+815.48s: why do hot things grow what is the
+818.61s: mechanism so now imagine that you are an
+822.54s: atom of tungsten that's you probably
+826.41s: what's glowing up there the filament in
+828.57s: those lights is probably made of
+830.43s: tungsten metal they they make them out
+832.47s: of tungsten because tungsten has a very
+834.18s: high melting point so you're on an atom
+837.15s: of tungsten and you're getting hotter
+838.83s: and hotter because there's an electric
+840.69s: current flowing through you and the
+843.24s: electrons that are speeding by you are
+845.28s: bumping into you and making you shake
+847.05s: and that's what heat really is is just
+849.54s: the shaking of the atoms you're a
+852.48s: tungsten atom that is shaking you are
+855.81s: composed of charged particles electrons
+858.63s: and protons so the electrons and protons
+861.81s: are shaking as well now imagine that
+865.35s: you've got 1 electron shaking that
+869.40s: electron is surrounded by an electric
+871.50s: field let's say you've got an electron
+874.35s: over here that's shaking and another
+876.03s: electron over here that is not this
+879.87s: shaking electron is trying to repel this
+882.45s: one over here so as this one shakes this
+884.76s: one begins to shake how long does it
+887.25s: take for those waves of charge to get
+890.91s: from this electron to this electron the
+894.66s: waves of charge this one sets up waves
+896.88s: of charge they move at the speed of
+899.73s: light in fact that's what light is light
+901.92s: is waves of charge the reason that hot
+905.22s: things glow is because charged particles
+907.71s: are shaking and that shakes the
+909.99s: electromagnetic field and causes waves
+912.12s: in the electromagnetic field which is
+914.37s: light and our eyes interpret that it's
+916.65s: like that is why hot things glow so the
+919.26s: next time your children ask you why do
+922.41s: the lights go on when you throw the
+924.15s: switch you will be able to answer that
+925.41s: question today is all about architecture
+931.53s: and that's a good thing because every
+936.09s: programmer in this room is an architect
+938.54s: to one degree or another
+940.92s: you must understand the principles of
+944.13s: architecture if you're going to do a
+945.69s: reasonable job
+946.55s: writing code because architecture is not
+949.07s: one of those things that is entirely
+951.23s: high-level architecture seeps down into
+954.74s: the individual lines of code that you
+956.72s: write now there are lots of principles
+960.23s: about the individual lines of code we
+962.30s: write and we can talk about those
+963.83s: another time but there are also
+965.63s: principles at a high level about how
+967.85s: software systems are structured and if
+971.90s: the lines of code aren't written
+973.85s: properly you cannot build those
+975.83s: high-level structures the chief
+979.46s: architect mentioned something and it
+980.93s: struck me said there are folks in the
+984.08s: agile community who say that
+986.45s: architecture is obsolete that all you
+989.60s: have to do is let the architecture
+992.99s: emerge this has always been ridiculous
+997.25s: none of the people at the agile
+999.32s: manifesto meeting in Utah thought that
+1002.10s: we all thought that it was a good idea
+1004.60s: not to invest massive amounts of time
+1006.82s: upfront trying to design every last
+1009.04s: little bit of the software but none of
+1011.23s: us thought that architectures emerge
+1013.87s: from nothing and if you had pulled any
+1017.35s: of us back then you would have heard us
+1019.09s: tell you that no software system can be
+1022.21s: assembled at any kind of scale unless
+1024.58s: some thought had been put into what the
+1026.47s: structure of that software system is
+1028.21s: going to be so let me dispel that
+1031.45s: particular illusion right now agile is
+1035.29s: not the absence of architecture agile is
+1039.01s: simply a framework in which we can apply
+1041.56s: a good architecture now is architecture
+1047.53s: fixed when you when you initially decide
+1052.18s: what shape the system is going to be is
+1054.43s: that the shape that the system will be
+1056.89s: and the answer to that is no because as
+1060.22s: you begin to write the individual lines
+1062.14s: of code and as you begin to assemble the
+1064.30s: modules in that system you will find
+1066.01s: that there are pressures created by
+1068.68s: those modules and by those lines of code
+1070.81s: that impinge upon the architecture and
+1073.06s: cause it to change shape and this
+1075.43s: changing shape of the architecture
+1077.56s: continues every time someone adds in
+1080.44s: feature our apps for a change to a
+1082.54s: feature or adds a new facility to the
+1085.09s: system that puts pressure on the
+1087.10s: architecture and the architecture must
+1088.81s: respond
+1089.68s: therefore the architecture is a living
+1092.26s: breathing thing it changes with the
+1094.96s: system on a day to day basis it is not
+1098.50s: some fixed map that we all follow for
+1101.20s: the next 10 years it's going to be
+1104.05s: something that we always have to adjust
+1106.30s: and tweak and twiddle and respond to
+1108.34s: throughout the lifetime of any software
+1110.62s: project that was a good rant I liked
+1114.64s: that one so can I have my slides
+1122.95s: thank you good oh I should probably do
+1126.55s: this to it excellent I've built a lot of
+1132.76s: applications over the years I've been
+1137.82s: writing software since well I wrote my
+1142.12s: first line of code when I was 12 years
+1144.01s: old and that would have been in 1964 it
+1148.03s: wasn't a line of code though my mother
+1152.11s: had purchased for me at the age of 12 a
+1155.41s: little plastic computer she knew my
+1158.83s: interest in science at the time and she
+1160.60s: thought that this would be an
+1161.50s: interesting scientific toy to give her
+1163.33s: son so she bought this little plastic
+1165.97s: computer she had no idea what it was the
+1168.85s: little plastic computer had three
+1171.07s: flip-flops little sliding pit bits of
+1174.46s: plastic that could slide between two
+1176.32s: states three bits and they had a little
+1179.50s: label on the side zero and one that
+1181.57s: would show through a window so I could I
+1183.70s: could see the ones and zeros the three
+1185.83s: ones and zeros in this little window as
+1187.90s: I moved the sliders back and forth the
+1191.62s: sliders had grooves in them and those
+1194.17s: grooves would allow rods little metal
+1196.51s: rods to slip into the grooves little
+1199.09s: metal rods had Springs on them that
+1201.25s: would pull them into the grooves and
+1203.02s: then those little metal rods would push
+1205.60s: on other rods that would cause the
+1208.06s: flip-flops to change state the rods were
+1211.69s: coupled to the flip-flops by little
+1214.03s: boobs that looked like little segments
+1216.31s: of a soda straw that you would put on
+1218.14s: pegs on the on the flip-flops on the
+1221.71s: little sliders if you think about this
+1223.96s: for any length of time you'll realize
+1225.13s: that this is a three bit finite state
+1227.02s: machine driven by these little metal
+1229.36s: rods which were and gates and there were
+1231.40s: six of them so it's a three bit finite
+1233.38s: state machine driven by six and gates
+1235.24s: and you could couple those six and gates
+1237.25s: to the set or reset of any of the three
+1239.32s: flip-flops at the age of twelve I got
+1244.51s: this little toy and I played with it I
+1249.16s: opened up the manual I read the
+1250.93s: experiments in the manual they told me
+1252.64s: where to put the tubes on the pegs and
+1254.56s: how does how to crank the machine and
+1256.69s: you could make it do some very basic
+1259.12s: things for example you could make it
+1260.80s: count if you put the tubes on the pegs
+1263.38s: just the right way it would count in
+1264.97s: binary from 0 up to 7 and then back to
+1267.64s: zero again there was another program
+1270.10s: that would make it count in reverse
+1271.81s: order and the arrangement of the tubes
+1275.38s: on the pegs was eerily similar but oddly
+1279.13s: different and to the twelve-year-old
+1281.77s: mind I stared at them and going why is
+1284.41s: why are they the same and why are they
+1286.69s: different you could make it mad there
+1291.07s: was a an arrangement of tubes on the
+1292.90s: pegs that created a full adder so you
+1295.45s: could put two bits in and then and add
+1297.85s: the two bits and it would create a sum
+1299.71s: bit and it would also give you the carry
+1301.42s: bit by changing one of the inputs there
+1305.29s: were a number of other experiments you
+1306.73s: could run about 20 or so and I did them
+1309.70s: all and I was deeply frustrated because
+1313.09s: after all 20 of those experiments I had
+1315.49s: no idea how this machine worked and I
+1318.52s: wanted to make it do what I wanted to do
+1320.68s: and I had I had a program in mind it was
+1323.32s: called mr. Patterson's computerised gate
+1326.05s: I wanted this this program to execute on
+1329.95s: this little computer but I didn't know
+1331.48s: how to arrange the tubes on the pegs the
+1333.85s: connection hadn't been made at the end
+1337.45s: of the manual there was a little
+1338.92s: paragraph and paragraph said if you'd
+1342.10s: like the advanced programming manual
+1344.97s: send in a dollar
+1347.33s: and we will ship you the advanced
+1349.07s: programming man so I did I got a dollar
+1351.83s: and I stuck it in an envelope and I sent
+1353.69s: it off it took six weeks because there
+1355.85s: was no Amazon in those days but six
+1359.09s: weeks later in the mail I got a little
+1361.22s: packet in that packet was the advanced
+1363.74s: programming manual I keep this in a
+1366.80s: ziploc bag on a bookshelf in my office
+1369.53s: it holds a place of honor there I got it
+1372.47s: down and read it several years ago it is
+1375.56s: perhaps the most cogent description of
+1378.98s: boolean algebra written for a 12 year
+1381.17s: old that is possible to write it is only
+1384.14s: about 25 or 30 pages long but it's
+1387.26s: completely unapologetic it assumes that
+1389.93s: you're curious enough to work and it
+1393.11s: starts out immediately with truth tables
+1395.30s: and Venn diagrams and karnaugh maps and
+1397.49s: goes right into boolean variables and or
+1400.64s: XOR and / or x / or boolean algebra like
+1404.84s: demorgan's theorum the associative
+1406.79s: property of and the associative property
+1408.68s: of or distributive property of an over
+1410.93s: or an or over an and all that stuff and
+1413.12s: I'm reading through it going yes yes I
+1415.73s: understand yes yes I understand get to
+1417.92s: the point and after they've done all of
+1421.22s: this boolean algebra to tutorial within
+1424.52s: about 12 pages they say all right now
+1428.80s: you've got an idea for a program here's
+1431.33s: what you have to do you have to write
+1432.71s: down the bit transitions how are the
+1435.47s: bits going to change on this machine
+1437.20s: convert that into boolean equations in
+1439.82s: andover or form reduce those boolean
+1442.52s: equations to lowest terms by using the
+1444.47s: boolean algebra techniques we gave you
+1446.24s: you should wind up with six or fewer
+1449.06s: three bit equations then here is the
+1452.39s: little map that shows you how to take
+1454.10s: those three bit equations and turn them
+1456.32s: into tubes on the pegs so now I got my
+1461.24s: little program out mr. patterson's
+1463.22s: computerized gate and I wrote down the
+1466.58s: bit transitions and I converted them
+1469.13s: into boolean equations and and / or form
+1472.40s: and I reduced them to lowest terms using
+1475.46s: the boolean algebra they had taught me
+1476.87s: and I put the tubes on the pegs and I
+1480.77s: cycled the machine and that machine did
+1483.53s: exactly what I wanted it to do and I was
+1486.08s: a programmer that was it
+1487.25s: the conversion had happened the hook had
+1489.35s: been set I was going to be a programmer
+1491.21s: for the rest of my life I made that
+1492.77s: decision at the age of 12 and that's
+1495.47s: what I wanted to do for the rest of my
+1497.18s: life and that's what I have done for the
+1498.44s: rest of my life at some point you
+1504.20s: probably made that decision too and
+1506.20s: maybe it was not as dramatic as that
+1509.45s: maybe it wasn't a moment although I
+1511.76s: imagine that many of you did have a
+1514.70s: moment like that at some point you
+1518.24s: touched a computer and the computer did
+1522.50s: what you wanted
+1523.61s: you made it do what you wanted it to do
+1527.06s: and you realized that you were a god a
+1531.31s: small God in a very small world but
+1534.89s: inside that world you were a god and you
+1539.03s: could make that machine do anything it
+1541.70s: was possible to make that machine do and
+1543.98s: some of you probably had that feeling
+1546.65s: the same feeling I had and thought yeah
+1549.73s: this is what I want to do it's some kind
+1552.95s: of personality defect probably but I
+1556.46s: believe most programmers are infected
+1558.95s: with that particular particular moment
+1562.22s: in time when they decided yeah I want to
+1566.27s: be a programming god I've built lots of
+1570.47s: applications over the years since then
+1572.15s: lots and lots and lots of them and they
+1573.86s: range from all different kinds of
+1575.36s: applications I've done a lot of work in
+1577.46s: embedded real-time systems I did a fair
+1580.73s: bit of of work in telephony I did a lot
+1584.87s: of machine control applications I've
+1587.36s: done financial applications I've done
+1590.18s: factory automation applications I've
+1592.28s: written tons and tons of code in in
+1594.08s: languages all over the place
+1597.61s: and I discovered something in all those
+1602.51s: years of writing code and writing
+1605.12s: applications and what I discovered was
+1608.84s: that the the rules of architecture are
+1613.16s: independent
+1614.29s: of every other variable the rules of
+1617.32s: software structure are the same no
+1620.29s: matter what the application is no matter
+1622.15s: what the environment is no matter what
+1624.04s: the language is the rules of software
+1626.53s: architecture remain the same yesterday I
+1629.59s: talked about how software itself has not
+1632.62s: actually changed much sequence selection
+1634.99s: iteration the fundamental building
+1637.09s: blocks of software but it also remains
+1639.64s: true that the fundamental rules of
+1641.95s: architecture of software system
+1643.99s: architecture have not changed since the
+1647.17s: earliest days they remain stable many
+1650.83s: many software developers get caught in
+1652.99s: the trap that something new is better be
+1659.86s: careful of this one because there's not
+1661.51s: much new one of the things that's new
+1664.30s: right now is micro-services and
+1665.74s: everybody is spinning about
+1666.67s: micro-services yeah a micro-services you
+1669.46s: realize that micro services were
+1670.90s: invented within the first five years of
+1673.36s: software software development at the
+1675.46s: initial Fortran compiler on a on the 708
+1678.43s: computer the IBM 708 computer was a set
+1681.37s: of micro services because they simply
+1683.11s: didn't have enough memory space in the
+1685.45s: machine to hold the whole compiler so
+1688.51s: they had to shuttle little bits of it in
+1690.04s: and out and they had to communicate
+1690.94s: through a simple simple protocol just
+1693.34s: like a bunch of isolated micro services
+1695.44s: old idea been around the block a whole
+1698.35s: bunch of times it gets reintroduced
+1700.15s: every 10 years as something new and
+1702.52s: everybody spins for a while and then we
+1704.65s: realized oh yeah that was what we did
+1705.91s: ten years ago and why did we get so
+1707.53s: excited about it be careful of this
+1710.95s: stuff the world of of software
+1713.35s: development is a world that is that at
+1717.34s: its foundation is fundamentally stable
+1721.83s: composed of rules that have not really
+1724.48s: changed in 70 years and yet it's driven
+1727.87s: by this massive effort of popularity
+1733.86s: this this wild fashion sense and we wind
+1738.19s: up with with the new fashion of software
+1740.86s: every year in the new the new language
+1743.38s: every year in the new platform every
+1745.48s: year and the new framework every
+1747.46s: and everybody goes yes it's the new
+1749.59s: thing and the new thing is not new it's
+1752.98s: old it's the same you begin to realize
+1757.21s: that after well fifty years I suppose I
+1767.64s: sucked I told you this yesterday that
+1770.68s: getting software working is the easy
+1772.66s: part getting software right is the hard
+1777.01s: part
+1778.26s: but there's magic that happens when you
+1781.45s: get the software right and it's magic
+1785.17s: that very few of us have experienced
+1788.04s: because much of the software in the
+1790.66s: world is not right but I've experienced
+1794.59s: it several others have experienced it
+1796.36s: there's this magic that occurs when the
+1798.52s: software is right and that magic is that
+1801.46s: the effort to build it and the effort to
+1804.49s: maintain it is minimized the struggle to
+1807.94s: continue to add to it is minimized the
+1811.53s: functionality and the flexibility of the
+1813.88s: software is maximized now some of you
+1817.24s: think I'm talking in utopian terms some
+1820.30s: of you think I'm preaching heaven and
+1822.55s: only if you if you don't sin any more
+1824.77s: you will achieve heaven that's not what
+1827.77s: I'm talking about here if you are
+1830.92s: disciplined and if you build software
+1834.40s: with good architecture and a good
+1836.41s: structure you will experience a
+1838.84s: reduction in the effort to keep that
+1841.99s: software system working
+1851.43s: what is design in architecture why do we
+1854.25s: talk about these things in two different
+1855.87s: terms why do we why do we talk about
+1858.12s: software design and then separately talk
+1860.28s: about software architecture why is this
+1862.26s: whole day about architecture and the
+1865.92s: answer to that is there's very little
+1867.72s: difference between them at all software
+1870.03s: design and software architecture are
+1871.62s: roughly the same thing we we try to push
+1875.16s: architecture to a higher level because
+1877.23s: it sounds auspicious architecture that
+1881.70s: sounds high-level and design sounds
+1884.61s: midium medium level but there's actually
+1886.80s: no line you cannot draw a line between
+1889.29s: architecture and design and sample this
+1891.12s: is where architecture begins and this is
+1892.71s: where design ends because even at the
+1895.23s: very bottom level there's a little bit
+1896.79s: of architecture going on and even at the
+1898.41s: very top level there's a little bit of
+1900.18s: design going on it's a continuum and so
+1904.83s: all of us all of us software developers
+1907.62s: are architects what is the goal of
+1912.90s: software architecture some folks would
+1917.43s: say well goal of software architecture
+1918.75s: is to build systems that work and can
+1920.88s: scale and and there's a whole bunch of
+1923.52s: things that you could say but the actual
+1925.20s: goal of software architecture the goal
+1928.32s: of a software architect is to minimize
+1931.50s: the human resources required to build
+1933.75s: and maintain software systems somewhere
+1937.47s: up there it says it's all about people
+1938.91s: yes it's all about people minimize the
+1942.18s: manpower required to build and maintain
+1944.70s: software systems that is the goal of
+1946.53s: architecture and that is the goal of
+1948.03s: software of the software architect the
+1951.27s: measure of design quality is simply the
+1953.55s: measure of effort required to meet the
+1957.09s: needs of the customer the quality of the
+1961.11s: design can be measured by measuring the
+1965.58s: amount of effort it takes to meet the
+1968.37s: needs of the customer if effort remains
+1972.42s: constant or shrinks with time then the
+1976.08s: design is good but if the effort
+1978.87s: required to maintain a system grows with
+1981.54s: time then the design in the architecture
+1984.33s: are bad
+1985.20s: it's a very simple relationship as
+1987.44s: effort increases design quality
+1990.24s: decreases it's an inverse proportional
+1994.11s: relationship and it's very simple to
+1995.58s: understand it's also simple to recognize
+1999.69s: if you know you are working on a system
+2002.39s: where the effort has increased you know
+2004.22s: the design and architecture are bad the
+2012.98s: data that I'm going to present you is
+2015.17s: real unfortunately it's also anecdotal
+2019.13s: because I cannot quote the sources
+2020.87s: because the folks who want to the
+2023.69s: sources the source of the data wants to
+2025.70s: keep their identity private also it's
+2028.52s: secondhand because this data was not
+2030.86s: collected by me it was collected by
+2032.60s: Jason Gorman but let me present it to
+2035.96s: you anyway and you can assess whether or
+2038.15s: not it's appropriate this is a case
+2040.85s: study of a fairly large company that
+2043.79s: began as a small Internet start-up and
+2047.06s: then grew and of course that's the hope
+2050.12s: of all internet startups they want to
+2051.83s: grow and they want to succeed take a
+2054.26s: look at the graph on the left there and
+2056.84s: that's the amount of engineering staff
+2059.81s: the number of programmers in the
+2062.20s: organization and notice how it's growing
+2065.06s: at an exponential rate the numbers on
+2068.06s: the bottom are the releases so release
+2071.03s: one had gee maybe 10 programmers 20
+2075.02s: programmers something like that by
+2076.76s: release 2 it had doubled perhaps by
+2078.98s: release 3 it had doubled again and it
+2080.81s: continues to double roughly until by the
+2084.02s: release 8 they had 1200 programmers from
+2091.07s: 10 to 12 hundred in 8 releases think of
+2096.20s: the amount of effort that implies a
+2098.71s: tremendous amount of increased effort
+2101.12s: why to get to the next release what's
+2104.42s: going wrong there the amount of effort
+2106.88s: applied to this application is growing
+2110.18s: exponentially which tells you that the
+2112.55s: design and architecture are crap because
+2116.21s: the effort is growing through the roof
+2118.49s: take a look at the the write the graph
+2122.27s: on the right the blue one that's the
+2125.03s: number of lines of code in thousands
+2129.16s: from one release to the next and notice
+2132.71s: that it has the inverse relationship to
+2134.72s: the effort the effort is an exponential
+2137.84s: scale the number of lines of code is a
+2140.33s: logarithmic scale the number of lines of
+2143.09s: code is not changing much even though
+2145.52s: there's 1,200 programmers the amount of
+2147.80s: new lines of code are vanishingly small
+2151.60s: if you're an accountant and you're
+2156.62s: thinking in terms of money that would
+2158.66s: scare the hell out of you for the CFO of
+2161.24s: this organization that would look like a
+2163.61s: disaster in the making because you're
+2165.59s: spending immense amounts of money and
+2167.51s: you're getting almost no return take a
+2171.44s: look at the financial signature of the
+2173.09s: bottom on the bottom this is just the
+2175.28s: cost per line of code in programmer
+2178.37s: salary and it's following the
+2179.60s: exponential curve the cost per line of
+2181.97s: code is going through the roof something
+2184.49s: has gone wrong here now what what is it
+2187.64s: that went wrong well I was an Internet
+2190.13s: start-up and Internet start-ups do you
+2192.98s: think they follow any design and
+2194.12s: architecture rules or do they just kind
+2196.91s: of throw a bunch of code together and
+2198.17s: hope that something great happens and in
+2200.36s: most cases it's the latter
+2202.10s: so the startup culture especially in the
+2204.50s: net in the United States and
+2205.73s: particularly in in the West in general
+2207.98s: the start-up culture is a culture of
+2211.07s: making a mess as fast as you can in
+2213.98s: hopes that you can produce something
+2216.41s: that will put you on the exponential
+2219.29s: growth of profit but this is a very bad
+2224.00s: strategy even for an Internet start-up
+2226.25s: because it forces most internet startups
+2229.19s: to experience this particular problem
+2231.50s: and before they can ever get profitable
+2233.63s: it kills the company most internet
+2235.88s: startups especially software internet
+2238.61s: startups fail not because they couldn't
+2241.94s: have succeeded commercially but because
+2244.40s: they can't maintain and sustain the cost
+2246.95s: of the software they're producing we all
+2249.47s: get excited about you know Facebook or
+2251.81s: or other internet startups that really
+2254.33s: made it big but how many fail that you
+2258.05s: never hear of and the numbers are
+2259.52s: astounding massive numbers of them fail
+2263.29s: would they have failed if they had kept
+2267.14s: their software clean some of them would
+2269.66s: have many probably would not because
+2272.78s: they could sustain the effort long
+2275.03s: enough to grab on to the profit
+2277.58s: rollercoaster some people worry that
+2280.67s: well we've got to be first that's the
+2283.64s: only way to grab on to the profit
+2285.14s: rollercoaster is to be first and
+2286.43s: therefore it's justified that we make a
+2288.11s: mess early so that we can grab on to the
+2290.09s: profit rollercoaster and then we will be
+2292.01s: able to afford to clean up the mess
+2294.08s: later was Facebook first not by a
+2299.87s: longshot
+2301.09s: Facebook wasn't first Facebook wasn't
+2303.26s: second Facebook wasn't third there were
+2305.93s: a whole bunch of social networking
+2307.04s: companies out there Facebook just
+2308.96s: happened to hit for some reason and it's
+2311.03s: not exactly clear why
+2312.59s: whatever happened to MySpace it was
+2316.07s: anybody on MySpace oh yeah what happened
+2319.84s: just didn't hit for some reason didn't
+2322.22s: hit they did something wrong but it
+2323.33s: wasn't it wasn't because they made it
+2326.03s: wasn't because they got there first
+2329.35s: Facebook succeeded not because they got
+2331.73s: there first
+2340.37s: continuing on with this look at the
+2342.66s: productivity per release the
+2345.72s: productivity per release I arbitrarily
+2347.22s: set to 100% at release 1 by release 8
+2351.08s: the productivity is on the floor I told
+2354.09s: you about this yesterday
+2355.32s: the decline in software productivity as
+2358.17s: the mess builds here's the actual
+2360.21s: measured evidence and look at that
+2362.15s: fascinating curve how it dives so
+2364.77s: rapidly and then bottoms out and
+2366.75s: asymptotically approaches zero
+2368.93s: once again I stress this is real data
+2371.25s: and look at the cost per release in
+2374.63s: monthly payroll if you're the CFO and
+2379.68s: that's who that guy is there well that's
+2381.72s: not really him I just found that picture
+2384.00s: online but I think it probably assesses
+2386.82s: pretty well his attitude towards what's
+2388.95s: going on here
+2398.39s: there's an old fable they have The
+2403.31s: Tortoise and the hare it's one of
+2404.54s: Aesop's fables and the the fable goes
+2408.02s: this way there's a a rabbit a hare a
+2411.74s: rabbit who can run fast and a tortoise
+2414.50s: who go slow and they go into a race and
+2417.04s: the rabbit is so confident that he can
+2420.59s: win the race because he's fast that he
+2422.72s: falls asleep and the tortoise passes him
+2425.21s: and wins and the moral of the story of
+2428.69s: course is that slow and steady wins the
+2431.21s: race have you ever heard that adage your
+2434.48s: grandmother probably told it to you at
+2436.31s: least I don't know what it is in Dutch
+2437.78s: but in English that's what it is
+2439.46s: slow and steady wins the race one of the
+2445.16s: things that we face in the software
+2446.81s: community right now is this issue of the
+2449.18s: hare and the tortoise because everybody
+2451.79s: wants to be the hare running as fast as
+2454.43s: they can to produce Software's as
+2456.20s: quickly as they can and we hear the
+2458.60s: effort from from our organizations we
+2462.17s: have to go faster we have to go faster
+2466.31s: we have to go faster and every software
+2468.53s: developer in the room has heard that
+2470.93s: message we have to go faster and you
+2473.51s: feel the pressure you you judge yourself
+2476.57s: worth by how fast you can go that is not
+2482.96s: your self-worth that is not your worth
+2485.54s: as a programmer speed is not your worth
+2488.12s: as a programmer but we judge it that way
+2490.70s: we think that way that's how it's been
+2492.86s: impacted upon us for decades speed is
+2496.13s: everything and so what happens because
+2499.28s: of that speed because of that need for
+2502.70s: speed we become overconfident like the
+2506.57s: hare but what is the overconfidence the
+2509.57s: overconfidence is not the confidence
+2511.34s: that we can go fast but overconfidence
+2514.55s: is the confidence that we can deal with
+2516.86s: the mess okay we're gonna go fast but we
+2520.04s: can deal with the mess and we'll go back
+2521.42s: and we'll clean it up later we'll deal
+2524.21s: with it we'll deal with it somehow we
+2525.50s: can deal with the mess because we need
+2527.12s: to go fast and so we roar down the track
+2529.64s: and we're going really fast and we're
+2531.54s: making a mess and the overconfidence is
+2534.30s: that we can deal with that and what is
+2538.50s: the tortoise in this scenario the
+2541.29s: tortoise is the mess because the mess
+2544.59s: builds slowly but inexorably and
+2547.19s: eventually it will pass you and dominate
+2550.53s: everything about the project of course
+2554.61s: we need to go fast but how do you go
+2557.55s: fast what's the secret to going fast as
+2561.03s: a typing faster is it thinking faster
+2564.56s: what is the secret to going fast
+2567.60s: the secret to going fast is to not build
+2571.35s: the roadblocks that are gonna make you
+2573.00s: go slow because the roadblocks will make
+2576.78s: you go slow so don't build them you're a
+2582.03s: programmer how fast can you go well you
+2586.83s: have a speed
+2587.64s: it's your speed it's nobody else's speed
+2590.61s: it's just yours the speed of your
+2592.29s: thought the speed of your ideas the
+2595.68s: speed of your ability to conceptualize
+2598.07s: is there anything you can do to make
+2600.30s: that go faster
+2601.94s: can you rewire your brain to make your
+2604.53s: make yourself go faster well yeah there
+2609.03s: are some things you can do study
+2610.85s: practice but they're long-term things
+2613.50s: they're not short-term things if someone
+2616.35s: comes to you and says I need you to go
+2617.85s: faster what can you do what can you do
+2622.20s: to go faster tomorrow nothing nothing
+2625.47s: there's nothing you can do to go faster
+2626.94s: tomorrow you might be able to go faster
+2629.43s: next year by learning something by
+2631.98s: studying something you might be able to
+2633.63s: go faster five years from now by
+2635.99s: practicing and developing skills but
+2638.43s: there's nothing you can do to go faster
+2640.32s: tomorrow so what's the key to speed you
+2644.40s: cannot speed up what is the key to speed
+2647.70s: and the key to speed is not to slow down
+2649.79s: not to build the stuff that's going to
+2653.13s: slow you down so the key to going fast
+2657.95s: is to go well do the best job you can do
+2661.41s: the cleanest job you can make sure the
+2663.36s: track is nice and clear
+2665.56s: don't roar down and throw a mess down
+2667.42s: there build in a you know steady
+2670.39s: consistent clean way so that you can
+2673.33s: continue to go as fast as possible which
+2676.93s: by the way may not be very fast but at
+2680.20s: least it's not going to slow down we
+2687.31s: often have the impression that going
+2691.45s: clean is slow and so we make the
+2698.05s: decision that temporarily we will go
+2701.26s: dirty because we can go faster by going
+2704.44s: dirty many many people think that in
+2706.12s: fact there is a phrase in English I
+2707.83s: don't know if you have it in Dutch and
+2709.33s: the phrase in English is quick and dirty
+2712.86s: now there's no such thing as quick and
+2714.97s: dirty at least not in software
+2716.62s: you cannot go fast by making a mess even
+2719.35s: in the short term and this is one of the
+2721.30s: debates we will have some folks will say
+2723.46s: well I understand that a mess will slow
+2727.18s: me down in the long term but in the
+2729.64s: short term I can go faster by making a
+2732.04s: mess no you can't no you can't
+2736.33s: the mess will slow you down within an
+2738.01s: hour or two how many of you have had the
+2740.80s: experience that you write code on your
+2742.33s: screen all morning long you go to lunch
+2744.64s: you come back from lunch you look at
+2746.38s: your screen and said who the hell wrote
+2747.67s: that crap because the mess will slow you
+2751.69s: down in a matter of an hour or two if
+2754.39s: you are not clean the best builds and
+2757.99s: slows you down instantly the graph that
+2764.11s: I'm showing here is from the same guy
+2765.76s: Jason Gorman did this experiment and I
+2767.89s: thought it was a good experiment he
+2770.41s: wrote the same program six times in a
+2774.37s: row on six different days the program he
+2778.09s: wrote was a program that he knew very
+2780.19s: well it's an exercise that programmers
+2782.68s: often use as a way to practice it is the
+2785.20s: conversion of an integer into Roman
+2787.15s: numerals try this one day it's a fun
+2789.73s: little program to write what he did is
+2792.64s: he wrote a set of acceptance tests that
+2795.76s: would demonstrate to him when he was
+2797.56s: done prove when he was
+2799.42s: and then he said about to write that
+2802.12s: program six times in six different days
+2805.33s: but on every other day he used a
+2810.49s: discipline on the even days he did not
+2814.27s: use the discipline on the odd days he
+2816.61s: did use the discipline the discipline
+2818.44s: was test-driven development and you can
+2821.59s: see the results here now notice the
+2825.01s: bottom of the graph right this is one of
+2827.20s: those statistical cheating mechanisms
+2829.33s: right I cut the bottom of the graph off
+2831.46s: at 22 so what we're talking about here
+2834.04s: the differences here are relatively
+2835.63s: small but I wanted to accentuate them so
+2837.67s: I'm lying with statistics with
+2842.62s: test-driven development
+2844.00s: he was always faster notice that he's
+2847.24s: always getting faster during the entire
+2849.07s: exercise right every day he does it a
+2851.20s: little bit faster than the day before
+2852.84s: but with test-driven development he was
+2855.73s: always faster than without test-driven
+2857.56s: development and yet his experience was
+2863.74s: that test-driven development felt slower
+2866.74s: and why did test driven development feel
+2869.77s: slower well any discipline feels slow
+2873.06s: all disciplines feel slow because when
+2877.12s: you are exercising a discipline you are
+2880.41s: stepping through the discipline one step
+2883.27s: at a time all disciplines feel slow but
+2887.41s: they speed you up if they're good
+2888.88s: disciplines test-driven development is a
+2890.44s: good discipline sped him up every time
+2892.48s: just felt slow what is the solution to
+2901.96s: the executives dilemma the dilemma that
+2905.29s: the effort is building exponentially and
+2908.23s: the return is falling off logarithmic
+2910.36s: lean what is the solution to this and
+2913.30s: the only way to reverse the decline in a
+2915.46s: software project is to just be as clean
+2919.63s: as you possibly can and all the
+2921.58s: developers and all the architects and
+2923.14s: all the designers follow the disciplines
+2925.42s: of software development and write the
+2927.70s: best code they can all the time and the
+2930.76s: executives and the managers need to
+2933.04s: that expectation what do we as managers
+2938.43s: expect from programmers we expect you to
+2941.56s: do a good job and we trust that if you
+2946.18s: do a good job you will be going as fast
+2948.40s: as possible that is the expectation of
+2952.33s: Management and that is the behavior
+2955.02s: required of the software developers
+2965.04s: software has two values there's the
+2970.33s: value of what it does and there is the
+2973.96s: value of its structure programmers often
+2977.38s: ignore the second value we focus on what
+2986.86s: the software has to do and we believe
+2988.99s: that our job is to satisfy that need
+2992.01s: there's a set of requirements out there
+2994.45s: and we must meet those requirements and
+2996.58s: if we meet those requirements we have
+2998.11s: done our job but if we do that we've
+3000.81s: only satisfied the first value of
+3003.18s: software there is a second value of
+3005.85s: software and it is arguably the more
+3008.10s: valuable of the two the second value of
+3011.73s: software is software that actually works
+3015.69s: when you make it work stupid thing yeah
+3019.47s: there there it is look at that dumb
+3022.29s: thing the second value of software is
+3027.57s: the structure of that software and why
+3030.36s: is that a value it's a value because of
+3034.23s: what software is yesterday I told you
+3036.21s: that software is a compound word that it
+3039.54s: means flexible product software the very
+3044.34s: nature of software is that it must be
+3046.38s: changed
+3047.16s: it must be changeable if it is not
+3050.28s: changeable the software has no value if
+3052.95s: you give me a system that works
+3055.41s: perfectly now but I cannot change it
+3059.57s: that software will be worthless tomorrow
+3062.22s: because the requirements will change and
+3064.29s: if I can't change the software that
+3066.00s: software will
+3066.69s: come worthless instantly so they must be
+3070.89s: able to change it I must be able to
+3072.45s: modify it and the cost of modifying it
+3075.00s: must be low so that I can continue to
+3077.91s: make that software do what it needs to
+3080.31s: do to satisfy the customers demands if
+3082.74s: you give me software that does not work
+3087.44s: but it's changeable I can make it work
+3091.79s: it is more important that the second
+3095.52s: value be maximized than the first
+3097.94s: because if the second value is maximized
+3101.58s: if the software is flexible I can make
+3104.58s: it work but if you maximize the first
+3107.73s: value at the expense of the second if
+3109.80s: you maximize the fact that it works
+3111.81s: today at the expense of being able to
+3114.72s: change it then when the requirements
+3117.06s: change the costs will inhibit that
+3119.25s: change and if they inhibit the change
+3122.94s: too much the software's project will
+3124.59s: fail these two values are necessary for
+3128.58s: every software developer to keep in
+3130.80s: their mind at all times it is not enough
+3133.32s: to make the software work the software
+3135.57s: also has to be right and the word right
+3138.18s: is an unfortunate word because it's a
+3139.86s: binary word I don't need the binary
+3143.04s: connotation the software has to be well
+3145.53s: structured but it doesn't have to be
+3147.18s: perfectly right it has to be good
+3149.40s: software it has to be well thought
+3150.99s: through the structure has to be
+3152.91s: changeable the value of its structure
+3158.43s: has to be high I don't see if I can make
+3161.67s: this stupid software work by the way
+3165.98s: yeah just a little rant are we gonna see
+3174.27s: self-driving cars anytime soon
+3181.34s: oh yes we have we've seen some they
+3185.81s: haven't killed too many people yet they
+3190.73s: drive in relatively safe areas during
+3194.69s: good weather and generally the law says
+3199.88s: that there has to be an actual person in
+3202.55s: them to take over we don't typically see
+3206.05s: autonomous cars running without a human
+3208.34s: in them although there have been a few
+3209.54s: cases of that as well
+3211.31s: but my question is not that my question
+3215.51s: is are we going to see self-driving cars
+3218.98s: that you and I can go to and call one up
+3223.13s: and a car will pull into our driveway
+3225.32s: without a driver in it and we will tell
+3227.60s: the car to take us somewhere anywhere
+3229.94s: and the car will take us anywhere drop
+3233.45s: us off are we gonna see that no not a
+3239.18s: chance
+3241.04s: not a chance this is an overconfidence
+3244.49s: in software software is not that good as
+3246.65s: I just demonstrated with that stupid
+3248.93s: program right there software is not that
+3251.57s: good we're not going to see that in two
+3256.10s: years we're not going to see that in
+3257.27s: five I don't think we'll see it in 20 we
+3259.19s: may not see it in 50 there's a number of
+3261.83s: reasons for that we've all gotten
+3264.92s: extremely used to the idea that software
+3268.15s: computers are an exponentially growing
+3270.98s: thing who remembers Moore's law yeah
+3276.71s: okay so Moore's law is dead right
+3279.05s: Moore's law died over 10 years ago now
+3282.07s: clock rates on computers have not
+3284.57s: increased since about 2002 right my
+3288.86s: laptop in my bag over there goes at 2.6
+3292.31s: gigahertz the laptop before that one a
+3295.22s: 2.6 gigahertz the one before that one at
+3297.56s: 2.6 gigahertz and it wasn't until I can
+3300.17s: get back about 10 years that one was
+3302.15s: maximized at at about 1 gigahertz clock
+3304.55s: rates have not increased we've tried to
+3307.45s: increase their productivity bore their
+3310.13s: throughput by adding more processors so
+3313.79s: my about 10 years ago I got my first two
+3316.85s: core processor and then I got a four
+3319.04s: core processor I was convinced that the
+3321.32s: next laptop I was gonna get would be an
+3322.94s: 8 core processor but that did not happen
+3325.39s: and then I thought well certainly the
+3328.25s: next one after that will be an 8 core
+3330.02s: processor but that did not happen and I
+3332.87s: don't believe it will now I don't think
+3335.09s: we're going to get 8 cores maybe we will
+3337.13s: but I don't think we're on that power of
+3339.35s: to curve the density of the chips can't
+3343.52s: get much greater because the number of
+3346.19s: atoms in a wire is now countable on a
+3348.92s: hand or two so it's gotten to the point
+3351.95s: where we can't really get much more
+3354.17s: density we may be able to go in three
+3356.51s: dimensions but the heat problems there
+3358.13s: are may be insurmountable the point I'm
+3360.68s: making is that the hardware that we have
+3365.72s: been used to growing at an exponential
+3367.70s: rate is no longer growing at an
+3369.47s: exponential rate we are sitting now on a
+3371.63s: plateau computer power is
+3374.93s: probably plateaued we can enhance it a
+3378.20s: bit by going up up to the cloud although
+3380.30s: there's costs to the cloud don't just
+3382.37s: say that the cloud is great and
+3383.69s: wonderful and everything is life one
+3385.37s: life is great on the cloud because the
+3386.93s: cloud has a whole bunch of costs to it
+3388.58s: but we can certainly gain more computer
+3391.22s: power by recruiting more and more
+3393.17s: servers on the cloud but all we're doing
+3395.24s: is recruiting more and more servers and
+3396.98s: that by the way is a linear growth not
+3399.74s: an exponential growth so we've got this
+3403.85s: problem our expectations of exponential
+3407.60s: growth have set us to believe that in 10
+3411.77s: years virtually anything's possible
+3413.44s: anybody read you know the the the
+3416.18s: singularity that's coming what was that
+3418.16s: Kurtz while wrote about the singularity
+3420.46s: eventually machines will be able to
+3422.39s: design better machines and they'll
+3423.68s: design better machines and the whole
+3424.88s: thing will roar off into some apocalypse
+3427.18s: no that's not going to happen who heard
+3432.50s: about Watson right who won jeopardy
+3436.52s: right the IBM computer that won jeopardy
+3439.04s: beat all the best jeopardy humans and
+3441.20s: that was a great achievement it's a
+3443.96s: wonderful thing but let me tell you
+3445.73s: about one question that Watson got wrong
+3449.72s: and the question that Watson got wrong
+3454.01s: was named a city that has two airports
+3460.15s: one named for a world war two hero and
+3463.55s: the other named for a world war two
+3465.92s: battle now then the answer is Chicago
+3470.66s: because O'Hare Airport is named after
+3473.24s: butch O'Hare who was a World War two
+3475.19s: hero and Midway Airport the other
+3477.86s: Airport in Chicago is named after the
+3479.48s: Battle of Midway so the answer is
+3480.68s: Chicago Watson said Toronto now the
+3488.18s: question was named in American city and
+3490.52s: the answer was Toronto now Toronto's in
+3493.22s: Canada I suppose that's American it is
+3498.08s: the 51st state
+3501.00s: in Canada that joke doesn't go over so
+3502.71s: well but Toronto does not have two
+3509.28s: airports that meet that criteria so
+3512.94s: that's clearly wrong and besides it's
+3514.65s: not an American city and when the
+3516.54s: programmers dug into it to find out why
+3518.52s: and noticed that the programmers had to
+3520.41s: dig into it to find out why why Watson
+3523.80s: answered Toronto they found that there
+3525.45s: was a city in Idaho named Toronto which
+3528.69s: happened to have two airports near it
+3530.52s: and they matched the two criteria so
+3533.96s: Watson was correct although stupid worse
+3542.91s: than stupid irrational no human being
+3547.32s: would have answered that question that
+3548.67s: way and if any any human being had
+3551.97s: answered that question that way we would
+3554.94s: have sent them to a mental hospital
+3557.27s: because that makes no sense in human
+3559.74s: terms Chicago is the obvious answer here
+3561.60s: not Toronto Ohio to Idaho now imagine a
+3566.01s: self-driving car and a self-driving car
+3569.51s: during a rainstorm runs over a
+3572.04s: two-year-old kills him who goes to court
+3577.56s: over this where who who who should we
+3584.31s: blame for that
+3585.21s: someone must be responsible the
+3586.89s: two-year-old is dead someone has to be
+3588.54s: held responsible who do we blame the car
+3592.19s: the programmers the company that made
+3596.01s: the car is there anybody who can take
+3599.07s: responsibility let's put the car on the
+3601.74s: stand let's interrogate the car car why
+3606.42s: did you kill the two-year-old Toronto
+3617.00s: yes I told you about that yes I told you
+3619.65s: about that stakeholders in software
+3623.46s: systems believe that requirements and
+3627.00s: changes are complicated only by scope
+3631.10s: now a stakeholder can understand that
+3634.59s: certain changes are big and that other
+3636.48s: changes are small and they wreak they
+3639.69s: they believe that the cost of changes
+3642.60s: will be proportional to that scope big
+3647.07s: change it should cost a lot little
+3648.75s: change it cost a little but programmers
+3652.26s: don't see it that way what happens is
+3655.74s: that programmers will build structures
+3657.63s: in their systems and what a stakeholder
+3661.80s: believes to be a small change will cause
+3664.62s: massive repercussions through the
+3666.45s: structure of the software and so that
+3668.25s: the developer looks at that is a big
+3670.20s: change this is a faulty architecture
+3673.73s: faulty architecture is an architecture
+3676.26s: that lies to the stakeholders by making
+3679.44s: small changes expensive and big change
+3682.50s: is cheap programmers see each new
+3685.68s: requirement as a puzzle piece that must
+3688.44s: somehow be fit into the existing puzzle
+3691.56s: of the software and the more puzzle
+3694.23s: pieces there are the less room there is
+3696.03s: in the puzzle for a new puzzle piece and
+3698.37s: the software developers are constantly
+3700.08s: struggling about how the heck are we
+3701.91s: gonna fit this doggone thing in here and
+3704.55s: so every new change gets more and more
+3706.95s: expensive the solution to this is to
+3710.34s: keep that puzzle as simple as you can
+3711.90s: keep it keep all the edges square all
+3713.88s: the pieces is nice squares so that you
+3716.97s: don't have this problem of trying to fit
+3719.07s: everything in there all the time
+3725.18s: yes I told you that already
+3731.87s: stakeholders want changes but
+3735.38s: stakeholders do not have the ability to
+3737.90s: prioritize architecture they don't know
+3740.69s: what architecture is they don't know
+3742.37s: what software design is stakeholders in
+3744.59s: a system have no clue that you have to
+3747.32s: work hard to build a structure that
+3750.50s: supports their requirements all the
+3752.39s: stakeholders see are the requirements
+3753.98s: themselves they don't see that structure
+3757.22s: that's second value they cannot assess
+3759.35s: the second value and therefore they
+3761.21s: cannot prioritize it
+3762.89s: no stakeholder can prioritize
+3765.07s: architecture and it is honest it is
+3770.47s: improper to expect that stakeholders
+3773.93s: will prioritize architecture software
+3776.24s: developers are very often complaining
+3778.04s: about the fact that nobody ever
+3779.06s: prioritizes architecture all they care
+3781.22s: about is as requirements well of course
+3784.21s: all they care about is requirements cuz
+3786.62s: that's all they know they can't
+3788.18s: understand what architecture is you know
+3792.80s: what architecture is you are the only
+3795.68s: ones who know what architecture is and
+3798.05s: it is your responsibility to communicate
+3800.69s: that as forcefully as you can to the
+3805.46s: stakeholders in the system and that puts
+3809.63s: a very interesting responsibility on you
+3813.14s: and I we have to somehow communicate the
+3818.69s: importance of the second value to the
+3821.15s: people who are paying us and if we fail
+3824.21s: at that the people who are paying us
+3827.15s: will pay way too much for their sake we
+3834.05s: have to communicate the importance of
+3836.78s: the second value I like to look at it
+3840.50s: slightly differently
+3841.37s: I like to say the stakeholders of a
+3847.49s: system have no right to tell me what the
+3852.20s: architecture ought to be they have no
+3853.82s: right to come in to me and say skip the
+3858.89s: architecture let's just get this done
+3860.33s: fast they have no right to say that to
+3862.19s: me because I know how to get this job
+3864.59s: done well
+3865.61s: you do too you know how to do the job
+3867.98s: well we all do we all know how to go
+3869.87s: well we know how to do it
+3873.28s: stakeholders don't have the right to say
+3875.51s: no skip that don't do those disciplines
+3878.57s: it's too slow they don't know it's too
+3880.88s: slow they're just guessing it's too slow
+3883.46s: maybe for some reason you know and you
+3888.20s: have the responsibility to communicate
+3889.58s: that backwards back down and how do you
+3892.73s: do that
+3895.66s: by asserting your authority because you
+3899.24s: have the authority you have the
+3901.01s: authority because you have the knowledge
+3902.12s: you have the authority because you have
+3904.07s: the responsibility believe me you know
+3905.90s: who's going to get blamed so you have
+3910.07s: the responsibility and you have the
+3911.57s: authority you must communicate that
+3913.16s: downwards that is not an easy thing to
+3915.83s: do
+3916.93s: communicating that importance to people
+3920.18s: who are interested in requirements it's
+3923.09s: not an easy thing to do it requires a
+3925.16s: certain amount of emotional fortitude
+3926.99s: and programmers and I'm sorry for the
+3931.22s: stereotype but it tends to be generally
+3933.89s: true programmers did not get into
+3936.32s: programming because they like dealing
+3938.36s: with people programmers would rather
+3942.20s: most of them and not all of them but a
+3944.51s: large percentage of programmers are
+3946.52s: perfectly happy sitting at a terminal
+3949.04s: locked in coding away and people are an
+3954.14s: annoyance especially if those people are
+3958.45s: emotionally confrontational
+3960.89s: I learned something a very long time ago
+3965.54s: and it's a generalization that I will
+3969.32s: make here I don't have any research to
+3971.60s: say that it's true but I I believe it's
+3973.58s: true just from my own experience there
+3976.10s: are people like programmers who like to
+3978.11s: deal with things like code but there are
+3982.58s: other people whose greatest joy is
+3985.76s: dealing with other people now that's not
+3987.50s: something I understand right because
+3990.77s: although here I am sitting on stage
+3992.33s: right and I'm pretty good on stage being
+3994.76s: on stage is a formula it's an algorithm
+3997.13s: I can execute that algorithm and
+3999.35s: I can execute it very well I do not
+4001.27s: actually have to relate to you isn't
+4004.78s: that interesting
+4007.14s: for all intents and purposes I'm not
+4010.69s: gonna say what I'm about to say what
+4016.78s: I'll say is this I can do this on stage
+4019.15s: if you were here I could be on stage
+4022.66s: alone with a camera there and I'd be
+4024.43s: exactly the same and some of you have
+4026.35s: seen me do that programmers like me
+4029.56s: anyway are not very good at emotional
+4032.29s: confrontation but I learned something a
+4034.33s: long time ago there are people who are
+4037.96s: good at emotional confrontation they're
+4040.03s: good at it
+4040.57s: they've developed the skill and it's a
+4042.79s: people skill and it's not just emotional
+4045.40s: confrontation it's relating emotionally
+4047.20s: to people I'm not good at that but they
+4052.24s: are they get their joy out of it and
+4054.28s: very often they become salespeople and
+4056.23s: managers how do people like that get the
+4060.19s: truth I know how I get the truth I get
+4063.01s: the truth mathematically and logically I
+4064.84s: think it through you know it's a cold
+4067.18s: thing truth for me is cold but I believe
+4070.78s: for them truth is hot they get the truth
+4074.29s: by testing people they want to know what
+4077.86s: you believe and so they will confront
+4079.96s: you and they will say to you you don't
+4083.71s: really believe that
+4084.49s: I need this by then I need this to
+4087.01s: happen this way and they will confront
+4088.66s: you and they want the truth they're
+4091.51s: seeking for the truth and if you go okay
+4096.87s: they got a truth but it's not the truth
+4099.58s: I learned this by sitting in a
+4105.13s: conference room with a bunch of managers
+4106.72s: and we had a real problem at this
+4109.27s: company and we had a bunch of customers
+4110.74s: there was no way to satisfy all these
+4112.87s: customers we were going to have to let
+4114.46s: some of them down there was the
+4116.32s: customers that I was representing as an
+4118.09s: engineer there was customers that other
+4119.65s: people were representing we were having
+4121.75s: this discussion
+4122.65s: I saw the discussion going away from my
+4125.26s: customer and Here I am sitting there you
+4127.99s: know little Bob's programmer watching
+4130.33s: these guys take the Reese
+4132.85s: away from the customer that I was
+4134.53s: supposed to defend and I completely lost
+4137.41s: it I started yelling at them right which
+4141.13s: is very uncharacteristic for me despite
+4142.81s: what you see on stage and I yelled I
+4146.89s: looked them in the eye and I yelled at
+4148.57s: them and I used flowery language do you
+4151.72s: beg the lightning to strike which I
+4153.88s: stole from Star Trek by the way and I
+4160.63s: saw these managers look me back in the
+4164.86s: eye with a respect I had never seen in
+4168.52s: their eyes before and suddenly they
+4172.75s: accepted my assertions and said yeah
+4175.75s: you're probably right about that we're
+4177.73s: going to have to do something a little
+4179.08s: different we've got to pay some
+4180.43s: attention to that customer that had
+4182.08s: never happened to me before I'm not sure
+4183.58s: it's happened ever since but that was a
+4186.79s: fascinating lesson for me that there are
+4189.22s: folks and they tend to be the folks who
+4191.44s: are managers and sales people and people
+4193.39s: people who learn the truth through
+4195.70s: confrontation and so you and I who are
+4199.18s: the defenders of the architecture the
+4202.87s: defenders of their money need to learn
+4208.03s: how to tell them the truth and that is
+4211.54s: not an easy thing now by the way I'm not
+4212.95s: telling all the junior people in the
+4214.36s: room to rant and rave on screen but it
+4217.96s: might be wise for the senior people in
+4220.12s: the room to learn the skills as
+4222.90s: distasteful as they are to a programmer
+4225.49s: of dealing with people because it's
+4229.12s: about people isn't it
+4237.39s: this is Eisenhower General Dwight D
+4243.37s: Eisenhower
+4244.33s: the in general of the victory in World
+4249.73s: War two then he became president of the
+4252.01s: United States and interestingly enough
+4254.56s: Eisenhower was not convinced whether he
+4257.08s: wanted to run as a Republican or a
+4258.70s: Democrat this was at a time in the
+4260.59s: United States when you could barely tell
+4262.69s: the difference between the two parties
+4264.07s: that has changed and Eisenhower said
+4268.39s: this very famous statement where's the
+4275.95s: statement previous slide yeah thank you
+4280.69s: you all read it before me yes okay good
+4283.57s: I have two kinds of problems the urgent
+4286.96s: and the important the urgent are not
+4289.24s: important and the important are not
+4290.89s: urgent these two kinds of problems are
+4295.84s: the two values the urgent and the
+4297.82s: important the requirements are urgent
+4300.13s: the architecture is important the
+4304.30s: architecture is important because it has
+4305.77s: an extremely long term value the
+4310.54s: requirements are urgent because they
+4313.45s: have a short-term value they need to be
+4315.91s: implemented soon otherwise the customers
+4318.28s: will be unhappy the architecture is
+4320.38s: important and then Eisenhower put this
+4323.41s: matrix together which of these are you
+4327.94s: going to do the important and the urgent
+4330.55s: the important not urgent the unimportant
+4332.53s: and urgent or the unimportant not urgent
+4334.39s: I would make the case that the one on
+4336.58s: the lower right you're not going to ever
+4337.90s: do it's not important not urgent what
+4342.40s: about the unimportant urgent things hmm
+4348.96s: you might not do those if you have some
+4351.61s: time you might do them but you might not
+4353.11s: do those because they're not important
+4354.46s: they're urgent but a lot of urgent
+4356.35s: things can be waved away sorry can't do
+4358.75s: that one I know it's urgent but it's not
+4361.09s: important then there's of course the
+4364.21s: important urgent ones you're going to do
+4365.95s: those you just have to do
+4368.05s: those and then there's the important but
+4370.75s: not urgent things and this is where we
+4374.08s: get into the biggest debate and as
+4377.83s: developed as defenders of the
+4379.93s: architecture and defenders of their
+4382.33s: money those are the ones that we fight
+4385.81s: over and we'd better win those it's
+4397.84s: always a struggle these things aren't
+4400.48s: easy it gets into an area the
+4402.46s: programmers don't like to get into this
+4404.14s: whole interpersonal thing but you have
+4407.05s: to remember something important you are
+4410.23s: a stakeholder too there are stakeholders
+4414.43s: that aren't programmers but every
+4416.47s: programmer is a stakeholder because your
+4420.01s: reputations your jobs your salaries
+4422.77s: depend on the job that you do you have a
+4425.71s: stake in this so you are also
+4428.56s: stakeholders no less than any of the
+4431.08s: others and you ever say if architecture
+4435.28s: comes last the costs will grow and the
+4440.26s: costs to the organization and the costs
+4442.54s: to you may grow insurmountable that was
+4452.74s: the talk I was supposed to do second
+4454.77s: because that was the Christ that
+4456.94s: architecture of the software crisis but
+4458.62s: I thought it would be better to do that
+4459.76s: one first are there any questions about
+4462.58s: that before we go on to the next one
+4465.96s: which is clean architecture that was a
+4470.23s: little more technical so all the people
+4472.03s: in the room oh god thank you stop
+4475.21s: talking about all this people okay
+4479.19s: questions comments good okay clean
+4484.12s: architecture
+4490.21s: do to do at no wrong one that one there
+4503.96s: we go okay so now we're gonna get techie
+4508.73s: but no less significant about eight
+4518.27s: years ago my son handed me the source
+4522.89s: code of a project and I opened it up and
+4525.80s: this is what I saw
+4526.79s: now this was a rails project does
+4528.62s: anybody here done any Ruby on Rails oh
+4530.21s: yeah okay a few of you good good well
+4532.64s: then you'd recognize this as the
+4534.53s: directory structure of a rails
+4536.27s: application because all rails
+4537.83s: applications have roughly the same
+4539.27s: structure this is rails of about a one
+4542.00s: oh six seven years ago something like
+4543.44s: that and I looked at it and I said oh
+4545.93s: yeah it's a rails application I can tell
+4547.64s: by the directory structure I had seen
+4550.01s: lots of other rails applications before
+4551.66s: and I knew what the directory structure
+4552.98s: was so it was very familiar to me but
+4555.82s: that moment for some reason struck me as
+4560.21s: odd it had never struck me odd before
+4563.15s: but it struck me odd this time that I
+4565.91s: could look at the directory structure at
+4568.13s: the top level of the application and
+4570.34s: realized that it was a rails application
+4573.50s: now why is that at the top level of the
+4577.07s: application
+4578.05s: oddly what I could not tell from the top
+4581.51s: level of the application is what the
+4583.73s: application did and that bothered me I
+4586.97s: thought wait wait wait at the top level
+4589.58s: shouldn't I be seeing the intent of the
+4592.52s: application why am I seeing the
+4594.83s: framework at the top level and that
+4597.83s: bothered me it had not bothered me
+4600.17s: previously but it bothered me on that
+4601.61s: day and so I started to think about this
+4606.80s: I thought well now wait a minute
+4608.72s: rails is a web framework and what is the
+4614.57s: web the web is an i/o device
+4620.09s: does anybody thought about it like that
+4622.16s: the web is an i/o device now you maybe
+4627.14s: you think it's a really complicated i/o
+4628.49s: device and they're really cool io device
+4630.23s: but it's an i/o device it's on the
+4633.32s: outside of our system its peripheral to
+4636.08s: the system it is a peripheral device and
+4638.84s: there's something we learned a long time
+4640.73s: ago about i/o devices we learned this
+4643.46s: way back in the 60s we don't want to
+4646.19s: know they exist we build operating
+4649.43s: systems to hide i/o devices from us
+4651.44s: who's done some unix work right stand it
+4654.83s: in and stand it out what device is that
+4656.36s: huh we don't care we don't want to know
+4661.93s: why don't we want to know well long long
+4664.49s: ago back in the 50s and the early 60s
+4666.68s: people would ask us to write programs
+4668.90s: like can you write a payroll program and
+4670.64s: we'd say yeah I will write you a payroll
+4672.47s: program you just punched all the
+4674.15s: employees on two cards and will read
+4675.86s: them in and punch their time cards onto
+4677.78s: cards will read them in and will punch
+4679.28s: out paychecks and we'd write the code
+4682.55s: that way and the code would literally
+4684.35s: talk to the card reader and the card
+4686.33s: punch and then they'd come along five
+4689.18s: years later and say you know we moved
+4690.38s: all our records on the magnetic tape and
+4692.03s: the programmers again oh my god that
+4695.09s: changes everything because dealing with
+4698.66s: the tape driver was really different
+4700.79s: from dealing with the card reader and
+4702.29s: the card punch and we thought okay we
+4705.68s: don't want to go through that again so
+4707.00s: let's just let's just make all the i/o
+4709.19s: devices below the level of the operating
+4712.46s: system the operating system was invented
+4714.88s: primarily for this purpose let's get all
+4718.22s: the i/o devices below some line some
+4721.70s: boundary line and then we can write our
+4723.83s: code and never worry about that again
+4727.39s: and here I've got the web at the top
+4734.81s: level of the application the web
+4737.12s: dominates it the i/o device dominates I
+4740.63s: thought well that's wrong there's
+4741.83s: something wrong with that
+4742.43s: architecturally there is something wrong
+4744.71s: with that so I started looking around it
+4753.60s: floor plans of buildings and I I noticed
+4760.44s: that the floor plans of buildings do not
+4763.81s: tell me what the buildings are made of
+4766.56s: the architecture of the building does
+4769.33s: not tell me that the building is made of
+4772.54s: bricks or wood it doesn't tell me about
+4776.68s: hammers and nails what the shape of the
+4780.52s: building tells me is the intent of the
+4782.35s: building that's a library and you can
+4785.26s: tell it's a library if you look at it
+4786.58s: for any length of time you say well it
+4787.96s: looks something like a library it's got
+4789.61s: rooms it's got tables it's got like
+4791.50s: library stuff and if that doesn't
+4793.30s: convince you this one will that's a
+4794.80s: church the architecture of buildings
+4800.61s: screams out the intent of the building
+4803.77s: the shape of the building tells you what
+4806.92s: the intention of the building is how
+4809.53s: it's going to be used and isn't that
+4812.23s: what the architecture of a software
+4814.48s: application should be doing shouldn't
+4816.88s: the architecture at the topmost level be
+4819.82s: screaming at you about what the intent
+4821.83s: of this application is it's a banking
+4825.37s: application it's a payroll application
+4828.22s: shouldn't it be yelling that at you
+4829.90s: instead of saying I'm a rails web app
+4833.34s: who cares if you're a whales or a rails
+4836.56s: web app I don't care if you're on Rails
+4839.71s: web app I want to know what you do
+4849.63s: and that made me remember something made
+4855.42s: me remember this the guy you're seeing
+4858.72s: is Ivar Jakob Singh he wrote a book in
+4861.00s: 1992 name of that book was
+4863.28s: object-oriented software engineering and
+4865.65s: the subtitle was a use case driven
+4869.07s: approach does anybody remember use cases
+4872.33s: so little Led Zeppelin there anybody
+4874.83s: remember laughter now nobody nothing
+4877.29s: gets that you okay does anybody remember
+4880.17s: use cases yeah a bunch of you remember
+4883.89s: you and what happened to use cases the
+4888.03s: consultants got at them and the
+4890.97s: consultants said oh use cases people
+4892.77s: like use cases okay well when I need to
+4894.42s: be the use case expert and so I'm going
+4896.31s: to I'm gonna put something on the web
+4898.11s: that lets people fill out a form for use
+4901.47s: cases and then the next thing Sultan
+4904.05s: said well I can do that too but my form
+4905.49s: is gonna be better and there was this
+4907.11s: war about the best possible use case
+4909.36s: form and by the end there were these
+4910.80s: crazy forms on the web that on the
+4912.99s: internet it wasn't the web at the time
+4914.46s: and they were you know full of all kinds
+4916.95s: of blanks you could fill in what's the
+4918.33s: primary actor and the secondary actor
+4920.52s: and the tertiary actor and the
+4921.60s: preconditions and the post conditions
+4922.95s: and all this crap and though the world
+4927.36s: kind of went maybe we don't want to know
+4930.48s: about use cases that was right about the
+4934.44s: time that agile started and agile said
+4936.66s: we got to rename this thing so they
+4939.27s: named it user story same thing though
+4941.19s: when the occupation was talking about
+4943.41s: we're not massive forms filled out with
+4946.11s: lots of detail a jakob Sounion use case
+4949.02s: well it looks like this this is the
+4952.95s: Jakob Sounion use case and assume that
+4955.56s: this is for a system an order entry
+4957.72s: system for example and this is the
+4959.79s: create order use case and notice that it
+4962.73s: does have a little bit of structure in
+4964.71s: it it it identifies the input data to
+4967.47s: the use case in this case it's the
+4969.45s: customer ID and the shipment destination
+4971.76s: the payment information notice also that
+4973.89s: there's no details there I don't tell
+4976.32s: you what the customer ID looks like or
+4978.15s: what the shipment destination looks like
+4980.34s: or anything like that the use case is
+4982.20s: not the place for that deep
+4983.44s: don't put that in there it's just a list
+4986.35s: of the kinds of data we think we're
+4988.15s: going to need in order to execute the
+4990.16s: use case and then the next thing down is
+4992.83s: called the primary course that's what
+4994.81s: Jakob s'en called it the primary course
+4997.12s: and this is just the processing steps
+4999.31s: and in this case it's the order clerk
+5001.83s: issues to create order command with the
+5004.05s: above data that's actually not part of
+5005.70s: the use case that's what kicks the use
+5007.17s: case off the system validates all the
+5010.05s: data doesn't say how doesn't tell you
+5012.30s: what the validation rules are no details
+5014.46s: or anything just it validates the data
+5016.80s: system creates the order and determines
+5019.29s: the order ID that's probably a database
+5021.93s: operation but it doesn't say that here
+5024.06s: and then it says that the system will
+5026.46s: deliver the order ID to the alert to the
+5028.74s: clerk probably on a webpage but it
+5031.53s: doesn't say that either it's a very nice
+5035.19s: concise description at an extremely high
+5038.52s: level of what the input data is the
+5041.43s: processing steps are in the output data
+5043.70s: now Jakob s'en said something very
+5046.77s: interesting in his book he said if
+5049.35s: you've got a use case in this form you
+5052.53s: can turn it into an object remember the
+5055.26s: title of the book was object-oriented
+5056.79s: software engineering said if you've got
+5058.83s: a use case in this form you can turn
+5060.60s: that into an object that you can write
+5062.34s: code in and he called that object a
+5065.55s: control object but the name didn't work
+5069.54s: because of model view controller and
+5072.26s: everybody got confused so I renamed it
+5075.78s: interactor recently other people have
+5078.24s: have chided me for this and said well
+5079.95s: Bob you should have called it use case
+5081.66s: and I think they've probably got a point
+5083.46s: but I called it interactor so I'm gonna
+5084.87s: stick with that for the moment an
+5087.29s: interact or object embodies a use case
+5090.68s: it's a class that you write in Java it
+5094.14s: embodies a use case it contains
+5098.06s: application specific business rules now
+5101.16s: we need to separate business rules into
+5103.35s: two different types there are
+5105.32s: application specific business rules
+5107.73s: which are all about the automation and
+5110.19s: then there are application independent
+5113.25s: business rules which are the business
+5115.62s: rules you would execute even
+5117.06s: if there weren't a computer there's a
+5119.25s: bank charge interest that's a business
+5121.08s: rule that you're going to execute even
+5123.36s: if there's no computer the use case is
+5127.52s: application specific business rules
+5130.02s: they're all about the automation these
+5132.63s: are the things you have to do because
+5134.34s: there is a computer now where do you put
+5136.89s: the application independent business
+5138.75s: rules
+5139.11s: well yeah crimson put those into these
+5142.17s: things that he called entities nowadays
+5144.96s: people call them business objects but
+5146.97s: I've kept the word entity in honor of
+5148.74s: Jakob s'en these entities are controlled
+5153.66s: by the inter actors so the use case the
+5156.78s: inter actor guides the execution of the
+5161.58s: entities it controls the execution of
+5163.98s: the entities the entities execute the
+5166.23s: real business rules the use cases
+5169.34s: coordinate the business rules and then
+5174.54s: you've got to get some data in and out
+5176.43s: and Yakub person called those interface
+5180.42s: objects he later changed the name to
+5182.66s: boundary objects I have kept that name
+5185.10s: and I have drawn them here as Java
+5187.89s: interfaces there's two of them you can
+5192.12s: see there the one on the top is the
+5194.01s: output boundary and you can see that
+5196.23s: it's the output boundary by that red
+5198.06s: arrow that points towards it in UML that
+5201.54s: is a using relationship so the inter
+5204.48s: actor uses the output boundary to send a
+5207.24s: data out the boundary on the bottom is
+5209.97s: the input boundary and you can tell that
+5212.25s: because of the red inheritance arrow
+5215.18s: from the inter actor the inter actor
+5217.65s: actually implements the input boundary
+5221.19s: interface and it uses the output
+5223.89s: boundary interface the methods on the
+5226.95s: boundaries are the methods that allow
+5228.87s: data to come in and data to go out now
+5231.96s: let's walk through the process here
+5233.97s: because the process is pretty simple
+5237.20s: we've got some user down there at the
+5239.46s: bottom and the user is interacting with
+5241.23s: the system and I've got a delivery
+5243.27s: mechanism there I purposely called it a
+5246.21s: delivery mechanism because I didn't want
+5247.95s: to say web
+5250.62s: but okay I called it a delivery
+5253.26s: mechanism so the user is dealing with
+5255.90s: probably some webpage filling out some
+5258.36s: form and eventually the user hits the
+5261.39s: submit button and that passes the data
+5264.81s: into the delivery mechanism into the web
+5267.18s: server the web server reorganizes that
+5270.69s: data and creates a data structure which
+5276.36s: I've called a request model this is a
+5279.54s: raw data structure it's full of just
+5282.66s: plain old objects this request model
+5285.81s: does not derive from any framework it
+5288.27s: doesn't derive from any kind of web
+5290.04s: related thing it does not know anything
+5292.77s: about the web it is just the data
+5295.32s: structure that holds the input data to
+5297.63s: the interactor it gets passed through
+5301.47s: the input boundary to the interactor and
+5304.11s: the interactor looks at it and
+5305.85s: interprets it with a bunch of if
+5308.40s: statements and then starts to coordinate
+5311.79s: the dance of the entities tells the
+5313.98s: entities what to do and and what data to
+5316.92s: do it on feeds the data from the request
+5319.44s: in then when the int when the entities
+5322.29s: are done the interactor reverses the
+5324.45s: flow and gathers the result data from
+5327.27s: the entities and builds a result model
+5331.02s: the result model is just a raw data
+5333.60s: structure has no notion of the web at
+5336.09s: all has no idea how this data is going
+5338.49s: to be displayed it's just a plain old
+5340.56s: Java object if you're using Java and
+5343.82s: then that result model gets passed out
+5346.56s: through the output boundary through the
+5348.42s: web which formats it and does all the
+5350.76s: interesting stuff and gets displayed
+5352.71s: back to the user it's a real simple
+5357.11s: input process output kind of structure
+5361.05s: but it has a very interesting aspect to
+5365.01s: it can you test those interactors do you
+5370.14s: need the web server running to test
+5371.97s: those interactors no because the web you
+5376.23s: don't need the web you can go through
+5377.43s: those boundaries the whole web doesn't
+5379.59s: have to be there to test the interactor
+5381.36s: you can test the business rule without
+5383.31s: the web
+5384.89s: now that's good because the web is slow
+5388.01s: and you can run your tests a lot faster
+5390.54s: if you can test without the web it's
+5392.55s: also a lot easier to test without the
+5394.26s: web at 30,000 feet so if you're flying
+5397.29s: over the Atlantic and you've got your
+5398.52s: laptop with you and you want to run some
+5400.02s: tests well you can run tests because the
+5403.77s: web doesn't have to be there and that's
+5405.90s: interesting and how do you do that well
+5407.58s: you feed a request model in and you make
+5409.56s: sure that the response model comes out
+5411.03s: appropriately and you can test all the
+5413.01s: business rules without the web being
+5415.35s: there you can test everything on your
+5417.60s: laptop at 30,000 feet
+5421.97s: now what about model view controller I
+5424.14s: thought we were all supposed to be doing
+5425.46s: Model View controller is this somehow
+5426.99s: related to Model View controller the
+5429.24s: answer to that is well yes and no where
+5433.02s: did Baum's view controller come from
+5434.43s: does anybody know what's the history of
+5437.40s: Model View controller model view
+5439.56s: controller is probably the first named
+5442.47s: design pattern before the design
+5445.65s: patterns book was ever written decades
+5447.18s: before the design patterns book was ever
+5448.95s: written the Model View controller design
+5451.59s: pattern was well known it was invented
+5453.84s: by this guy whose name I'm going to
+5456.75s: butcher he's Danish his name is trig
+5462.06s: Vereen scout but I've butchered that
+5464.43s: name because I don't know how to say it
+5465.78s: I met him once I was in Norway at a
+5470.01s: conference and I was in the speaker
+5471.93s: lounge and I was looking for a place to
+5473.91s: plug in my laptop and this old grizzled
+5476.88s: guy reached down and handed me a power
+5478.92s: strip and I took the power strip from
+5481.29s: him and I looked up and that's chickens
+5485.73s: Cod and my hand happened to brush his
+5489.14s: and I haven't washed that hand
+5495.71s: triggering Scout back in the 70s came up
+5499.50s: with this idea model-view-controller
+5501.21s: it's a very simple idea there's a model
+5503.55s: object in the middle a model object
+5505.08s: understands business rules right so
+5507.48s: let's say we're doing a clock the model
+5510.93s: will understand how to keep time it
+5512.49s: doesn't know how the time is displayed
+5514.05s: it doesn't know how input from the time
+5515.61s: comes just knows about time the
+5518.85s: controller knows all about input it
+5521.52s: gathers input from some input source and
+5523.53s: then restructures that input into
+5525.90s: commands against the model and the view
+5529.26s: knows how to display the model data
+5531.62s: somehow knows how to present it somehow
+5534.87s: somewhere we don't care where notice the
+5537.39s: funny little arrow that I used from the
+5539.19s: view that is an observer relationship an
+5541.47s: observer relationship involves a
+5543.33s: callback the view registers with the
+5545.82s: model and then when the model changes it
+5548.10s: tells the view hey you better redisplay
+5550.29s: me because I changed this is model view
+5552.93s: controller this the way model view
+5554.37s: controller was invented in the 1970s
+5556.83s: when in the small talk environment it's
+5561.87s: a very simple input process output model
+5566.07s: and it was intended to be used in the
+5570.30s: small you did not have a model view
+5573.60s: controller for a page or a screen you
+5576.90s: had a model view controller for a button
+5579.05s: you had a model view controller for a
+5581.28s: textbox you had a model view controller
+5583.65s: for a little canvas a screen would have
+5587.64s: dozens of little model view controllers
+5589.29s: dancing around that was how we
+5590.97s: structured it in those days so this is
+5593.79s: all changed now model view controller
+5595.20s: has changed and it gets changed by
+5598.53s: people who don't read the original work
+5601.08s: but let's hear the words and think well
+5603.57s: model view controller I think I
+5604.65s: understand that I don't need to read the
+5606.03s: paper so what it is turned into is this
+5609.15s: and it's very unfortunate we've got the
+5613.29s: web out there and the web does all the
+5615.15s: interesting work of gathering input from
+5617.31s: the user and then turning it into URIs
+5619.62s: or URLs or god help you whatever and
+5621.84s: then eventually the web hands that off
+5623.97s: to controllers and the controller's job
+5625.80s: is
+5626.46s: parce all that input data and then talk
+5629.25s: to Business Objects off to the side
+5631.65s: there and the Business Objects do their
+5634.32s: little dance and then the controller
+5636.45s: hands the hands the control over to the
+5639.36s: views and the views gather the data from
+5642.00s: the business objects and display it and
+5644.49s: that's how Model View controller has
+5646.76s: unfortunately evolved now the problem
+5650.10s: with this is that there are no hard
+5651.75s: boundaries here the controllers know
+5654.66s: about the business objects intimately
+5656.52s: the what happens is very often Business
+5659.64s: Objects start to accumulate controller
+5662.34s: like functions or worse controllers
+5665.64s: start to accumulate business rule like
+5668.01s: functions the same thing happens to the
+5670.32s: views the views will often accumulate
+5672.98s: businessí like functions or worse the
+5676.47s: business objects will accumulate
+5678.17s: formatting and display like functions
+5680.61s: because the boundaries aren't well
+5682.23s: formed here
+5683.13s: so although Model View controller is a
+5685.71s: nice thing to do when it's done in the
+5687.93s: small it starts to falter and fail and
+5691.05s: it's done in the large
+5701.06s: I would come back to Jakob syns model
+5703.34s: and I've drawn a boundary in here that
+5706.70s: double black line is a boundary and
+5709.45s: boundaries are going to become very
+5711.26s: important to us because boundaries are
+5713.06s: the essence of architecture that is an
+5715.70s: architectural boundary there and notice
+5718.37s: across that architectural boundary all
+5721.63s: dependencies point in one direction and
+5725.17s: that direction is towards the business
+5727.94s: rules all of that is very important
+5730.82s: that's called the dependency rule across
+5733.76s: an architectural boundary all
+5735.49s: dependencies point towards the business
+5737.99s: rules now what do we see here we see the
+5741.53s: interactor the interactor has just
+5743.36s: created the response model the
+5745.37s: responsive model is going to be passed
+5746.96s: through the boundary to a presenter
+5749.24s: presenter lives on the other side of the
+5752.15s: boundary the presenter implements the
+5755.06s: output boundary and it lives on the
+5757.01s: other side of that double black line the
+5759.38s: job of the presenter is to reorganize
+5762.98s: the data so that it is ready to be
+5765.32s: displayed the response model is a raw
+5768.59s: data structure but it doesn't know how
+5771.29s: the data is going to be displayed so for
+5773.30s: example if there is a date in the
+5776.30s: response model it is a date object if
+5779.06s: there is currency in the response model
+5782.21s: it is a currency object by the time the
+5785.51s: presenter grabs it however it will
+5788.09s: transform those objects into strings so
+5791.81s: you notice that the presenter creates a
+5793.76s: view model the view model is a data
+5796.55s: structure that contains strings the
+5800.33s: dates will all be turned into strings
+5802.64s: properly formatted the currencies will
+5804.98s: automatically be all be turned into
+5806.75s: strings with the appropriate commas and
+5809.15s: dollar signs or currency symbols or what
+5810.98s: have you if there are menus on the
+5814.31s: display the names of those menus will be
+5817.31s: in the view model the presenter will
+5819.50s: load them if there are buttons on the
+5821.57s: screen the names of those buttons will
+5823.94s: be placed in the view model by the
+5825.98s: presenter if a button should be grey
+5828.94s: because it's inactive the presenter will
+5831.95s: set a boolean in the view model
+5834.69s: the view to make that button gray all
+5836.97s: the interesting decisions about the view
+5840.06s: are actually done in the presenter and
+5842.79s: put into this view model data structure
+5845.52s: and then the view model data structure
+5847.65s: is handed to the view and the view I've
+5849.81s: drawn is this kind of faded thing
+5853.79s: because it has almost no code in it all
+5857.58s: it does is take the data out of the view
+5859.35s: model and put it into the display can
+5863.85s: you test that presenter can you test it
+5868.86s: without the web server running yes you
+5871.74s: can so half of the half of the view side
+5875.34s: of things I can test without the web
+5877.32s: server running can I test the view
+5880.70s: without the web server running yeah that
+5883.80s: would be difficult can I test the view
+5887.36s: without the interactor yeah I can I can
+5893.55s: test the view without the interactor
+5895.20s: that means I can test the view without
+5899.07s: any business rules I can just test the
+5902.46s: view stuff without any business rules
+5905.22s: that means so that view stuff is the
+5909.06s: view test is probably gonna go fast this
+5917.43s: shows the whole left side of the of the
+5920.79s: structure we've got the interactors on
+5922.86s: the right and they take in request
+5924.51s: models they produce response models they
+5926.52s: pass the data through the boundaries the
+5928.50s: controllers are the ones that pass the
+5930.09s: data into the interactors the presenters
+5932.37s: are the ones that take leave data and
+5934.38s: present it to the view and there's that
+5936.93s: big architectural boundary there and
+5939.39s: notice that all of those arrowheads are
+5941.73s: pointing to the right towards the
+5943.56s: business rules
+5945.89s: that's the dependency rule
+5952.34s: what about the database I'm gonna show
+5958.04s: you a picture see if it see if you
+5961.10s: recognize it is that the database is the
+5971.45s: database the Great God in the center of
+5973.55s: the system with all the applications
+5974.81s: around it bowing down before its majesty
+5981.28s: who benefits from that view yeah Oracle
+5986.87s: does right now database companies do you
+5989.54s: know that's where that view came from
+5991.60s: that was a big marketing ploy back in
+5994.10s: the 70s and 80s to gather the to make
+5996.68s: sure that databases were considered
+5998.54s: central to everything and it was
+6002.14s: fascinating to listen to the marketing
+6004.27s: language at the time they they they
+6007.03s: coined this term called data assets what
+6010.66s: a great term when you're talking to a
+6012.28s: CEO yeah do you protect your data assets
+6015.28s: I didn't know I had data assets oh yes
+6017.47s: you do and our system will protect your
+6020.71s: data assets oh I better buy your system
+6024.49s: yes you should fascinating marketing
+6028.18s: single worked wonderful just look around
+6029.53s: and see all the Oracle buildings around
+6030.88s: you'll notice that that works very well
+6032.59s: it's a fascinating marketing strategy
+6035.77s: but what is a database
+6038.13s: it's an i/o device databases are i/o
+6042.97s: devices they store data there are little
+6047.23s: rotating disks or the software on top of
+6050.35s: the rotating disks oh they provide lots
+6052.69s: of interesting facilities query
+6054.22s: facilities and reporting facilities and
+6055.99s: all that stuff and let me rant just for
+6058.51s: a minute about the absolute insanity of
+6064.05s: creating a text language to access our
+6067.66s: data sequel a text language to access
+6071.26s: our data a language that can be squeezed
+6074.26s: through the input of our systems and
+6076.99s: somehow used to pollute and interrogate
+6081.73s: our systems sequel injection
+6084.34s: had we thought even for a second about
+6087.54s: security we would have realized that we
+6090.22s: never ever wanted a text-based language
+6093.04s: to access our data what do we want to
+6096.16s: access our data a software API is it fun
+6101.59s: constructing sequel have you ever done
+6103.57s: that you know construct a bunch of
+6104.86s: sequel is that fun you know writing the
+6107.14s: code that constructs all that sequel
+6110.32s: crap so that some other thing can undo
+6113.20s: what you just did and understand it when
+6115.69s: you could have simply told it but no we
+6119.26s: have to construct this so I'm sorry that
+6122.08s: was a rant the database is a detail the
+6128.11s: database is an i/o device from your
+6130.21s: point of view from a software developers
+6132.07s: point of view the database is there to
+6134.08s: hold data not anything else oh you know
+6139.63s: querying is fine but we'll talk about
+6142.24s: that if the database is a detail where
+6147.85s: do we want it well we want it on the
+6149.83s: other side of an architectural boundary
+6151.59s: we don't want the business rules to know
+6154.42s: about the database we certainly don't
+6157.33s: want the business rule to know about
+6158.71s: sequel we don't want the business rule
+6162.07s: to know about the schema of the database
+6164.82s: we just want the database below that
+6167.95s: architectural boundary so how do we do
+6170.38s: that well you see that interface up
+6174.13s: there called the entity gateway that's
+6178.15s: an interface that has a method in it for
+6181.96s: every query that you want to perform so
+6185.77s: let's say that you want to get all of
+6187.69s: the employees who were hired after 1976
+6192.63s: you would have a method in there that
+6195.64s: said get all employees after and then
+6199.48s: you'd pass in a date every query that
+6203.14s: you want to perform is just a method on
+6205.27s: that entity gateway now I've only drawn
+6207.31s: one entity gateway there would actually
+6208.78s: be many because you'd probably have lots
+6210.94s: of different entities and you'd want to
+6212.38s: partition them reasonably but all right
+6214.87s: let's say there's this entity gateway
+6216.37s: and for every day
+6217.75s: base operation there is a nice little
+6219.76s: method on that interface which of course
+6221.80s: is not implemented in the interface and
+6224.02s: then below the architectural boundary
+6226.81s: there is the entity gateway
+6228.43s: implementation which implements all
+6230.71s: those methods to operate on whatever
+6233.35s: database you currently happen to have
+6235.77s: now if it's a sequel database then
+6238.72s: that's where all the sequel is down
+6240.61s: there it's not above the line so there's
+6243.58s: no sequel above that black line there's
+6246.76s: also no schema above that black line I
+6250.27s: don't want you taking daos and passing
+6253.03s: them across the black line you know
+6254.68s: you've got a relational database and you
+6256.42s: fetch a bunch of rows out of it and you
+6258.25s: keep it in a form of rows
+6260.20s: I don't want rows crossing that black
+6262.18s: line by the time anything crosses that
+6264.76s: black line I want them to be objects not
+6267.97s: rows and what are those objects well
+6271.00s: they're used by the entities some people
+6275.11s: would say well they are the entities
+6276.73s: that's not probably correct but they are
+6279.10s: used by the entities the entities
+6282.03s: contain business rules not necessarily
+6285.97s: business data business data will be used
+6289.24s: by the business rules so there are
+6290.77s: probably some little data structures
+6292.75s: that the entities used that are
+6294.76s: populated by the database yes nope not
+6298.54s: here I got to do something you've you've
+6300.91s: asked me a question and I've been told
+6303.85s: that I need to throw you a microphone
+6305.58s: are you ready for this okay
+6308.14s: all right now if I miss him get ready to
+6311.71s: catch it and pass it to him you ready
+6314.29s: for this here we go I don't know yeah
+6316.83s: yeah okay fine
+6319.00s: good okay thank you hi you're welcome
+6322.06s: what is your opinion about or an
+6324.54s: implementation I'm glad you asked me
+6326.56s: that question all right
+6327.58s: you could just slowly pass that well
+6330.10s: actually just keep it kind of there and
+6331.78s: and you guys can be responsible for
+6333.76s: throwing it where does the are I'm what
+6339.64s: is an ORM
+6340.56s: what does ORM stand for object
+6345.79s: relational mapper there's no such thing
+6347.59s: as an object relational mapper like that
+6349.84s: that doesn't exist and why is why
+6351.58s: doesn't that exist because what is an
+6353.53s: object an object from the outside
+6356.71s: looking in an object is nothing but a
+6358.45s: bunch of methods function calls an
+6361.27s: object may contain data but you're not
+6364.42s: supposed to know that and and there's no
+6367.39s: rule that says that an object must
+6368.80s: contain data an object can simply use
+6371.83s: another data structure so an object is
+6374.68s: something that contains behavior not
+6376.96s: data necessarily a database contains
+6381.61s: data not behavior so there is no way to
+6385.90s: map from relational data to object
+6389.32s: behavior what an ORM actually does is it
+6393.07s: fills in data structures that's all it
+6396.16s: does it takes database rows and it fills
+6399.37s: in data structures not objects a lot of
+6403.39s: people make the mistake that your
+6405.40s: business objects are the things that the
+6408.46s: ORM builds that is probably not the case
+6412.30s: what the ORM builds is the business data
+6415.81s: that gets fed to the business objects
+6418.57s: not necessarily by constructor but
+6422.02s: through phone arguments where would the
+6426.52s: rmb in this model yeah it's the Gateway
+6432.19s: implementation it's below the line the
+6433.84s: Gateway implementation talks to the ORM
+6435.85s: which talks to the database it's below
+6438.40s: the line nothing above the line knows
+6440.80s: about the ORM there's anybody using
+6443.34s: spring or or or
+6447.51s: JSF or any of the what is that the the
+6450.37s: JPA the JPA java persistence engine
+6453.07s: anybody using any of that stuff all
+6454.84s: below the line
+6455.86s: it all goes below the line I don't want
+6458.68s: any vestige of an ORM above the line the
+6462.82s: entities don't know about it
+6464.53s: the interactors don't know about it all
+6466.39s: that stuff stays below the line be
+6470.02s: careful of frameworks I'll rant about
+6471.40s: frameworks later the authors of
+6474.61s: frameworks do not have your best
+6475.93s: interest in mind
+6476.77s: they have their best interest
+6478.87s: mind let's see here
+6485.37s: Fitness this is just a little example
+6490.80s: long ago my son and I started a project
+6494.50s: called Fitness this was about 2001 so 18
+6498.19s: years ago and fitness was a wiki and it
+6503.02s: was also a testing engine and we decided
+6506.20s: to build it and our discussions began
+6509.68s: around how to store the data it was a
+6513.22s: wiki so we knew we had to store data
+6515.17s: somewhere and so we said well we've got
+6518.44s: to have some kind of persistent storage
+6520.81s: it's probably gonna be a database and it
+6522.88s: needs to be open source and what was the
+6524.62s: best open source database at the time it
+6526.48s: was my sequel so we said all right well
+6528.88s: let's get my sequel we'll get a license
+6531.22s: to it and we'll we'll work out the
+6532.75s: schema and somebody said in the midst of
+6535.84s: this discussion wait a minute we don't
+6537.79s: need to do that yet because there's
+6540.28s: another problem we can solve first which
+6542.17s: is the translation of the wiki markup
+6544.21s: language into HTML now that's a fairly
+6546.79s: significant problem we thought okay
+6548.50s: let's solve that one first and we'll
+6550.60s: defer the whole decision for the
+6553.39s: database until later so we began and I
+6558.10s: can show you the structure we began by
+6561.22s: creating a wiki wiki page object and
+6563.98s: then we implemented it with a mock and
+6567.93s: the mock was just a raw thing that
+6571.96s: allowed you to put data into the page we
+6574.78s: didn't store it or save it or anything
+6576.37s: like that just single page
+6578.44s: it had database functions you see that
+6580.99s: same function had a bunch more functions
+6582.91s: too but it had database functions that
+6585.10s: just weren't implemented and for about
+6587.65s: three months we worked on the problem of
+6590.77s: translating wiki markup language into
+6594.18s: HTML and when and by the way we were
+6597.58s: doing test-driven development so this
+6599.02s: was all about writing a test and making
+6600.64s: a pass writing a test and making a pass
+6602.20s: so we were writing tests and making them
+6604.30s: pass and by the time we ran out of tests
+6607.03s: to write for the wiki markup translation
+6610.12s: we said okay now we
+6612.79s: need to get the database because we need
+6614.17s: persistence we need to be able to link
+6615.58s: two pages to each other and that's gonna
+6617.47s: require persistence and somebody said
+6620.44s: well no it doesn't require persistence
+6622.45s: it just requires multiple pages and we
+6626.11s: could put those pages into a hash table
+6628.12s: and make it pretend like it's a database
+6631.54s: and we thought well that would be really
+6633.28s: easy to do so we created another version
+6636.40s: of the wiki page called the in-memory
+6639.10s: page which used a hash table to allow us
+6642.37s: to look up all of the wiki pages and now
+6645.49s: we kept on writing tests right tests
+6647.08s: making past write tests make him pass we
+6648.61s: could link pages to each other and we we
+6650.47s: actually got the testing engine running
+6652.21s: so you could run tests took us about a
+6654.16s: year but after a year of work we had the
+6657.10s: whole system working with all the data
+6660.34s: being kept in that hash table now that
+6662.71s: was interesting because we could
+6664.15s: demonstrate it to people but it was also
+6665.74s: deeply frustrating because you couldn't
+6667.39s: save anything turn the computer off and
+6669.79s: you lost all your all your data so in
+6672.07s: the end we had finished all of our work
+6674.08s: on the operation of the system and now
+6676.27s: it was time to do the stuff that really
+6678.46s: did relate to persistence and we said
+6682.87s: all right it's time to get my sequel out
+6684.34s: and Michael feathers was there at the
+6686.26s: time and Michael feathers said well you
+6690.88s: don't really need to get a database yet
+6693.01s: because all you need is persistence and
+6694.96s: you can get persistence by storing the
+6697.21s: hash table into a bunch of flat files
+6698.92s: and we all kind of crinkled up our noses
+6701.71s: and said yeah but flat files you know
+6703.33s: they're inefficient and they're awfully
+6704.77s: he said yeah but it'll work fine and
+6706.45s: then later on you can get the database
+6708.01s: in there and we said okay it'd be easy
+6709.42s: and he came back a day later with the
+6712.00s: whole thing running on flat files and we
+6714.79s: kept on working now we had persistence
+6716.95s: now we could save stuff make our tests
+6719.53s: make an pass write tests make and pass
+6721.06s: and we're building more and more of this
+6722.62s: system well now we can take it on the
+6724.45s: road we can demonstrate it to people it
+6726.34s: saves the data on in the flat files it's
+6729.40s: working great other people start to use
+6731.62s: it they think it's great
+6733.12s: a whole big user community begins to
+6735.34s: grow out they're all using flat files
+6737.08s: it's all terrific about three months
+6738.73s: later we looked at it and said I don't
+6741.76s: need my sequel at all duly we'll just
+6744.85s: forget about that part
+6746.47s: and we did we just dropped it off the
+6747.91s: whole project plan for a year then it
+6750.25s: came back and it came back because one
+6753.79s: of our users came to us and said we got
+6759.55s: to have pages in a database
+6761.53s: why CEO says we've got to protect our
+6766.06s: data assets
+6770.73s: well you can't fight city hall okay so
+6773.53s: we told him this structure we showed him
+6777.07s: this structure gave him the source code
+6778.39s: this is an open source project anyway we
+6780.88s: gate we showed him the structure said
+6782.11s: all you need to do is make a derivative
+6783.49s: of wiki page that implements the methods
+6786.82s: of wiki page to operate my sequel he
+6789.07s: came back a couple of days later with
+6790.45s: the whole thing working in my sequel we
+6793.00s: used to ship that as a plugin but nobody
+6796.15s: used it so we've dropped it he dropped
+6797.68s: it a year later - he says it was
+6798.97s: ridiculous
+6801.60s: there's a lesson here it's a very
+6805.00s: interesting lesson when people talk
+6807.76s: about architecture they often think that
+6809.50s: architecture is about making decisions
+6811.51s: early it's about making decisions late a
+6816.24s: good architecture is a software
+6819.34s: structure that allows you to defer
+6821.20s: critical decisions for as long as
+6823.06s: possible
+6823.96s: defer them to the point where you've got
+6826.51s: enough information to actually make them
+6828.43s: or not make them as the case may be
+6834.63s: architecture allows decisions to be
+6839.56s: deferred delayed until the last
+6844.20s: responsible moment this may fly in the
+6847.75s: face of what you think you may think no
+6848.98s: no you've got to make some of these
+6850.09s: decisions early well there are some
+6852.22s: decisions that need to be made early for
+6854.05s: example if you're going to write an
+6855.34s: application you probably need to decide
+6856.99s: what language you're going to write it
+6858.37s: in pretty early we made the decision to
+6861.40s: use Java for fitness that was a really
+6863.44s: early decision but the database decision
+6865.96s: in which we thought we needed to make
+6868.48s: early we were just able to push right
+6871.03s: off the end of the project
+6872.46s: the flat files actually worked better
+6875.05s: than a database would it was fascinating
+6877.15s: to us there were advantages to using
+6878.83s: flat files that none of us at
+6880.19s: ever conceived of before a for example
+6881.63s: you can check the whole testing engine
+6883.88s: into source code control that one we
+6885.98s: hadn't even thought of so there was a
+6888.26s: lot of very very powerful benefits to
+6890.99s: deferring decisions as late as you
+6893.72s: possibly can
+6895.21s: good architecture maximizes the number
+6898.16s: of decisions not made now
+6917.38s: what I do you're using IntelliJ right
+6921.89s: everybody uses IntelliJ
+6923.15s: anybody here using Visual Studio who did
+6927.80s: I talk to you about this before did I
+6930.50s: mention this before Visual Studio no do
+6935.57s: you use resharper oh okay
+6939.11s: resharper is to plug in to Visual Studio
+6941.83s: that's made by the same people who do
+6944.24s: IntelliJ and it makes Visual Studio
+6947.48s: almost usable resharper is made by
+6957.11s: JetBrains
+6958.63s: Visual Studio is made by Microsoft which
+6963.08s: of these two organizations has the power
+6966.08s: to completely screw the other Microsoft
+6970.07s: and why because Microsoft at a moment's
+6974.27s: notice can change the interface that
+6976.64s: resharper depends upon if Microsoft
+6979.81s: wanted to shut down JetBrains
+6983.50s: all they'd have to do is change that
+6985.58s: interface once a week sorry guys we
+6988.79s: changed that interface again we know you
+6991.07s: need to implement it but oh we changed
+6993.56s: it anyway
+6994.72s: is there anything JetBrains can do to
+6999.53s: Microsoft to make Microsoft not release
+7004.63s: Visual Studio
+7011.82s: yes yes I know that was JetBrains actual
+7017.13s: defense right JetBrains created their
+7019.42s: own IDE called Rider
+7021.10s: and hopefully Microsoft people will use
+7024.13s: it but some of them are so hopelessly
+7026.68s: dependent upon Microsoft I doubt that'll
+7028.45s: happen and I hope I have hopes riders a
+7031.96s: pretty good tool but is there anything
+7034.53s: JetBrains can do immediately without
+7037.87s: investing at home inventing a whole new
+7039.43s: IDE
+7039.91s: to stop Visual Studio from being
+7043.03s: released the answer to that is no so we
+7046.21s: have a really interesting asymmetry here
+7048.36s: small source code changes to Visual
+7051.52s: Studio can completely prevent JetBrains
+7054.82s: from making a release but there's no
+7056.95s: source code change JetBrains can make
+7059.14s: that will prevent Visual Studio from
+7060.73s: being released now forget about the two
+7063.70s: organizations let's talk about your
+7065.92s: application are there parts of your
+7068.56s: application that you would like to be
+7072.30s: robust against the change of something
+7075.55s: else some part of your application can
+7080.17s: change out here and this part of the
+7081.94s: application doesn't care at all like
+7083.98s: Visual Studio doesn't care what happens
+7085.69s: to JetBrains are there parts of your
+7087.64s: application that you would like to be
+7089.28s: protected from change out here and of
+7092.02s: course there are primarily your business
+7094.78s: rules you don't want your business rules
+7096.58s: to be affected by Oh save the GUI or the
+7100.39s: database you'd like to protect your
+7103.48s: business rules against those kinds of
+7105.49s: changes and by the way graphical user
+7108.04s: interfaces change for the dumbest of
+7110.53s: reasons did anybody get a change to your
+7114.10s: iPhone Oh a while back that just changed
+7117.01s: the whole way the user interface worked
+7118.57s: change the shape of the icons change the
+7121.09s: way that your gestures work some
+7123.01s: marketing people go around there you
+7124.48s: know we need to make it new and modern
+7126.43s: and so we're going to change the icons
+7128.62s: shape and move things around it's very
+7130.99s: frustrating if you're a user to have
+7133.42s: these marketing people think that
+7134.77s: they're making it better but anyway they
+7137.44s: changed everything in there do you hope
+7140.20s: that the application writers did not
+7143.98s: have to change all their app
+7145.06s: Cajun code because of the strange change
+7147.34s: that was made here and you see hope you
+7150.16s: do you hope that they had isolated those
+7152.11s: changes from each other how do you do
+7153.88s: that isolation you make the graphical
+7157.60s: user interface a plug in to the business
+7161.59s: rules like JetBrains
+7163.63s: is a plugin resharper is a plugin to
+7168.25s: visual studio you create a plug-in
+7170.89s: architecture how do you create a plug-in
+7173.05s: architecture you get all those
+7174.19s: dependencies pointing in the right
+7175.78s: direction if all the dependencies point
+7178.15s: at the business rules and everything on
+7180.64s: the outside of the business rules can
+7182.23s: plug in you can build it into a new jar
+7184.81s: file
+7185.32s: take the whole GUI put it into a jar
+7187.12s: file deploy it independently of the
+7189.31s: business rules plug it in and if you can
+7192.43s: plug the GUI in you can unplug it and
+7195.78s: plug something else in like a test
+7199.24s: engine test engine could use the same
+7202.03s: interface that the GUI uses or you could
+7204.88s: plug in a console interface if you
+7207.01s: wanted a console interface or you could
+7209.41s: plug in a service-oriented interface if
+7213.31s: do you in if the user interface is a
+7215.08s: plug-in you can plug any user interface
+7217.03s: into it you have to write it of course
+7218.35s: but you just plug it right in the
+7219.82s: business rules don't care the database
+7223.45s: can be a plug-in to the business rules
+7226.39s: and if the database is a plug-in to the
+7229.81s: disss business rules the database does
+7231.61s: not have to be a relational database the
+7234.46s: database could be flat files the
+7237.46s: database could be or root or Rinda
+7241.87s: or any of those crazy no sequel
+7243.73s: databases there's a question over here
+7245.38s: someone take that thing and throw it
+7247.87s: over there
+7262.65s: and my question is about how do you see
+7266.17s: the concept of enterprise bus in
+7268.75s: relation to the plug-in in architecture
+7272.91s: the enterprise bus I don't know how much
+7288.49s: trouble I want to get into suffice it to
+7294.19s: say this there are problems that occur
+7296.83s: inside software systems because of
+7299.80s: fashion it's a new fashion to have some
+7304.17s: interesting architecture like a
+7306.16s: service-oriented architecture that
+7308.08s: becomes a fashion statement and that
+7310.66s: started about 15 years ago maybe a
+7313.24s: little more than that and everybody had
+7314.74s: to go service-oriented and some
+7317.38s: companies by the way there's nothing
+7319.06s: wrong with being service-oriented that's
+7320.32s: an interesting interesting structure
+7322.12s: it's an old structure but it's an
+7323.98s: interesting structure some companies
+7326.68s: then get the idea that there's a
+7328.09s: marketing opportunity there and they
+7329.71s: make tools that claim to support that
+7333.73s: architecture you have to be very careful
+7335.50s: about that because these tools are
+7337.93s: generally not the grand solutions that
+7341.29s: they claim to be I'm not going to go
+7343.15s: much farther than that in my rant
+7345.19s: against tools on for service-oriented
+7348.94s: architecture and enterprise buses and so
+7351.34s: on if you are using an enterprise bus
+7354.57s: it's an i/o device all it's doing is
+7359.68s: facilitating communications between
+7361.48s: services it is an i/o device and you put
+7364.21s: it behind a boundary just like we put
+7366.73s: the database behind a boundary and the
+7368.35s: graphical user interface behind a
+7369.88s: boundary you don't let any of your
+7371.59s: business rules know that this bus is
+7376.93s: there and then you use the bus for what
+7379.33s: it's intended as a communication method
+7381.76s: between the various services in your
+7383.65s: system and by the way some of those
+7385.24s: buses are fairly elaborate they
+7386.73s: got nice little tools that allow you to
+7388.29s: route the messages here and there and
+7390.06s: very cool okay
+7391.71s: just from the point of view of the code
+7394.32s: inside the services there i/o devices
+7397.32s: keep them below a line
+7410.77s: No
+7415.57s: yes I know and I'd and there's a slide
+7418.07s: that I wanted to do but it's not in this
+7419.63s: presentation so I'll just do it
+7424.96s: frameworks part of the fashion that
+7431.18s: happens in our industry our various
+7433.22s: frameworks and we get very excited about
+7435.71s: a new framework there's a new framework
+7437.18s: out there we got to try that new
+7438.38s: framework it's called bananas and we
+7440.87s: have to come up with these weird names
+7442.07s: for frameworks right Soho yeah let's use
+7443.93s: the bananas framework that's fine it's
+7447.14s: okay to be excited about frameworks but
+7450.44s: you have to understand that frameworks
+7452.33s: are not made for your benefit right
+7455.09s: they're made for the author's benefit
+7456.74s: and there's a huge asymmetry when it
+7460.04s: comes to frameworks in order to use a
+7462.14s: framework you must make a huge
+7464.36s: commitment to them you're going to be
+7467.38s: coupling your code into those frameworks
+7469.82s: at a really detailed level the the
+7472.93s: instruction manuals for the frameworks
+7475.24s: encourage active coupling into the
+7478.16s: framework they want you to derive from
+7479.81s: their base classes they want you to
+7481.34s: insinuate their code into your code so
+7484.91s: that the coupling is tight that benefits
+7487.97s: the framework authors does not benefit
+7491.24s: you the benefit offers do not
+7494.15s: necessarily have your best interests in
+7496.43s: mind because they don't really care if
+7500.20s: you eventually get your application to a
+7503.54s: point where the framework is in the way
+7507.28s: now frameworks have this lovely ability
+7510.17s: to make the first months of a project
+7514.16s: easy but then they make the next years
+7518.69s: of the project difficult because you
+7522.14s: will want to do things that the
+7523.43s: framework is didn't ever anticipate and
+7525.59s: is in the way it gets in your way and it
+7528.29s: forces you to work around the framework
+7530.48s: so you will you will discover that as
+7533.36s: you use frameworks more and more and
+7535.43s: more and a good architect looks at every
+7539.24s: framework with a cost-benefit trade-off
+7542.00s: in mind how is it going to help me how
+7544.22s: is it going to hurt me
+7545.42s: and there's always a cause
+7547.79s: and good a good architect will put a
+7550.58s: little boundary between the art the
+7552.59s: framework and the rest of the production
+7554.18s: code that will hamper your use of the
+7557.09s: framework slightly but it allows you to
+7559.58s: decouple from the framework enough so
+7561.83s: that the framework can stay safe and
+7563.54s: unintrusive remember this always in
+7567.08s: order to use a framework you must commit
+7569.48s: to them they do not commit to you so
+7573.95s: it's a deep asymmetry and a problem that
+7576.53s: an architect has to face all the time
+7580.00s: who's using dependency injection why
+7586.30s: because it's cool now you're supposed to
+7590.21s: use dependency injection like that it
+7591.98s: was new while back and so we're all
+7594.17s: using it but why it makes a few things
+7599.33s: easier doesn't it right so what are
+7601.55s: using spring and and you use a little at
+7604.79s: Auto Wired's you have those little at
+7607.07s: Auto wires scattered all through your
+7608.33s: code if you look if you look through
+7610.64s: modules just it away don't you show what
+7613.40s: stuff scattered through your code the
+7614.51s: framework has insinuated itself into
+7616.46s: your code right can you imagine trying
+7618.92s: to get rid of that dependency injection
+7620.48s: framework what if there's a better one
+7621.77s: that comes out I don't know we're using
+7624.17s: this one because they add auto wire it
+7625.82s: is everywhere now what dependencies
+7630.89s: should you inject everything or are
+7636.65s: there a few key strategic dependencies a
+7639.80s: few factories a few strategies that you
+7642.56s: could inject into one of the peripheral
+7646.28s: modules of your system I like to call
+7648.23s: that main by the way the main module of
+7651.29s: your system which is behind a boundary
+7652.85s: you could inject a few critical
+7655.61s: dependencies into that one and then pass
+7658.07s: those dependencies around the system by
+7659.81s: normal means which I know means that
+7661.61s: you're working in the 1990s and it seems
+7664.22s: out of date and on the other hand it
+7666.74s: will keep that dependency injection
+7668.66s: system from infiltrating everywhere has
+7672.08s: anybody had the problem that when you do
+7673.94s: a build and the build fails it's because
+7677.03s: something in the dependency injection
+7678.38s: scripts and descriptors have gotten
+7680.60s: rude up and you don't know where it's
+7682.82s: just a long time to hunt through it no
+7684.23s: yeah there's this version in that
+7685.64s: version and that version and all that
+7687.02s: XML gets in the way
+7689.23s: keep that dependency injection small you
+7692.09s: don't have to inject everything you
+7693.65s: should not inject everything inject a
+7696.65s: few critical things and then pass
+7699.14s: everything else around normally and with
+7703.25s: that I think I will conclude a one more
+7705.83s: question it's time for one yes take that
+7714.95s: thing and throw it down to him right oh
+7716.33s: there that's better even about
+7720.56s: architecture what about the fourth
+7722.21s: dimension so things like concurrency and
+7725.51s: stuff like that that easily lures you
+7728.36s: into frameworks like reactive because
+7731.48s: they solve it how do you can you fix
+7735.71s: concurrency in this day and age without
+7737.72s: frameworks well I hate to say so how do
+7742.10s: you get you know how do you survive in a
+7744.44s: in this day and age without frameworks
+7746.06s: and and the answer to that is well
+7747.77s: you're probably going to have to use
+7749.06s: some frameworks but you always want to
+7751.04s: also be looking at the build by decision
+7753.32s: the build by decision is nowhere near as
+7755.69s: trivially trivial as you think it is
+7757.25s: right it is often better to build than
+7761.60s: to buy even when you're buying something
+7764.09s: that's free right so a framework might
+7767.00s: be free but the cost of that framework
+7769.52s: over say a two-year period might be more
+7773.06s: than the cost of building the solution
+7775.19s: yourself most of the stuff that we use
+7777.38s: frameworks for is actually pretty simple
+7779.48s: to build yourself because the framework
+7781.16s: author builted himself didn't really
+7783.38s: take that long anybody know how many
+7786.05s: lines of code and a webserver minimal
+7788.12s: webserver some things will just you know
+7789.83s: serve web pages it's about 200 lines of
+7792.86s: code
+7793.25s: if all you need to do is serve web pages
+7795.62s: you need 200 lines of code and you know
+7798.02s: if it's your code do you know how far
+7800.39s: down the security issues go if you wrote
+7803.27s: that code you know how far down all the
+7806.15s: configuration stuff goes if you wrote
+7808.43s: that code you know how much easier it
+7810.05s: gets to to manipulate that code if you
+7812.69s: wrote that
+7813.29s: how much harder it is for somebody else
+7815.45s: to break into that code if you wrote
+7817.28s: that code it's a lot of advantages to
+7819.41s: thinking carefully about whether or not
+7822.74s: you need a framework or whether you
+7825.17s: could actually build the solution
+7826.40s: yourself sometimes you the framework is
+7828.41s: the right answer but in our industry we
+7831.86s: make the framework decision in the wrong
+7833.48s: direction way too often and with that I
+7837.11s: will close thank you all
+7839.04s: [Applause]
