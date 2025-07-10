@@ -1,4 +1,5 @@
 config.yaml
+*.yaml
 *.txt
 
 # Byte-compiled / optimized / DLL files
