@@ -1,0 +1,4 @@
+# conda env export > environment.yml
+# pip list --format=freeze > requirements.txt
+api_key_deepseek_r1_0528: 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
+api_key_deepseek_v3_0324: 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
