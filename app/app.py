@@ -11,7 +11,16 @@ from package.ollama import chat_loop
 #---------------------------------------------------------
 
 def main():
-    chat_loop()
+    import requests
+    from bs4 import BeautifulSoup
+
+    url = input()
+
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    title = soup.title.string.replace(" - YouTube", "").strip()
+    print(title)
 
 if __name__=="__main__":
     main()
