@@ -1,32 +1,55 @@
-# rag_test
+# ThaiOppDaySummarizer
+
 - python=3.13.5
 - ollama
 
-📈 Thai OppDay Summarizer — Powered by LLMs
-Welcome to Thai OppDay Summarizer, an open-source project that automatically summarizes Opportunity Day (OppDay) presentations of Thai stocks by extracting insights from YouTube subtitles.
-No more sifting through hours of investor talks — get crisp, LLM-generated insights in seconds.
+📌 1️⃣ Core Financial Signals
+Revenue & Profit Trends — Look for YoY and QoQ trends. Are they hitting guidance? Are there surprises?
 
-🚀 What is Opportunity Day?
-In Thailand, listed companies present quarterly performance updates to investors via Opportunity Day. These presentations, often hours long, are packed with valuable information — but staying updated is time-consuming.
+Margin Dynamics — Are gross and net margins stable, improving, or squeezed? Management often reveals hidden cost pressures.
 
-🎯 What this project does
-📥 Fetch Subtitles
-Grab Thai (or English) subtitles directly from YouTube OppDay videos.
+Guidance Quality — Are they giving clear future outlooks? Or being vague? Vague guidance = possible trouble.
 
-🧹 Clean & Chunk Text
-Preprocess raw subtitles — remove timestamps, merge lines, handle colloquial Thai or mixed languages.
+📌 2️⃣ Management Signals (Soft Data)
+Tone & Body Language — Are they confident? Defensive? Do they dodge hard questions? Small companies especially reveal a lot in tone.
 
-🤖 Summarize with LLM
-Use a large language model (LLM) — OpenAI GPT, LLaMA, or your custom fine-tuned model — to generate a short, structured summary:
+Consistency — Compare statements over quarters. Are they flip-flopping?
 
-Key financial highlights
+Vision — Are they talking only survival or growth? Any new business units or expansion plans?
 
-Management outlook
+📌 3️⃣ Industry & Macro Context
+Are they blaming external factors (politics, exports, energy prices) more than peers? Compare with other companies in the same sector.
 
-Notable Q&A insights
+Are they riding a structural trend (e.g., EV, digital, tourism recovery)?
 
-Risks & opportunities
+📌 4️⃣ Unusual Clues
+Capex Plans — Big new investments? Are they funding them with cash flow, debt, or diluting shareholders?
 
-🗂️ Output
-Deliver summaries in your preferred format: markdown, PDF, CSV, or push directly to Notion, Slack, or a Telegram channel.
+Dividend Clues — Any hints about payout changes? Thai investors love dividends.
 
+Customer Mix — Are they dependent on a few big customers? Are new segments growing?
+
+📌 5️⃣ Q&A Nuggets
+The Q&A often hides real alpha:
+
+Which questions make management uncomfortable?
+
+Are analysts asking follow-ups?
+
+Are answers vague or data-backed?
+
+Do they reveal future plans “by accident”?
+
+📌 6️⃣ Use Text & NLP Hacks (Data Scientist’s Edge 🧠)
+Since you’re a data scientist:
+
+Run transcripts through sentiment analysis. Look for negative vs positive tone shifts.
+
+Use keyword frequency over multiple Opp Days to detect shifts in narrative (e.g., suddenly mentioning “cost control” more often).
+
+Compare the same keywords across peers.
+
+📌 7️⃣ Insider & Stakeholder Moves
+Any hints that insiders are buying/selling stock?
+
+Are they hinting at partnerships, M&A, spin-offs?
