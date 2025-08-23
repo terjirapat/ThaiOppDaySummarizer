@@ -1,5 +1,4 @@
 import yaml
-from package.ollama import chat_loop
 # from package.deepseek import chat_loop
 
 #---------------------------------------------------------
@@ -14,7 +13,8 @@ def main():
     import requests
     from bs4 import BeautifulSoup
 
-    url = input()
+from package.ollama import chat_loop
+    url = input('>>>')
 
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
